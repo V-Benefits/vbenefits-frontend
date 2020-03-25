@@ -1,0 +1,72 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false" mode="side" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <img src="../../../assets/images/benefits-logo.svg">
+      <br />
+
+    </mat-toolbar>
+    <mat-nav-list fxlayout="row" fxLayoutAlign="center center" layout-align="center end">
+      <div layout="column" layout-align="center center">
+        <div class="circle-container">
+          <div class="mask">
+            <img src="../../../assets/images/profile-pic.svg" class="Artboard-30">
+          </div>
+        </div>
+        <p class="emp-name">{{name}}</p>
+
+        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
+            viewBox="0 0 24 24">
+            <defs>
+              <path id="prefix__a"
+                d="M6.918 2.532l.207.006c2.375.124 4.125 2.245 4.125 4.615v.997c0 1.497-.75 2.745-1.875 3.618l3.375 2.494c.625.5 1 1.248 1 1.996v2.495c0 .748-.5 1.247-1.25 1.247H1.25C.5 20 0 19.501 0 18.753v-2.37c0-.749.375-1.497 1-1.996l3.375-2.62C3.25 10.896 2.5 9.648 2.5 8.15V6.903c0-2.495 2.125-4.49 4.625-4.365zm4.582-.743C12.125.667 13.375-.207 14.875.043S17.5 1.789 17.5 3.286v1.122c0 .874-.375 1.622-.875 2.12l2.25 1.498c.75.499 1.125 1.247 1.125 2.12v.998c0 .748-.5 1.247-1.25 1.247H14.5c0-.124-1.5-1.247-1.5-1.247.5-.873.75-1.996.75-3.118V6.778c0-1.995-.875-3.742-2.25-4.989z" />
+            </defs>
+            <g fill="none" fill-rule="evenodd" transform="translate(2 3)">
+              <mask id="prefix__b" fill="#fff">
+                <use xlink:href="#prefix__a" />
+              </mask>
+              <use fill="#A0A5BA" fill-rule="nonzero" xlink:href="#prefix__a" />
+              <g fill="#AFAFAF" mask="url(#prefix__b)">
+                <path d="M0 0H24V24H0z" transform="translate(-2 -3)" />
+              </g>
+            </g>
+          </svg>
+          Home
+        </a>
+        <a mat-list-item href="#"> <img src="../../../assets/icons/benefits.svg" class="benefits"> Main Benefits</a>
+        <a mat-list-item href="#">
+          <mat-icon>people</mat-icon> Offers
+        </a>
+        <a mat-list-item href="#">
+          <mat-icon>people</mat-icon> FAQs
+        </a>
+        <a mat-list-item href="#">
+          <mat-icon>people</mat-icon> Suggest Benefit
+        </a>
+        <a mat-list-item href="#">
+          <mat-icon>people</mat-icon> Power Of My ID
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span></span>
+      <span class="spacer"></span>
+      <a routerLink="complaint/create">Add Complaint</a>
+      <a href="#">Add accounts</a>
+      <a href="#">Logout</a>
+
+    </mat-toolbar> -->
+    <!-- Add Content Here -->
+    <!-- <app-home></app-home> -->
+
+    <router-outlet></router-outlet>
+
+    <app-phone-program></app-phone-program>
+  </mat-sidenav-content>
+</mat-sidenav-container>

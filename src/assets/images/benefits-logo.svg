@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="138" height="46" viewBox="0 0 138 46">
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <path fill="#000" d="M5.04 6.93H55.44V45.99H5.04z" transform="matrix(-1 0 0 1 56.14 0)"/>
+            <path fill="#E60000" d="M0 0H50.4V39.06H0z" transform="matrix(-1 0 0 1 56.14 0)"/>
+        </g>
+        <g transform="translate(30.94 3.15)">
+            <rect width="76.86" height="2.52" x="29.61" y="28.35" fill="#E60000" rx="1.26"/>
+            <text font-family="VodafoneRg-Bold, Vodafone Rg" font-size="27.518" font-weight="bold" letter-spacing="3.44">
+                <tspan x="0" y="25" fill="#FFF">V </tspan> <tspan x="28.564" y="25" fill="#000" font-family="VodafoneRg-Regular, Vodafone Rg" font-size="22.932" font-weight="normal" letter-spacing=".706">Benef</tspan> <tspan x="84.102" y="25" fill="#000" font-family="VodafoneRg-Regular, Vodafone Rg" font-size="22.932" font-weight="normal" letter-spacing=".935">i</tspan> <tspan x="89.738" y="25" fill="#000" font-family="VodafoneRg-Regular, Vodafone Rg" font-size="22.932" font-weight="normal" letter-spacing=".706">ts</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

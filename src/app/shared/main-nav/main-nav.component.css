@@ -1,0 +1,135 @@
+.sidenav-container {
+  height: 100%;
+  /* background-color: aquamarine; */
+}
+
+.sidenav {
+  width: 15%;
+  /* min-height: 95px; */
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+  justify-content: center;
+  /* align-self: center; */
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+  /* background-color: aqua; */
+  padding: 2.5rem;
+  /* height: 300px; */
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-drawer-container {
+  /* display: inherit; */
+}
+
+.mat-drawer-content {
+  /* background: #bb3; */
+  /* height: 200px; */
+  /* display: inherit; */
+}
+.mat-list-item{
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.11;
+  letter-spacing: normal;
+  color: #999999;
+}
+.mat-list-item.active{
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.11;
+  letter-spacing: normal;
+  color: #e60000;
+}
+.mat-list-item.active .mat-list-item-content>svg>g>g{
+  /* color: #e60000; */
+  fill: #e60000;
+}
+.mat-toolbar.mat-primary {
+  background: #ffffff;
+  color: #333333;
+  height: 95px;
+  box-shadow: 0 10px 24px -10px rgba(210, 210, 210, 0.3);
+  /* background-color: var(--white); */
+}
+.mat-toolbar a {
+  display: inline-block;
+  margin: 0 30px;
+  font-family: Avenir;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+}
+/* .mat-nav-list{
+  align-items: center;
+  align-content: center;
+  
+} */
+.hidden {
+  display: none;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.Artboard-30 {
+  width: 64px;
+  height: 80px;
+  object-fit: contain;
+  
+}
+
+.mask {
+  /* padding: 1rem; */
+  width: 90px;
+  height: 89px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.13);
+  background-color: #e3e3e3;
+  border-radius: 50%;
+  align-items: center;
+  align-content: center;
+}
+.circle-container {
+  align-content: center;
+  align-items: center;
+}
+.emp-name{
+  width: 76px;
+  height: 23px;
+  /* font-family: Poppins; */
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+.benefits {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  margin-right: 18px;
+}
+
+
+
+/* @media (min-width: 768px){
+  .sidenav {
+    display: none;
+  }
+} */

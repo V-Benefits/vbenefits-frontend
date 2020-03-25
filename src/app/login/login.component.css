@@ -1,0 +1,82 @@
+.content {
+  /* background-color: brown; */
+}
+.sec2 {
+  background-image: url(../../assets/images/login.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loginTitle {
+  font-family: Avenir;
+  font-size: 22px;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.17px;
+  color: #333333;
+}
+
+.loginButton {
+  width: 80%;
+  height: 40px;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 0 rgba(189, 0, 0, 0.1);
+  background-color: #bd0000;
+}
+
+.mat-raised-button[disabled] {
+  box-shadow: 0 10px 20px 0 rgba(189, 0, 0, 0.1);
+  background-color: #c95d5d;
+  color: white;
+}
+.leftSection {
+  padding-top: 10%;
+}
+
+.formInput {
+  width: 80%;
+}
+
+.text {
+  width: 208px;
+  height: 25px;
+  font-family: Avenir;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.05px;
+  color: #333333;
+}
+.largeText {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.06px;
+  color: #333333;
+}
+.errorMessage {
+  text-align: center;
+  padding: 1%;
+  /* margin-left: 72px; */
+  margin-top: 9px;
+  width: 80%;
+  min-height: 50px;
+  height: auto; 
+  border-radius: 1px;
+  border: solid 1px #dddddd;
+  background-color: #f2dede;
+  font-family: Avenir;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #a94442;
+}
+.mat-input-element {
+}

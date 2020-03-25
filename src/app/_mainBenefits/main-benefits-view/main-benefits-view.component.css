@@ -1,0 +1,83 @@
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #e60000;
+}
+
+ .mat-tab-label.mat-tab-label-active {  
+        color: #e60000 ; 
+        background-color: #ffff;
+        font-size: 1.5rem;
+        font-weight: 800; 
+  }
+
+  .cardcontainer .mat-card-image{
+    width: calc(50%);
+    margin: 0px;
+  }
+
+.mat-tab-label {
+    background-color: #ffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+  /* home css */
+  .example-card {
+    border-radius: 4.8px;
+    box-shadow: 0 10px 21px 0 rgba(93, 100, 141, 0.08);
+    background-color: #ffffff;
+    text-align: center;
+    margin-left: 5rem;
+    margin-bottom: 5rem;
+  }
+  
+ .mat-card-image {
+    width: calc(50%);
+    margin: 0px;
+}
+  .Main-Benefits {
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.03;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4a4d4e;
+    padding-bottom: 15px;
+  }
+
+  .mat-card-content>:last-child:not(.mat-card-footer), .mat-card>:last-child:not(.mat-card-footer) {
+    margin-bottom: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 550;
+    font-size: 1.5em;
+}
+
+  .cardcontainer{
+      margin-left: 12rem;
+      margin-top: 5rem;
+  }
+
+  
+  /* medium size viewport */
+  @media screen and (max-width: 959px) {
+    .cardcontainer{
+      margin-left: 0rem;
+      margin-top: 5rem;
+    } 
+  }
+
+   /* small size viewport */
+   @media screen and (max-width: 599px) {
+    
+    .cardcontainer{
+      margin-left: 0rem;
+      margin-top: 2rem;
+    } 
+    .example-card{
+        margin-left: 0rem;
+        margin-bottom: 2rem;
+    }
+  }
+
+ 

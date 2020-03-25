@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  font-size: 10px;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  font-family: Poppins;
+  font-size: 3.25em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 3rem;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-family: Poppins;
+  font-size: 2.88em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 2rem;
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  font-family: Poppins;
+  font-size: 2.56em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 2rem;
+  margin-bottom: -0.5rem;
+}
+
+h4 {
+  font-family: Poppins;
+  font-size: 2.28em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
+
+h5 {
+  font-family: Poppins;
+  font-size: 2.025em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 2rem;
+  margin-bottom: -0.5rem;
+}
+
+h6 {
+  font-family: Poppins;
+  font-size: 1.8em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 2rem;
+  margin-bottom: -0.5rem;
+}
+
+p {
+  color: #4b4b4b;
+  font-family: Poppins;
+  font-size: 1.8em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.004em;
+  line-height: 3.4rem;
+  margin-bottom: 2em;
+  margin-top: 0.86em;
+}
+
+@media screen and (max-width: 720px) {
+  h1 {
+    line-height: 5rem;
+    margin-bottom: -0.5rem;
+  }
+  h2 {
+    line-height: 4rem;
+    margin-bottom: -0.5rem;
+  }
+  h5 {
+    margin-bottom: 0.5rem;
+  }
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+  h3 + p {
+    margin-top: 1.5rem;
+  }
+  h4 {
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1.6em;
+    line-height: 3rem;
+  }
+}
+
+
+/* .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #e60000;
+}
+
+.mat-tab-label.mat-tab-label-active{
+  color: #e60000 ; 
+  background-color: #ffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.mat-tab-label {
+  background-color: #ffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+} */

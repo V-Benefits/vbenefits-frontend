@@ -1,0 +1,56 @@
+<div flex fxLayout="row" fxLayout.lt-sm="column" class="login">
+    <div fxFlex="40"  class="leftSection" >
+        <p class="loginTitle">Login to your account</p>
+        <mat-error *ngIf="loginErrorMSG" class="errorMessage">{{loginErrorMSG}}
+            </mat-error>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <mat-form-field class="formInput" appearance="outline">
+                <input formControlName="email" [(ngModel)]="loginModel.email" matInput placeholder="Email">
+                <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+            </mat-form-field>
+            <br />
+            <br *ngIf="hasError('email','required') && loginForm.controls['email']?.touched " />
+
+            <mat-form-field class="formInput" appearance="outline">
+                <input formControlName="password" type="password" [(ngModel)]="loginModel.password" matInput
+                    placeholder="Your Password">
+                <mat-error *ngIf="hasError('password', 'required')">Password is required
+                </mat-error>
+            </mat-form-field>
+            <br />
+            <br />
+            <br *ngIf="hasError('password', 'required') && loginForm.controls['password']?.touched" />
+
+            <button [disabled]="!loginForm.valid" class="loginButton" mat-raised-button color="warn" type="submit">
+                Login
+            </button>
+            <br />
+            <br />
+            <p class="text">Don’t have an account? <span class="largeText">Sign Up</span></p>
+            <p class="text">Forget password?</p>
+        </form>
+    </div>
+
+    <div fxFlex="50" style="background-color: lavenderblush;">
+        <img src="../../assets/images/login.png" class="Group">
+
+    </div>
+</div>
+<!-- 
+<div class="bounds">
+    <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+        <div fxFlex="35" fxFlex.xs="55">
+            <img src="../../assets/images/group.svg" class="Group">
+
+            <p class="footer">© 2019 VODAFONE GROUP. VODAFONE GROUP PLC</p>
+        </div>
+    </div>
+
+    <div fxFlex="100" style="height: 100vh;" class="sec2">
+            <p class="Sign-in-to-SmartWall">SIGN IN TO iDIALOGUE</p>
+            <p class="Please-insert-your-l">Please insert your login details below</p>
+
+            <form [formGroup]="loginForm" class="example-form" (ngSubmit)="login()">
+            </form>
+    </div>
+</div> -->
