@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-phone-program',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhoneProgramComponent implements OnInit {
 
-  constructor() { }
+  constructor(private matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-
+  makeRequest() {
+    const dialogConfig = new MatDialogConfig();
+    this.matDialog.open(SuccessDialogComponent, dialogConfig);
+  }
 }

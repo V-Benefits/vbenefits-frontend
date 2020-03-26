@@ -8,7 +8,7 @@
                 <h2 class="Phone-Program">Phone program</h2>
                 <p class="You-can-enjoy-handse">You can enjoy handset allowance variy according to your band with up
                     to 12 months installments.</p>
-                <button mat-button class="requestButton"> Request phone program</button>
+                <button mat-button class="requestButton" (click)="makeRequest()"> Request phone program</button>
             </div>
         </div>
         <br />
@@ -16,28 +16,28 @@
         <br />
         <div class="row SecondRow" flex fxLayout='row wrap' fxLayout.lt-sm="column">
             <div fxFlex.sm="80%" fxFlex.md="40%">
-                <h4 style="padding-bottom: 2rem;">Eligibility</h4>
+                <h4 class="h4" style="padding-bottom: 2rem;">Eligibility</h4>
                 <!-- <br /> -->
-                <p>
+                <p class="infotxt">
                     <mat-label> Eligibility Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label> 9 MAR 2020
                 </p>
                 <!-- <p> {{Model.field}}</p> -->
-                <p style="position: relative; top:-10px; left:0px;">
+                <p class="infotxt" style="position: relative; top:-10px; left:0px;">
                     <mat-label>
                         Band&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </mat-label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; H1
                 </p>
-                <p style="position: relative; top:-20px;left:0px;">
+                <p class="infotxt" style="position: relative; top:-20px;left:0px;">
                     <mat-label> Allowance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     1,500 EGP every 18 m
                 </p>
 
             </div>
             <div fxFlex.sm="80%" fxFlex.md="40%">
-                <h4 style="padding-bottom: 2rem;">FAQs</h4>
-                <p>Please visit our Phone Program FAQs section</p>
-                <button mat-button class="FAQsButton"> Request phone program</button>
+                <h4 class="h4" style="padding-bottom: 2rem;">FAQs</h4>
+                <p class="Please-visit-our-Pho">Please visit our Phone Program FAQs section</p>
+                <button mat-button class="FAQsButton"> Phone Program FAQs</button>
             </div>
         </div>
     </mat-card>
