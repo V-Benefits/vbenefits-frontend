@@ -19,7 +19,8 @@ import { MainBenefitsViewComponent } from './_mainBenefits/main-benefits-view/ma
 import { MatTabsModule } from '@angular/material/tabs';
 import { PhoneProgramComponent } from './phone-program/phone-program.component';
 import { MatButtonModule } from '@angular/material/button';
-
+import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests-dialog/manage-requests-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -30,7 +31,8 @@ const routes: Routes = [
     MainNavComponent,
     HomeComponent,
     MainBenefitsViewComponent,
-    PhoneProgramComponent
+    PhoneProgramComponent,
+    ManageRequestsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ const routes: Routes = [
     FlexLayoutModule,
     MatTabsModule,
     MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

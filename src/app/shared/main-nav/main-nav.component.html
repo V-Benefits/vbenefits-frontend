@@ -14,7 +14,7 @@
         </div>
         <p class="emp-name">{{name}}</p>
 
-        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">
+        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/home">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
             viewBox="0 0 24 24">
             <defs>
@@ -33,7 +33,7 @@
           </svg>
           Home
         </a>
-        <a mat-list-item href="#"> <img src="../../../assets/icons/benefits.svg" class="benefits"> Main Benefits</a>
+        <a mat-list-item href="#" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/benefits"> <img src="../../../assets/icons/benefits.svg" class="benefits"> Main Benefits</a>
         <a mat-list-item href="#">
           <mat-icon>people</mat-icon> Offers
         </a>
@@ -50,7 +50,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!-- <mat-toolbar color="primary">
+    <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
@@ -61,12 +61,12 @@
       <a href="#">Add accounts</a>
       <a href="#">Logout</a>
 
-    </mat-toolbar> -->
+    </mat-toolbar>
     <!-- Add Content Here -->
     <!-- <app-home></app-home> -->
 
     <router-outlet></router-outlet>
 
-    <app-phone-program></app-phone-program>
+    <!-- <app-phone-program></app-phone-program> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
