@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests-dialog/manage-requests-dialog.component';
+import { ProfileInformationDialogComponent } from './_profileInformation/profile-information-dialog/profile-information-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,8 @@ export class AppComponent {
      this.openDialog();
    }
   openDialog(): void {
-    const dialogRef = this.dialog.open(ManageRequestsDialogComponent, {
-      // width: '477px',
-      // height: '482px'
-    });
+  //  const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
+    const dialogRef = this.dialog.open(ProfileInformationDialogComponent);
+
 }
 }
