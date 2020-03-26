@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
-
+import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
+import { PhoneProgramModalComponent } from './phone-program-modal/phone-program-modal.component';
 @Component({
   selector: 'app-phone-program',
   templateUrl: './phone-program.component.html',
@@ -15,6 +15,11 @@ export class PhoneProgramComponent implements OnInit {
   }
   makeRequest() {
     const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
     this.matDialog.open(SuccessDialogComponent, dialogConfig);
+  }
+
+  FAQ() {
+    this.matDialog.open(PhoneProgramModalComponent);
   }
 }

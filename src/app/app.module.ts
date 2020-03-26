@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -13,14 +12,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './_home/home-view/home.component';
 import { Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material';
+import { MatGridListModule, MatSelectModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MainBenefitsViewComponent } from './_mainBenefits/main-benefits-view/main-benefits-view.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { PhoneProgramComponent } from './phone-program/phone-program.component';
+import { PhoneProgramComponent } from './phone-program/phone-program-request/phone-program.component';
 import { MatButtonModule } from '@angular/material/button';
-import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
+import { SuccessDialogComponent } from './shared/success-dialog/success-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PhoneProgramModalComponent } from './phone-program/phone-program-request/phone-program-modal/phone-program-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -33,7 +33,8 @@ const routes: Routes = [
     HomeComponent,
     MainBenefitsViewComponent,
     PhoneProgramComponent,
-    SuccessDialogComponent
+    SuccessDialogComponent,
+    PhoneProgramModalComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,8 @@ const routes: Routes = [
     FlexLayoutModule,
     MatTabsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
