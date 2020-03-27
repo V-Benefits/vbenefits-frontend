@@ -1,0 +1,92 @@
+.dialog
+{
+    /* width: 477px; */
+    /* height: 360px; */
+    border-radius: 4px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainContainer
+{
+   width: 85%;
+   height: 100%;
+}
+.Phone-Program {
+    /* height: 30.7px; */
+    font-family: Poppins;
+    font-size: 25.6px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    /* line-height: 1.2; */
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .Please-fill-in-the-r {
+    height: 14px;
+    opacity: 0.96;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    /* line-height: 1.71; */
+    letter-spacing: -0.05px;
+    color: #666666;
+    padding-top: 10px;
+  }
+
+  .RequestForTXT {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.09px;
+    color: #666666;
+    height: 10px;
+  }
+  
+
+  .ddl {
+    width: 90%;
+  }
+
+  mat-select-content{
+    width: 85%;
+    background-color: violet;
+}
+
+.buttonsContainer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .cancelButton
+  {
+    width: 30%;
+    height: 40px;
+    border-radius: 3.6px;
+    background-color: #333333;
+    color: white;
+    margin-left: 50%;
+    margin-top: 5%;
+  }
+
+  .submitButton
+  {
+    /* width: 128px; */
+    width: 30%;
+    height: 40px;
+    border-radius: 3.6px;
+    background-color: #e60000;
+    color: white;
+    margin-left: 5%;
+    margin-top: 5%;
+
+  }

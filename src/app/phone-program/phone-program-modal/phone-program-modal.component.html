@@ -1,0 +1,28 @@
+<div class="row" flex fxLayout='row wrap' fxLayoutGap="20px" fxLayout.lt-sm="column">
+    <div class="dialog" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%">
+        <!-- <div fxFlex.xs="30%" fxFlex.sm="30%" fxFlex.md="100%" fxFlex.lg="100%"> -->
+        <div class="mainContainer">
+            <h3 class="Phone-Program">Phone Program</h3>
+            <p class="Please-fill-in-the-r">Please fill in the required fields </p>
+            <hr />
+            <p class="RequestForTXT">Request For</p>
+
+            <mat-form-field appearance="outline" class="ddl">
+
+                <mat-select>
+                    <mat-option #selectedValue *ngFor="let item of requestsList" [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+
+
+            </mat-form-field>
+            <hr />
+            <div class="buttonsContainer">
+                <button mat-button class="cancelButton" (click)="cancelButton()"> cancel</button>
+                <button mat-button class="submitButton" (click)="submitButton()"> submit</button>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
