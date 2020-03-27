@@ -24,9 +24,9 @@
 
   .mat-card-content>:last-child:not(.mat-card-footer), .mat-card>:last-child:not(.mat-card-footer) {
     margin-bottom: 0;
-    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
-    font-weight: 550;
-    font-size: 1.5em;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 1.3em;
 }
 
   .cardcontainer{

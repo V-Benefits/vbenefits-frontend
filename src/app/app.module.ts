@@ -13,12 +13,17 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './_home/home-view/home.component';
 import { Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule, MatFormFieldModule } from '@angular/material';
+import { MatGridListModule, MatNativeDateModule, MatFormFieldModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MainBenefitsViewComponent } from './_mainBenefits/main-benefits-view/main-benefits-view.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PhoneProgramComponent } from './phone-program/phone-program.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests-dialog/manage-requests-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule} from '@angular/material/input';
+import { ProfileInformationDialogComponent } from './_profileInformation/profile-information-dialog/profile-information-dialog.component';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -30,7 +35,9 @@ const routes: Routes = [
     MainNavComponent,
     HomeComponent,
     MainBenefitsViewComponent,
-    PhoneProgramComponent
+    PhoneProgramComponent,
+    ManageRequestsDialogComponent,
+    ProfileInformationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +54,12 @@ const routes: Routes = [
     MatTabsModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
