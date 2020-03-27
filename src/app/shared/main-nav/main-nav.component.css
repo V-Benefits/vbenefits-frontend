@@ -4,7 +4,7 @@
 }
 
 .sidenav {
-  width: 15%;
+  width: 25rem;
   /* min-height: 95px; */
   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
   justify-content: center;
@@ -14,7 +14,7 @@
 .sidenav .mat-toolbar {
   background: inherit;
   /* background-color: aqua; */
-  padding: 2.5rem;
+  padding: 4.5rem;
   /* height: 300px; */
 }
 .mat-toolbar.mat-primary {
@@ -31,8 +31,8 @@
   /* height: 200px; */
   /* display: inherit; */
 }
-.mat-list-item{
-  font-family: 'Poppins';
+.mat-list-item {
+  font-family: "Poppins";
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -41,8 +41,8 @@
   letter-spacing: normal;
   color: #999999;
 }
-.mat-list-item.active{
-  font-family: 'Poppins';
+.mat-list-item.active {
+  font-family: "Poppins";
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -51,7 +51,7 @@
   letter-spacing: normal;
   color: #e60000;
 }
-.mat-list-item.active .mat-list-item-content>svg>g>g{
+.mat-list-item.active .mat-list-item-content > svg > g > g {
   /* color: #e60000; */
   fill: #e60000;
 }
@@ -65,7 +65,7 @@
 .mat-toolbar a {
   display: inline-block;
   margin: 0 30px;
-  font-family: Avenir;
+  font-family: "Poppins";
   font-size: 14px;
   font-weight: 500;
   font-stretch: normal;
@@ -85,11 +85,14 @@
 .spacer {
   flex: 1 1 auto;
 }
+.emp-data-container{
+  /* padding-left: 5rem; */
+  padding-top: 3rem; 
+}
 .Artboard-30 {
   width: 64px;
   height: 80px;
   object-fit: contain;
-  
 }
 
 .mask {
@@ -106,10 +109,10 @@
   align-content: center;
   align-items: center;
 }
-.emp-name{
+.emp-name {
   width: 76px;
-  height: 23px;
-  /* font-family: Poppins; */
+  height: 23px; 
+  font-family: Poppins-SemiBold;
   font-size: 16px;
   font-weight: 600;
   font-stretch: normal;
@@ -118,18 +121,60 @@
   letter-spacing: normal;
   text-align: center;
   color: #333333;
+  padding-top: 2rem;
+
 }
-.benefits {
+.emp-title{
+  width: 145px;
+  height: 23px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #999999;
+}
+.icon-margin-left {
   width: 20px;
   height: 20px;
   object-fit: contain;
   margin-right: 18px;
 }
+.sid-sebarator{
+  width: 19rem;
+  height: 1px;
+  border: solid 1px #e5e9f2;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
 
-
-
-/* @media (min-width: 768px){
+/* large size viewport
+@media screen and (max-width: 959px) {
   .sidenav {
-    display: none;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    background-color: green;
+  }
+} */
+
+/* medium size viewport */
+/* @media screen and  (max-width: 768px) {
+  .sidenav {
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    background-color: #e60000
+
+  }
+} */
+
+/* small size viewport */
+/* @media screen and (max-width: 599px) {
+  .sidenav {
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    background-color: #555555
+
   }
 } */

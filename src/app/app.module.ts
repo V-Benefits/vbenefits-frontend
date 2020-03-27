@@ -9,11 +9,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './_home/home-view/home.component';
 import { Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material';
+import { MatGridListModule, MatFormFieldModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MainBenefitsViewComponent } from './_mainBenefits/main-benefits-view/main-benefits-view.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -46,6 +46,7 @@ const routes: Routes = [
     FlexLayoutModule,
     MatTabsModule,
     MatButtonModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

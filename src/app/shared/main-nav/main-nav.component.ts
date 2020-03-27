@@ -13,6 +13,7 @@ import { map, shareReplay } from 'rxjs/operators';
 export class MainNavComponent {
 
   name: string = 'John Doe';
+  title: string = 'Software Engineer';
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
