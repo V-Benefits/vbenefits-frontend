@@ -1,6 +1,5 @@
 .mainContainer
-{
-  
+{ 
     max-width: 380px;
 }
 
@@ -13,7 +12,7 @@
   }
 
   .image-div img{
-      width: 70%;
+      width: 50%;
   }
 
   .mat-dialog-content p{
@@ -22,7 +21,6 @@
 
 .Manage-track-your {
     font-family: Poppins;
-    /* font-size: 2.6em; */
     font-weight: 990;
     line-height: 1.2;
     font-size: 2.4em;
@@ -50,7 +48,7 @@
   }
 
   .Rectangle {
-    width: 80%;
+    width: 92%;
     height: 2px;
     background-color: #f4f4f4;
   }
@@ -58,12 +56,11 @@
   .mat-dialog-actions{
       text-align: end;
       padding-top: 20px;
-      padding-bottom: 25px;
+      padding-bottom: 35px;
       width: 100%;
   }
 
   .skipbtn {
-    /* width: 128px; */
     height: 40px;
     border-radius: 3.6px;
     background-color: #333333;
@@ -79,7 +76,6 @@
   }
 
   .nextbtn{
-    /* width: 128px; */
     height: 40px;
     border-radius: 3.6px;
     background-color: #e60000;
@@ -93,19 +89,10 @@
     text-align: center;
     color: #ffffff;
   }
-    /* medium size viewport */
-    /* @media screen and (max-width: 959px) {
-        .cardcontainer{
-          margin-left: 0rem;
-          margin-top: 5rem;
-        } 
-      } */
-    
-       /* small size viewport */
-       @media screen and (max-width: 599px) {
-        
-        .dialogContainer{
-            /* width: 380px;
-            height: 400px; */
-          }
-      }
+
+  .line{
+    display: flex;
+    align-items: center; 
+   justify-content: center;
+   flex-direction: column;
+  }

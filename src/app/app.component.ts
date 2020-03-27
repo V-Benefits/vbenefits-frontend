@@ -15,8 +15,8 @@ export class AppComponent {
      this.openDialog();
    }
   openDialog(): void {
-  //  const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
-    const dialogRef = this.dialog.open(ProfileInformationDialogComponent);
+    const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
+  //  const dialogRef = this.dialog.open(ProfileInformationDialogComponent);
 
 }
 }
