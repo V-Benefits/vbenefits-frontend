@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-phone-program-modal',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class PhoneProgramModalComponent implements OnInit {
 
   requestsList: string[] = ['test item 1', 'test item 2', 'test item 3', 'test item 4']
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<PhoneProgramModalComponent>) { }
 
   ngOnInit(): void {
   }
 
+  cancelButton() {
+    this.dialogRef.close();
+
+  }
 }

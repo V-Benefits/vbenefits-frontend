@@ -20,7 +20,7 @@ import { PhoneProgramComponent } from './phone-program/phone-program-request/pho
 import { MatButtonModule } from '@angular/material/button';
 import { SuccessDialogComponent } from './shared/success-dialog/success-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PhoneProgramModalComponent } from './phone-program/phone-program-request/phone-program-modal/phone-program-modal.component';
+import { PhoneProgramModalComponent } from './phone-program/phone-program-modal/phone-program-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
