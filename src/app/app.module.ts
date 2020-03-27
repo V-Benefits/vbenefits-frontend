@@ -25,6 +25,8 @@ import { ProfileInformationDialogComponent } from './_profileInformation/profile
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { SuccessDialogComponent } from './shared/success-dialog/success-dialog.component';
 import { PhoneProgramModalComponent } from './phone-program/phone-program-modal/phone-program-modal.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -61,7 +63,9 @@ const routes: Routes = [
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
