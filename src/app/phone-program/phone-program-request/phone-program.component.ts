@@ -13,13 +13,13 @@ export class PhoneProgramComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  makeRequest() {
+  FAQ() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
     this.matDialog.open(SuccessDialogComponent, dialogConfig);
   }
 
-  FAQ() {
+  makeRequest() {
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = "477px";
