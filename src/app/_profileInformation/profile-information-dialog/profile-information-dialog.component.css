@@ -30,9 +30,9 @@
   }
 
   .Rectangle-Copy-2 {
-    width: 90%;
+    width: 100%;
     height: 2px;
-    margin: 10px;
+    margin: 10px 0;
     background-color: #f4f4f4;
   }  
 

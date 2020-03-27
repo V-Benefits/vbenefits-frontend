@@ -1,7 +1,6 @@
-.mainContainer
-{ 
+  .mainContainer{ 
     max-width: 380px;
-}
+  }
 
  .close {
    text-align: end;
