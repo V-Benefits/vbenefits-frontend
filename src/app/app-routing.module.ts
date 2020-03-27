@@ -6,7 +6,7 @@ import { PhoneProgramComponent } from './phone-program/phone-program.component';
 import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests-dialog/manage-requests-dialog.component';
 
 
-const routes: Routes = [{ path: 'home', component: HomeComponent },
+const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'benefits', component: MainBenefitsViewComponent },
 { path: 'phoneProgram', component: PhoneProgramComponent }
 ];

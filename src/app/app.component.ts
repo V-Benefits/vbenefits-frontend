@@ -12,7 +12,7 @@ export class AppComponent {
   // title = 'benefits-frontend';
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {
-     this.openDialog();
+    //  this.openDialog();
    }
   openDialog(): void {
     //const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
