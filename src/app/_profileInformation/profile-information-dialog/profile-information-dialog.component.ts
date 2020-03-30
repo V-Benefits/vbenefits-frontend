@@ -48,8 +48,8 @@ export class ProfileInformationDialogComponent implements OnInit {
 
   bindingFormControls() {
     this.staffIdCtrl = this.createProfileInformationFormGroup.controls['staffId'];
-    // this.dateOfBirthCtrl = this.createProfileInformationFormGroup.controls['dateOfBirth'];
-    this.dateOfBirthCtrl = '2020-03-27T13:29:18.547Z';
+    this.dateOfBirthCtrl = this.createProfileInformationFormGroup.controls['dateOfBirth'];
+    // this.dateOfBirthCtrl = '2020-03-27T13:29:18.547Z';
     this.nationalIdCtrl = this.createProfileInformationFormGroup.controls['nationalId'];
     this.mobileNumberCtrl = this.createProfileInformationFormGroup.controls['mobileNumber'];
     this.landlineNumberCtrl = this.createProfileInformationFormGroup.controls['landlineNumber'];
@@ -74,6 +74,7 @@ export class ProfileInformationDialogComponent implements OnInit {
         // debugger;
 
         console.log(res);
+
       },
       error => {
         console.log(error);
