@@ -3,6 +3,8 @@ import { MatDialogRef } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { CreateProfileInformationModel } from '../profileInformationModels/createProfileInformation';
 import { publicService } from 'src/app/core/publicService.service';
+import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 @Component({
@@ -15,7 +17,8 @@ export class ProfileInformationDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ProfileInformationDialogComponent>,
     private formBuilder: FormBuilder,
-    private service: publicService
+    private service: publicService,
+    private matDialog: MatDialog
   ) { }
 
   profileInformationObject: CreateProfileInformationModel = new CreateProfileInformationModel();
@@ -68,7 +71,8 @@ export class ProfileInformationDialogComponent implements OnInit {
     this.service.post(this.profileInformationObject, 'Employees').subscribe(
       res => {
         //Here we can use the response data
-        debugger;
+        // debugger;
+
         console.log(res);
       },
       error => {
@@ -76,6 +80,10 @@ export class ProfileInformationDialogComponent implements OnInit {
 
       }
     );
+    this.dialogRef.close();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { header: "Verification Complete", paragraph: "You can change your information from profile" };
+    this.matDialog.open(SuccessDialogComponent, dialogConfig);
   }
 
   closeDialog() {
