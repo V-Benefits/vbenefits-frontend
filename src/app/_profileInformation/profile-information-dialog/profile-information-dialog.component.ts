@@ -75,6 +75,8 @@ export class ProfileInformationDialogComponent implements OnInit {
 
         console.log(res);
 
+        localStorage.setItem('StaffId', res.staffId);
+
       },
       error => {
         console.log(error);

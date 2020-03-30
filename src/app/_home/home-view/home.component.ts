@@ -12,7 +12,11 @@ export class HomeComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-     this.openDialog();
+
+    if (!localStorage.getItem('StaffId')) {
+
+      this.openDialog();
+    }
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
