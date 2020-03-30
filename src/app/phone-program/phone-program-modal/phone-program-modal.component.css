@@ -69,19 +69,21 @@
 }
   .cancelButton
   {
-    width: 30%;
+    width: 40%;
     height: 40px;
     border-radius: 3.6px;
     background-color: #333333;
     color: white;
-    margin-left: 50%;
+    margin-left: 30%;
     margin-top: 5%;
+    align-content: center;
+    align-items: center;
   }
 
   .submitButton
   {
     /* width: 128px; */
-    width: 30%;
+    width: 40%;
     height: 40px;
     border-radius: 3.6px;
     background-color: #e60000;
