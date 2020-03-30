@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
 import { ProfileInformationDialogComponent } from '../../_profileInformation/profile-information-dialog/profile-information-dialog.component';
+
 @Component({
   selector: 'app-manage-requests-dialog',
   templateUrl: './manage-requests-dialog.component.html',
@@ -9,15 +9,19 @@ import { ProfileInformationDialogComponent } from '../../_profileInformation/pro
 })
 export class ManageRequestsDialogComponent implements OnInit {
 
-  constructor(private matDialog: MatDialog, private dialogRef: MatDialogRef<ManageRequestsDialogComponent>) { }
 
-  ngOnInit(): void {
+  constructor(private matDialog: MatDialog,
+    private dialogRef: MatDialogRef<ManageRequestsDialogComponent>) { }
+    ngOnInit(): void {
 
   }
 
   openDialog(): void {
-     this.dialogRef.close();
-     const dialogRef = this.matDialog.open(ProfileInformationDialogComponent);
+    this.dialogRef.close();
+    const dialogRef = this.matDialog.open(ProfileInformationDialogComponent);
+  }
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }
