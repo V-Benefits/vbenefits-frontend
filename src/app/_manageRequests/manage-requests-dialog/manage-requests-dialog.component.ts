@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-manage-requests-dialog',
@@ -8,10 +8,15 @@ import {MatDialog, MatDialogConfig } from '@angular/material/dialog';
 })
 export class ManageRequestsDialogComponent implements OnInit {
 
-  constructor(private matDialog: MatDialog) { }
+  constructor(private matDialog: MatDialog,
+    private dialogRef: MatDialogRef<ManageRequestsDialogComponent>) { }
 
   ngOnInit(): void {
 
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }
