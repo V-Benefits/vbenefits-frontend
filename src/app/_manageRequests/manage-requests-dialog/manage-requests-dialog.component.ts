@@ -12,8 +12,7 @@ export class ManageRequestsDialogComponent implements OnInit {
 
   constructor(private matDialog: MatDialog,
     private dialogRef: MatDialogRef<ManageRequestsDialogComponent>) { }
-
-  ngOnInit(): void {
+    ngOnInit(): void {
 
   }
 
