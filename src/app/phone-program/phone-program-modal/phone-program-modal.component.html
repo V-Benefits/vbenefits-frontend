@@ -9,7 +9,7 @@
 
             <mat-form-field appearance="outline" class="ddl">
 
-                <mat-select>
+                <mat-select [(ngModel)]="PhoneProgramRequestModel.RequestFor">
                     <mat-option #selectedValue *ngFor="let item of requestsList" [value]="item">
                         {{item}}
                     </mat-option>

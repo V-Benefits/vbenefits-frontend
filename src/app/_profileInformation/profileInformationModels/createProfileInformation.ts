@@ -7,3 +7,10 @@ export class CreateProfileInformationModel {
     MobileNumber: string;
     LandlineNumber: string;
 }
+
+export class PhoneProgramRequestModel
+{
+    RequestFor: string;
+    RequestById: number;
+    RequestDate: Date;
+}
