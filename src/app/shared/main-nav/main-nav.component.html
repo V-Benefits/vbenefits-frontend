@@ -8,34 +8,35 @@
     <mat-nav-list fxlayout="row" fxLayoutAlign="center center" layout-align="center end">
       <div>
         <div fxLayout="column" fxLayoutAlign="space-between center" class="emp-data-container">
-          <div class="circle-container">
-            <div class="mask">
-              <img src="../../../assets/images/profile-pic.svg" class="Artboard-30">
-            </div>
+          <!-- <div class="circle-container"> -->
+          <div class="">
+            <img src="../../../assets/images/profile-img.svg">
           </div>
+          <!-- </div> -->
           <div class="emp-name">{{name}}</div>
           <div class="emp-title">{{title}}</div>
           <div class="sid-sebarator"></div>
         </div>
 
         <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">
-          <mat-icon class="icon-margin-left">home</mat-icon> Home
+          <img src="../../../assets/icons/home.svg" class="icon-margin-left"> Home
         </a>
         <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/benefits"> <img
             src="../../../assets/icons/benefits.svg" class="icon-margin-left"> Main
           Benefits</a>
 
-        <a mat-list-item href="#">
-          <mat-icon class="icon-margin-left">people</mat-icon> Offers
+        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/offers">
+          <img src="../../../assets/icons/offers.svg" class="icon-margin-left">
+          Offers
         </a>
-        <a mat-list-item href="#">
-          <mat-icon class="icon-margin-left">people</mat-icon> FAQs
+        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/faqs">
+            <img src="../../../assets/icons/faq.svg" class="icon-margin-left"> FAQs
         </a>
-        <a mat-list-item href="#">
-          <mat-icon class="icon-margin-left">people</mat-icon> Suggest Benefit
+        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/suggestbenefit">
+          <img src="../../../assets/icons/suggestBenefit.svg" class="icon-margin-left"> Suggest Benefit
         </a>
-        <a mat-list-item href="#">
-          <mat-icon class="icon-margin-left">people</mat-icon> Power Of My ID
+        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/powerofid">
+          <img src="../../../assets/icons/powerofmyid.svg" class="icon-margin-left"> Power Of My ID
         </a>
       </div>
     </mat-nav-list>
