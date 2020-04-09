@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests-dialog/manage-requests-dialog.component';
 import { ProfileInformationDialogComponent } from './_profileInformation/profile-information-dialog/profile-information-dialog.component';
 
@@ -12,11 +12,13 @@ export class AppComponent {
   // title = 'benefits-frontend';
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {
-    //  this.openDialog();
+      this.openDialog();
    }
   openDialog(): void {
     //const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
-    const dialogRef = this.dialog.open(ProfileInformationDialogComponent);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    const dialogRef = this.dialog.open(ProfileInformationDialogComponent,dialogConfig);
 
 }
 }
