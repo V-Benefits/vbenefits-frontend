@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     if (!localStorage.getItem('StaffId')) {
-
       this.openDialog();
     }
   }

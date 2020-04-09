@@ -12,13 +12,17 @@ export class ManageRequestsDialogComponent implements OnInit {
 
   constructor(private matDialog: MatDialog,
     private dialogRef: MatDialogRef<ManageRequestsDialogComponent>) { }
-    ngOnInit(): void {
+  ngOnInit(): void {
 
   }
 
   openDialog(): void {
     this.dialogRef.close();
-    const dialogRef = this.matDialog.open(ProfileInformationDialogComponent);
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    this.matDialog.open(ProfileInformationDialogComponent, dialogConfig);
+    // const dialogRef = this.matDialog.open(ProfileInformationDialogComponent);
   }
   closeDialog() {
     this.dialogRef.close();
