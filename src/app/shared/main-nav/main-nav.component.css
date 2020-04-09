@@ -41,7 +41,7 @@
   letter-spacing: normal;
   color: #999999;
 }
-.mat-list-item.active {
+/* .mat-list-item.active {
   font-family: "Poppins";
   font-size: 18px;
   font-weight: normal;
@@ -50,6 +50,10 @@
   line-height: 1.11;
   letter-spacing: normal;
   color: #e60000;
+} */
+.mat-list-item.active {
+  filter: invert(13%) sepia(69%) saturate(6629%) hue-rotate(4deg)
+    brightness(91%) contrast(121%);
 }
 .mat-list-item.active .mat-list-item-content > svg > g > g {
   /* color: #e60000; */
@@ -85,9 +89,9 @@
 .spacer {
   flex: 1 1 auto;
 }
-.emp-data-container{
+.emp-data-container {
   /* padding-left: 5rem; */
-  padding-top: 3rem; 
+  padding-top: 3rem;
 }
 .Artboard-30 {
   width: 64px;
@@ -111,7 +115,7 @@
 }
 .emp-name {
   width: 76px;
-  height: 23px; 
+  height: 23px;
   font-family: Poppins-SemiBold;
   font-size: 16px;
   font-weight: 600;
@@ -122,9 +126,8 @@
   text-align: center;
   color: #333333;
   padding-top: 2rem;
-
 }
-.emp-title{
+.emp-title {
   width: 145px;
   height: 23px;
   font-family: Poppins;
@@ -142,7 +145,7 @@
   object-fit: contain;
   margin-right: 18px;
 }
-.sid-sebarator{
+.sid-sebarator {
   width: 19rem;
   height: 1px;
   border: solid 1px #e5e9f2;
