@@ -1,6 +1,3 @@
-.content {
-  /* background-color: brown; */
-}
 .sec2 {
   background-image: url(../../assets/images/login.png);
   background-repeat: no-repeat;
@@ -77,6 +74,4 @@
   line-height: normal;
   letter-spacing: normal;
   color: #a94442;
-}
-.mat-input-element {
 }

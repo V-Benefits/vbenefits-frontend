@@ -9,7 +9,7 @@ import { PhoneProgramComponent } from './phone-program/phone-program-request/pho
 const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'benefits', component: MainBenefitsViewComponent },
 { path: 'phoneProgram', component: PhoneProgramComponent },
-{path: "**",redirectTo: ''}
+{ path: '**', redirectTo: ''}
 ];
 
 @NgModule({
