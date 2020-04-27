@@ -1,0 +1,71 @@
+
+<div class="close">
+    <mat-icon matPrefix >close</mat-icon>
+</div>
+
+<div class="" flex fxLayout='column' fxLayout.lt-sm="column">
+    <h2 mat-dialog-title class="Pension">Pension</h2>
+    <mat-label class="To-use-your-benefits">Please fill in the requested fields </mat-label>
+        <br />
+        <hr class="new4"/>
+        <br />
+        <mat-dialog-content flex fxLayout='row warp' fxLayout.lt-sm="column">
+            <div  fxFlex.lg="50%" fxFlex.md="50%"  fxFlex.sm="100%" fxFlex.xs="100%" flex fxLayout='column'>
+                <mat-label class="Staff-ID">Begining Balance</mat-label>
+                <mat-label class="EGP">50,000 EGP</mat-label>
+            </div>
+        
+             <div  fxFlex.lg="50%" fxFlex.md="50%"  fxFlex.sm="100%" fxFlex.xs="100%" flex fxLayout='column'>
+                <mat-label class="Staff-ID">Last Round Withdrawal</mat-label>
+                <mat-label class="EGP">0</mat-label>
+            </div> 
+            
+            <div fxFlex.lg="50%" fxFlex.md="50%"  fxFlex.sm="100%" fxFlex.xs="100%" flex fxLayout='column'>
+                <mat-label class="Staff-ID">Current Year Contribution</mat-label>
+                <mat-label class="EGP">20,000 EGP</mat-label>
+            </div>
+
+            <div fxFlex.lg="50%" fxFlex.md="50%"  fxFlex.sm="100%" fxFlex.xs="100%"  flex fxLayout='column'>
+                <mat-label class="Staff-ID">Prorated New Contribution</mat-label>
+                <mat-label class="EGP">10,000 EGP</mat-label>
+            </div>
+
+            <div fxFlex.lg="50%" fxFlex.md="50%"  fxFlex.sm="100%" fxFlex.xs="100%" flex fxLayout='column'>
+                <mat-label class="Staff-ID">Vesting percentage</mat-label>
+                <mat-label class="EGP">100%</mat-label>
+            </div>
+
+            <div fxFlex.lg="50%" fxFlex.md="50%" fxFlex.sm="100%" fxFlex.xs="100%" flex fxLayout='column'>
+                <mat-label class="Staff-ID">Years of Service</mat-label>
+                <mat-label class="EGP">5 Years</mat-label>
+            </div>
+
+            <br />
+            <hr class="new4"/>
+            <br />
+          
+            <div  flex fxLayout='column' fxLayout.lt-sm="column">
+                <mat-label class="Staff-ID">Current Available Balance</mat-label>
+                <mat-label class="EGP">100,000 EGP</mat-label>
+
+                <mat-label class="Staff-ID">Max Withdrawal Amount</mat-label>
+                <mat-label class="EGP">60,000 EGP</mat-label>
+      
+            </div>
+            <div  fxFlex.lg="100%" fxFlex.md="100%"  fxFlex.sm="100%" fxFlex.xs="100%" flex fxLayout='column'>
+                <mat-label class="Staff-ID">Withdraw Amount</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-dialog-content>
+
+        <br />
+        <hr class="new4"/>
+        <br />
+
+        <mat-dialog-actions fxLayoutGap="10px" flex fxLayout='row' fxLayout.lt-xm="row" fxLayoutAlign="end">
+            <button mat-button class="cancel" (click)="closeDialog()">Close</button>
+            <button mat-button class="save">Save</button>
+        </mat-dialog-actions>
+</div>

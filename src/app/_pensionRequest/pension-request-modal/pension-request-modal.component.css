@@ -1,0 +1,100 @@
+.close {
+    text-align: end;
+   }
+
+  .Pension {
+    font-family: Poppins;
+    font-size: 2.7em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .To-use-your-benefits {
+    opacity: 0.96;
+    font-family: Poppins;
+    font-size: 1.3rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: -0.05px;
+    color: #666666;
+  }
+
+  hr.new4 {
+    border: 1px solid #f4f4f4;
+    width: 100%;
+  }
+
+  .mat-dialog-title {
+    margin: 0px 0 5px;
+  }
+
+
+  .Staff-ID {
+    font-family: Poppins;
+    font-size: 1.4em;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.09px;
+    color: #666666;
+    line-height: 3rem;
+    opacity: 0.8;
+  }
+
+  .EGP {
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.06px;
+    padding-bottom: 2rem;
+    color: #333333;
+  }
+  .mat-form-field {
+    width: 95%;
+  }
+
+  .save {
+    width: 31%;
+    height: 37px;
+    border-radius: 3.6px;
+    background-color: #e60000;
+    font-family: Poppins;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .cancel{
+    width: 31%;
+    height: 37px;
+    border-radius: 3.6px;
+    background-color: #333333;
+    font-family: Poppins;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .mat-dialog-actions{
+    padding-bottom: 35px;
+}

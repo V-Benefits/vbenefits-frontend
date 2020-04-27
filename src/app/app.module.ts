@@ -26,6 +26,8 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { SuccessDialogComponent } from './shared/success-dialog/success-dialog.component';
 import { PhoneProgramModalComponent } from './phone-program/phone-program-modal/phone-program-modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PensionRequestViewComponent } from './_pensionRequest/pension-request-view/pension-request-view.component';
+import { PensionRequestModalComponent } from './_pensionRequest/pension-request-modal/pension-request-modal.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,8 @@ const routes: Routes = [
     ProfileInformationDialogComponent,
     SuccessDialogComponent,
     PhoneProgramModalComponent,
+    PensionRequestViewComponent,
+    PensionRequestModalComponent,
   ],
   imports: [
     BrowserModule,
