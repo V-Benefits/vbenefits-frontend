@@ -203,5 +203,9 @@
     border: solid 2px #e60000;
     color: #e60000;
     /* background-color: #e60000; */
-
   }
+
+.mat-button[disabled] {
+    background-color:  #afafaf;
+    color: white;
+ }

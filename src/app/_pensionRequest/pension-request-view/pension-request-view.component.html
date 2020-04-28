@@ -11,7 +11,7 @@
                     Vodafone contributes by 10% of your annual salary as investment for you after
                      completion of 2 years of continous employment.
                 </p>
-                <button mat-button class="pensionBtn">Request Pension</button>
+                <button mat-button class="pensionBtn" (click)="openDialog()"  [disabled]="disableBtn">Request Pension</button>
             </div>
         </div>
         
@@ -26,7 +26,20 @@
               
                 <h4 class="Pension-Round" >Round Dates</h4>
               
-                <div>
+                <!-- <div *ngFor= "let round of rounds">
+                    <p class="First-Round"> {{round.roundName}}</p>
+                    <div flex fxLayout='row wrap' fxLayout.lt-sm="row">
+                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Starts-on">Starts on</p>
+                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date"> {{round.startDate  | date: "mediumDate" }}</p>
+                    </div>
+                    
+                    <div flex fxLayout='row wrap' fxLayout.lt-sm="row">
+                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Starts-on">Ends on</p>
+                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date"> {{round.endDate  | date: "mediumDate" }}</p>
+                    </div>
+                </div> -->
+
+                <div >
                     <p class="First-Round"> First Round</p>
                     <div flex fxLayout='row wrap' fxLayout.lt-sm="row">
                         <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Starts-on">Starts on</p>
@@ -38,7 +51,6 @@
                         <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date"> 25 FEB 2020</p>
                     </div>
                 </div>
-
                 <div>
                     <p class="First-Round"> Second Round</p>
                     <div flex fxLayout='row wrap' fxLayout.lt-sm="row">
@@ -51,19 +63,6 @@
                         <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date"> 25 NOV 2020</p>
                     </div>
                 </div>
-                <!-- <p class="infotxt">
-                    <mat-label> Eligibility Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label> 9 MAR 2020
-                </p>
-                <p class="infotxt" style="position: relative; top:-10px; left:0px;">
-                    <mat-label>
-                        Band&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </mat-label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; H1
-                </p>
-                <p class="infotxt" style="position: relative; top:-20px;left:0px;">
-                    <mat-label> Allowance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    1,500 EGP every 18 m
-                </p> -->
 
             </div>
             <div fxFlex.sm="80%" fxFlex.md="40%" fxFlex.lg="40%">
