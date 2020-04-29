@@ -28,7 +28,8 @@ import { PhoneProgramModalComponent } from './phone-program/phone-program-modal/
 import { HttpClientModule } from '@angular/common/http';
 import { PensionRequestViewComponent } from './_pensionRequest/pension-request-view/pension-request-view.component';
 import { PensionRequestModalComponent } from './_pensionRequest/pension-request-modal/pension-request-modal.component';
-
+import {MatSnackBarModule} from '@angular/material';
+import { SnackBarComponent } from './shared/snack-bar/snack-bar.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -47,6 +48,7 @@ const routes: Routes = [
     PhoneProgramModalComponent,
     PensionRequestViewComponent,
     PensionRequestModalComponent,
+    SnackBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ const routes: Routes = [
     MatNativeDateModule,
     MatSelectModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

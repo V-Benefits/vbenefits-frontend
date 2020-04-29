@@ -66,7 +66,6 @@ export class ProfileInformationDialogComponent implements OnInit {
     this.profileInformationObject.NationalId = this.nationalIdCtrl.value;
     this.profileInformationObject.MobileNumber = this.mobileNumberCtrl.value;
     this.profileInformationObject.LandlineNumber = this.landlineNumberCtrl.value;
-    debugger;
     console.log(this.profileInformationObject);
     this.service.post(this.profileInformationObject, 'Employees').subscribe(
       res => {

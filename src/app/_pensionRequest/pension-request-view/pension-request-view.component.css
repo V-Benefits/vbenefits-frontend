@@ -151,8 +151,6 @@
 }
 
 .VOIS-pension-policy {
-    /* width: 9.889rem;
-    height: 1.389rem; */
     font-family: Poppins;
     font-size: 1.6rem;
     font-weight: 600;
@@ -195,13 +193,19 @@
   }
 
   .FAQBtn {
-    /* width: 18.611rem;
-    height: 2.778rem; */
     width: 77%;
     height: 5rem;
     border-radius: 4px;
     border: solid 2px #e60000;
     color: #e60000;
-    /* background-color: #e60000; */
-
   }
+
+.mat-button[disabled] {
+    background-color:  #afafaf;
+    color: white;
+ }
+
+ .snackbar{
+  color: #ffff;
+  font-size: 15px;
+}
