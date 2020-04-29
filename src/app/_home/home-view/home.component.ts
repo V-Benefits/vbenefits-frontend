@@ -19,13 +19,17 @@ export class HomeComponent implements OnInit {
     }
   }
   openDialog(): void {
-    //const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
-    //  const dialogRef = this.dialog.open(ProfileInformationDialogComponent);
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = "450px";
-    const dialogRef = this.dialog.open(PensionRequestModalComponent,dialogConfig);
+    const dialogRef = this.dialog.open(ManageRequestsDialogComponent);
+    // const dialogRef = this.dialog.open(ProfileInformationDialogComponent);
 
-    
+
+
+
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.width = "450px";
+    // const dialogRef = this.dialog.open(PensionRequestModalComponent,dialogConfig);
+
+
   }
 
 }

@@ -11,13 +11,13 @@ import { AuthService } from 'src/app/core/auth.service';
   styleUrls: ['./phone-program-modal.component.css']
 })
 export class PhoneProgramModalComponent implements OnInit {
-  PhoneProgramRequestModel : PhoneProgramRequestModel= new PhoneProgramRequestModel();
+  PhoneProgramRequestModel: PhoneProgramRequestModel = new PhoneProgramRequestModel();
   requestsList: string[] = ['Handset'];
 
-  constructor(public dialogRef: MatDialogRef<PhoneProgramModalComponent>, 
+  constructor(public dialogRef: MatDialogRef<PhoneProgramModalComponent>,
     private matDialog: MatDialog,
     private service: publicService,
-    private authService: AuthService,) { }
+    private authService: AuthService, ) { }
 
   ngOnInit(): void {
   }
@@ -34,13 +34,12 @@ export class PhoneProgramModalComponent implements OnInit {
     this.matDialog.open(SuccessDialogComponent, dialogConfig);
   }
 
-  requestPhoneProgram()
-  {
+  requestPhoneProgram() {
     this.PhoneProgramRequestModel.RequestById = +localStorage.getItem('Id');
     this.PhoneProgramRequestModel.RequestDate = new Date();
     this.service.post(this.PhoneProgramRequestModel, 'PhoneProgramRequest').subscribe(
       res => {
-        console.log(res);    
+        console.log(res);
       },
       error => {
         console.log(error);
@@ -48,9 +47,8 @@ export class PhoneProgramModalComponent implements OnInit {
     );
   }
 
-  
-  private getUserId()
-  {
+
+  private getUserId() {
     debugger
     let token = this.authService.decode();
     return token._id;
