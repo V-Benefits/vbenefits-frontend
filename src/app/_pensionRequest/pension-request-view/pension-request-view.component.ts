@@ -32,12 +32,13 @@ export class PensionRequestViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllRounds();
-    this.compareDates();
+    // this.compareDates();
   }
   getAllRounds() {
     this.service.getAll('RoundDate').subscribe(res => {
       this.rounds = res;
       console.log(this.rounds);
+      this.compareDateWithRoundDates(this.rounds);
     });
   }
 
@@ -65,6 +66,37 @@ export class PensionRequestViewComponent implements OnInit {
       verticalPosition: 'bottom',
       horizontalPosition: 'end',
     });
+  }
+
+  compareDateWithRoundDates(rounds: RoundModel[]) {
+    // rounds.forEach((element) => {
+    //   let startDate = new Date(element.startDate);  
+    //   let endDate = new Date(element.endDate);  
+    //   console.log(startDate ,"*****startttttt****");
+    //   console.log(this.currentDate ,"***current******");
+    //   console.log(endDate ,"***endd******");
+
+    //   if (startDate <= this.currentDate && this.currentDate <= endDate) {
+    //     this.disableBtn = false;
+    //   }
+    //   else {
+    //     this.disableBtn = true;
+    //   }
+    // });
+
+    function isCurrentDateWithInRoundDates(element) {
+      let currentDate = new Date();
+      let startDate = new Date(element.startDate);
+      let endDate = new Date(element.endDate);
+
+      return startDate <= currentDate && currentDate <= endDate;
+    }
+
+    if (rounds.some(isCurrentDateWithInRoundDates))
+      this.disableBtn = false;
+    else {
+      this.disableBtn = true;
+    }
   }
 }
 
