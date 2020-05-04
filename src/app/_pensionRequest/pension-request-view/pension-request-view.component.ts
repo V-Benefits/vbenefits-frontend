@@ -35,10 +35,7 @@ export class PensionRequestViewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.getAllRounds();
-    //this.compareDates();
-     this.isEligible();
-
+    this.isEligible();
     this.getAllRounds();
    // this.isUserEligible();
     // this.compareDates();
