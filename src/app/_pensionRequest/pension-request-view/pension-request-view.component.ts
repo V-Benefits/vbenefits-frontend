@@ -26,12 +26,15 @@ export class PensionRequestViewComponent implements OnInit {
   secondRoundStartDate: Date = new Date("2020-11-18T00:00:00");
   secondRoundEndDate: Date = new Date("2020-11-25T00:00:00");
 
+  isEligible: boolean = true;
+
   constructor(private service: publicService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllRounds();
+    this.isUserEligible();
     // this.compareDates();
   }
   getAllRounds() {
@@ -98,5 +101,15 @@ export class PensionRequestViewComponent implements OnInit {
       this.disableBtn = true;
     }
   }
+
+  isUserEligible(){
+   if(this.pensionModel.isEligible)
+    this.isEligible = true;
+    else
+    this.isEligible = false;
+
+  }
+
+
 }
 
