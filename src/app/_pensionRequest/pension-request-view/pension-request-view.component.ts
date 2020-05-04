@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
-import { RoundModel } from '../pensionRequestModels';
+import { RoundModel, PensionRequestModel } from '../pensionRequestModels';
 
 import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { PensionRequestModalComponent } from '../pension-request-modal/pension-request-modal.component';
 import { formatDate } from '@angular/common'
 import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
+import { CreatePensionRequestModel } from '../models/pensionModel';
 @Component({
   selector: 'app-pension-request-view',
   templateUrl: './pension-request-view.component.html',
@@ -27,6 +28,10 @@ export class PensionRequestViewComponent implements OnInit {
   secondRoundStartDate: Date = new Date("2020-11-18T00:00:00");
   secondRoundEndDate: Date = new Date("2020-11-25T00:00:00");
 
+  userStaffId:number;
+  // pensionRequestModel: PensionRequestModel;
+  pensionRequestModel: CreatePensionRequestModel;
+
   //isEligible: boolean = true;
 
   constructor(private service: publicService,
@@ -35,12 +40,13 @@ export class PensionRequestViewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.isEligible();
-    this.getAllRounds();
+    // this.isEligible();
+    // this.getAllRounds();
+    this.getPensionDetails();
    // this.isUserEligible();
     // this.compareDates();
-
   }
+
   getAllRounds() {
     this.service.getAll('RoundDate').subscribe(res => {
       this.rounds = res;
@@ -50,9 +56,11 @@ export class PensionRequestViewComponent implements OnInit {
   }
 
   openDialog(): void {
+    debugger
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = "450px";
-    const dialogRef = this.dialog.open(PensionRequestModalComponent, dialogConfig);
+    dialogConfig.data = this.pensionRequestModel;
+     this.dialog.open(PensionRequestModalComponent, dialogConfig);
   }
 
   compareDates() {
@@ -111,6 +119,14 @@ export class PensionRequestViewComponent implements OnInit {
     else {
       this.disableBtn = true;
     }
+  }
+
+  getPensionDetails(){
+    this.userStaffId = +localStorage.getItem('StaffId');
+    this.service.get('PensionRequest',this.userStaffId).subscribe(res =>{
+      console.log(res,"***************");    
+      this.pensionRequestModel = res ;
+    })
   }
 
   // isUserEligible(){

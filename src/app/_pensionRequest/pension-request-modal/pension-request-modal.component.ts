@@ -19,23 +19,26 @@ export class PensionRequestModalComponent implements OnInit {
     private service: publicService,
     @Inject(MAT_DIALOG_DATA) data
   ) {
-    //   this.CreatePensionRequestModel = data;
-    this.CreatePensionRequestModel.BeginingBalance = 10;
-    this.CreatePensionRequestModel.CurrentyearContribution = 30;
-    this.CreatePensionRequestModel.VestingPercent = 40;
-    this.CreatePensionRequestModel.LastRoundWithdrawal = 60;
-    this.CreatePensionRequestModel.ProratedNewContribution = 90;
-    this.CreatePensionRequestModel.CurrentAvailableBalance = 90;
+    this.CreatePensionRequestModel = data;
+      console.log(this.CreatePensionRequestModel,"&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+      
+    
+    // this.CreatePensionRequestModel.BeginingBalance = 10;
+    // this.CreatePensionRequestModel.CurrentyearContribution = 30;
+    // this.CreatePensionRequestModel.VestingPercent = 40;
+    // this.CreatePensionRequestModel.LastRoundWithdrawal = 60;
+    // this.CreatePensionRequestModel.ProratedNewContribution = 90;
+    // this.CreatePensionRequestModel.CurrentAvailableBalance = 90;
 
-    this.CreatePensionRequestModel.MaxWithdrawalAmount = 20;
-    this.CreatePensionRequestModel.YearsOfService = 4;
+    // this.CreatePensionRequestModel.MaxWithdrawalAmount = 20;
+    // this.CreatePensionRequestModel.YearsOfService = 4;
 
-    this.CreatePensionRequestModel.RequestedById = 4;
-    this.CreatePensionRequestModel.RequestedOn = new Date();
-    this.CreatePensionRequestModel.isActive = true;
-    this.CreatePensionRequestModel.isApproved = true;
-    this.CreatePensionRequestModel.ApprovedOn = new Date();
-    this.CreatePensionRequestModel.RejectedOn = new Date();
+    // this.CreatePensionRequestModel.RequestedById = 4;
+    // this.CreatePensionRequestModel.RequestedOn = new Date();
+    // this.CreatePensionRequestModel.isActive = true;
+    // this.CreatePensionRequestModel.isApproved = true;
+    // this.CreatePensionRequestModel.ApprovedOn = new Date();
+    // this.CreatePensionRequestModel.RejectedOn = new Date();
   }
 
   ngOnInit(): void {
@@ -50,6 +53,10 @@ export class PensionRequestModalComponent implements OnInit {
   }
 
   requestPension() {
+    
+    this.CreatePensionRequestModel.withdrawalAmmount =+ this.CreatePensionRequestModel.withdrawalAmmount;
+    console.log(this.CreatePensionRequestModel.withdrawalAmmount,"^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+
     this.service.post(this.CreatePensionRequestModel, 'PensionRequest').subscribe(
       res => {
         console.log(res);

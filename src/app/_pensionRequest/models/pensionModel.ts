@@ -1,5 +1,5 @@
 export class CreatePensionRequestModel {
-    WithdrawalAmmount: number;
+    withdrawalAmmount: number;
     BeginingBalance: number;
     CurrentyearContribution: number;
     VestingPercent: number;

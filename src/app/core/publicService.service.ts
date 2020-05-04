@@ -8,6 +8,8 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { PensionRequestModel } from '../_pensionRequest/pensionRequestModels';
+import { CreatePensionRequestModel } from '../_pensionRequest/models/pensionModel';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +48,12 @@ export class publicService {
       environment.serverUrl + apiController + '/' + action, data
     );
   }
+  get(apiController: string, params:any){
+  return this.http.get<CreatePensionRequestModel>(environment.serverUrl + apiController,{
+    params: {
+      staffId: params,
+    }});
+  }
+
+  
 }
