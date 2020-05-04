@@ -84,10 +84,10 @@ export class PensionRequestViewComponent implements OnInit {
     //   }
     // });
 
-    function isCurrentDateWithInRoundDates(element) {
+    function isCurrentDateWithInRoundDates(round) {
       let currentDate = new Date();
-      let startDate = new Date(element.startDate);
-      let endDate = new Date(element.endDate);
+      let startDate = new Date(round.startDate);
+      let endDate = new Date(round.endDate);
 
       return startDate <= currentDate && currentDate <= endDate;
     }
