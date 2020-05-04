@@ -27,19 +27,28 @@ export class PensionRequestViewComponent implements OnInit {
   secondRoundStartDate: Date = new Date("2020-11-18T00:00:00");
   secondRoundEndDate: Date = new Date("2020-11-25T00:00:00");
 
+  //isEligible: boolean = true;
+
   constructor(private service: publicService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+
     // this.getAllRounds();
     //this.compareDates();
-    // this.isEligible();
+     this.isEligible();
+
+    this.getAllRounds();
+   // this.isUserEligible();
+    // this.compareDates();
+
   }
   getAllRounds() {
     this.service.getAll('RoundDate').subscribe(res => {
       this.rounds = res;
       console.log(this.rounds);
+      this.compareDateWithRoundDates(this.rounds);
     });
   }
 
@@ -75,5 +84,46 @@ export class PensionRequestViewComponent implements OnInit {
       horizontalPosition: 'end',
     });
   }
+
+  compareDateWithRoundDates(rounds: RoundModel[]) {
+    // rounds.forEach((element) => {
+    //   let startDate = new Date(element.startDate);  
+    //   let endDate = new Date(element.endDate);  
+    //   console.log(startDate ,"*****startttttt****");
+    //   console.log(this.currentDate ,"***current******");
+    //   console.log(endDate ,"***endd******");
+
+    //   if (startDate <= this.currentDate && this.currentDate <= endDate) {
+    //     this.disableBtn = false;
+    //   }
+    //   else {
+    //     this.disableBtn = true;
+    //   }
+    // });
+
+    function isCurrentDateWithInRoundDates(round) {
+      let currentDate = new Date();
+      let startDate = new Date(round.startDate);
+      let endDate = new Date(round.endDate);
+
+      return startDate <= currentDate && currentDate <= endDate;
+    }
+
+    if (rounds.some(isCurrentDateWithInRoundDates))
+      this.disableBtn = false;
+    else {
+      this.disableBtn = true;
+    }
+  }
+
+  // isUserEligible(){
+  //  if(this.pensionModel.isEligible)
+  //   this.isEligible = true;
+  //   else
+  //   this.isEligible = false;
+
+  // }
+
+
 }
 
