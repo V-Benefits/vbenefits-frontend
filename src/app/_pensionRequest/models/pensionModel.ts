@@ -1,18 +1,18 @@
 export class CreatePensionRequestModel {
     withdrawalAmmount: number;
-    BeginingBalance: number;
-    CurrentyearContribution: number;
-    VestingPercent: number;
-    LastRoundWithdrawal: number;
-    ProratedNewContribution: number;
-    CurrentAvailableBalance: number;
-    MaxWithdrawalAmount: number;
-    YearsOfService: number;
-    RequestedById: number;
-    RequestedOn: Date;
+    beginingBalance: number;
+    currentyearContribution: number;
+    vestingPercent: number;
+    lastRoundWithdrawal: number;
+    proratedNewContribution: number;
+    currentAvailableBalance: number;
+    maxWithdrawalAmount: number;
+    yearsOfService: number;
+    requestedById: number;
+    requestedOn: Date;
     isActive: boolean;
     isApproved: boolean;
-    ApprovedOn: Date;
-    RejectedOn: Date;
+    approvedOn: Date;
+    rejectedOn: Date;
 
 }

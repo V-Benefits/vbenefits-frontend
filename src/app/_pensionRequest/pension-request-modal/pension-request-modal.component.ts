@@ -12,6 +12,7 @@ import { CreatePensionRequestModel } from '../models/pensionModel';
 export class PensionRequestModalComponent implements OnInit {
 
   CreatePensionRequestModel: CreatePensionRequestModel = new CreatePensionRequestModel();
+  disableBtn:boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<PhoneProgramModalComponent>,
@@ -69,5 +70,16 @@ export class PensionRequestModalComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  checkMaxWithdrawalAmmount($event){
+    console.log(+$event.target.value,"##################event #####################",
+    +this.CreatePensionRequestModel.maxWithdrawalAmount);
+    if(+ $event.target.value > +this.CreatePensionRequestModel.maxWithdrawalAmount){
+      this.disableBtn =true;
+    }
+    else{
+      this.disableBtn = false;
+    }
   }
 }

@@ -98,3 +98,8 @@
   .mat-dialog-actions{
     padding-bottom: 35px;
 }
+
+.mat-button[disabled] {
+  background-color:  #afafaf;
+  color: white;
+}
