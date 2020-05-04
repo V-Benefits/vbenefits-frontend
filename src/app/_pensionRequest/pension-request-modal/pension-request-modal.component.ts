@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { PhoneProgramModalComponent } from 'src/app/phone-program/phone-program-modal/phone-program-modal.component';
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import { SuccessDialogComponent } from 'src/app/shared/success-dialog/success-dialog.component';
-import { CreatePensionRequestModel } from '../models/pensionModel';
 import { publicService } from 'src/app/core/publicService.service';
+import { CreatePensionRequestModel } from '../models/pensionModel';
 @Component({
   selector: 'app-pension-request-modal',
   templateUrl: './pension-request-modal.component.html',
@@ -16,22 +16,10 @@ export class PensionRequestModalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<PhoneProgramModalComponent>,
     private matDialog: MatDialog,
-    private service: publicService
-  ) { }
-
-  ngOnInit(): void {
-  }
-
-  saveButton() {
-    this.requestPension();
-    this.dialogRef.close();
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
-    this.matDialog.open(SuccessDialogComponent, dialogConfig);
-  }
-
-  requestPension() {
-    this.CreatePensionRequestModel.WithdrawalAmmount = 10;
+    private service: publicService,
+    @Inject(MAT_DIALOG_DATA) data
+  ) {
+    //   this.CreatePensionRequestModel = data;
     this.CreatePensionRequestModel.BeginingBalance = 10;
     this.CreatePensionRequestModel.CurrentyearContribution = 30;
     this.CreatePensionRequestModel.VestingPercent = 40;
@@ -48,8 +36,20 @@ export class PensionRequestModalComponent implements OnInit {
     this.CreatePensionRequestModel.isApproved = true;
     this.CreatePensionRequestModel.ApprovedOn = new Date();
     this.CreatePensionRequestModel.RejectedOn = new Date();
+  }
 
-    debugger;
+  ngOnInit(): void {
+  }
+
+  saveButton() {
+    this.requestPension();
+    this.dialogRef.close();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
+    this.matDialog.open(SuccessDialogComponent, dialogConfig);
+  }
+
+  requestPension() {
     this.service.post(this.CreatePensionRequestModel, 'PensionRequest').subscribe(
       res => {
         console.log(res);

@@ -18,6 +18,7 @@ export class PensionRequestViewComponent implements OnInit {
   rounds: RoundModel[];
 
   disableBtn: boolean = false;
+  isEligibleFlag: boolean = false;
   currentDate: Date = new Date();
 
   firstRoundStartDate: Date = new Date("2020-02-18T00:00:00");
@@ -31,8 +32,9 @@ export class PensionRequestViewComponent implements OnInit {
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.getAllRounds();
-    this.compareDates();
+    // this.getAllRounds();
+    //this.compareDates();
+    // this.isEligible();
   }
   getAllRounds() {
     this.service.getAll('RoundDate').subscribe(res => {
@@ -54,13 +56,20 @@ export class PensionRequestViewComponent implements OnInit {
     }
     else {
       this.disableBtn = true;
-      this.openSnackBar();
+      this.openSnackBar('Not available! Please check pension round dates .');
     }
   }
 
-  openSnackBar() {
+  isEligible() {
+    if (this.isEligibleFlag == false) {
+      this.disableBtn = true;
+      this.openSnackBar('Not available! Please check pension policy .');
+    }
+  }
+
+  openSnackBar(message) {
     this._snackBar.openFromComponent(SnackBarComponent, {
-      data: 'Not available! Please check pension round dates .',
+      data: message,
       panelClass: ['snackbar'],
       verticalPosition: 'bottom',
       horizontalPosition: 'end',
