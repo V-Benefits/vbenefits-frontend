@@ -19,7 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { PhoneProgramComponent } from './phone-program/phone-program-request/phone-program.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests-dialog/manage-requests-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatInputModule} from '@angular/material/input';
 import { ProfileInformationDialogComponent } from './_profileInformation/profile-information-dialog/profile-information-dialog.component';
 import { MatDatepickerModule} from '@angular/material/datepicker';
@@ -74,7 +74,10 @@ const routes: Routes = [
     HttpClientModule,
     MatSnackBarModule
   ],
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+   // { provide: MdDialogRef, useValue: {} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

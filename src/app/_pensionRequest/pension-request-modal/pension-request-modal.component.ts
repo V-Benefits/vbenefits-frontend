@@ -22,24 +22,6 @@ export class PensionRequestModalComponent implements OnInit {
   ) {
     this.CreatePensionRequestModel = data;
       console.log(this.CreatePensionRequestModel,"&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-      
-    
-    // this.CreatePensionRequestModel.BeginingBalance = 10;
-    // this.CreatePensionRequestModel.CurrentyearContribution = 30;
-    // this.CreatePensionRequestModel.VestingPercent = 40;
-    // this.CreatePensionRequestModel.LastRoundWithdrawal = 60;
-    // this.CreatePensionRequestModel.ProratedNewContribution = 90;
-    // this.CreatePensionRequestModel.CurrentAvailableBalance = 90;
-
-    // this.CreatePensionRequestModel.MaxWithdrawalAmount = 20;
-    // this.CreatePensionRequestModel.YearsOfService = 4;
-
-    // this.CreatePensionRequestModel.RequestedById = 4;
-    // this.CreatePensionRequestModel.RequestedOn = new Date();
-    // this.CreatePensionRequestModel.isActive = true;
-    // this.CreatePensionRequestModel.isApproved = true;
-    // this.CreatePensionRequestModel.ApprovedOn = new Date();
-    // this.CreatePensionRequestModel.RejectedOn = new Date();
   }
 
   ngOnInit(): void {
@@ -47,10 +29,6 @@ export class PensionRequestModalComponent implements OnInit {
 
   saveButton() {
     this.requestPension();
-    this.dialogRef.close();
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
-    this.matDialog.open(SuccessDialogComponent, dialogConfig);
   }
 
   requestPension() {
@@ -60,11 +38,12 @@ export class PensionRequestModalComponent implements OnInit {
     else{
       this.disableBtn = false;
       this.CreatePensionRequestModel.withdrawalAmmount =+ this.CreatePensionRequestModel.withdrawalAmmount;
-      console.log(this.CreatePensionRequestModel.withdrawalAmmount,"^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+      console.log(this.CreatePensionRequestModel,"^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
   
       this.service.post(this.CreatePensionRequestModel, 'PensionRequest').subscribe(
         res => {
           console.log(res);
+         this.openSuccessDialog();
         },
         error => {
           console.log(error);
@@ -77,6 +56,13 @@ export class PensionRequestModalComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+  
+  openSuccessDialog(){
+    this.dialogRef.close();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
+    this.matDialog.open(SuccessDialogComponent, dialogConfig);
   }
 
   checkMaxWithdrawalAmmount($event){

@@ -16,10 +16,10 @@ import { CreatePensionRequestModel } from '../models/pensionModel';
 
 export class PensionRequestViewComponent implements OnInit {
 
-  rounds: RoundModel[];
+  rounds: RoundModel[]=[];
 
   disableBtn: boolean = false;
-  isEligibleFlag: boolean = false;
+  isEligibleFlag: boolean = true;
   currentDate: Date = new Date();
 
   firstRoundStartDate: Date = new Date("2020-02-18T00:00:00");
@@ -39,15 +39,13 @@ export class PensionRequestViewComponent implements OnInit {
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-
-    // this.isEligible();
      this.getAllRounds();
     this.getPensionDetails();
-   // this.isUserEligible();
-    // this.compareDates();
+
   }
 
   getAllRounds() {
+    debugger
     this.service.getAll('RoundDate').subscribe(res => {
       this.rounds = res;
       console.log(this.rounds);
@@ -106,6 +104,7 @@ export class PensionRequestViewComponent implements OnInit {
     // });
 
     function isCurrentDateWithInRoundDates(round) {
+      debugger
       let currentDate = new Date();
       let startDate = new Date(round.startDate);
       let endDate = new Date(round.endDate);
@@ -123,8 +122,9 @@ export class PensionRequestViewComponent implements OnInit {
   getPensionDetails(){
     this.userStaffId = +localStorage.getItem('StaffId');
     this.service.get('PensionRequest',this.userStaffId).subscribe(res =>{
-      console.log(res,"***************");    
+   
       this.pensionRequestModel = res ;
+      console.log(this.pensionRequestModel,"******PensionRequest***************************");   
       this.isUserEligible(this.pensionRequestModel);
     })
   }
