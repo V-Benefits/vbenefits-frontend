@@ -55,7 +55,8 @@
             <mat-label class="Staff-ID">Withdraw Amount</mat-label>
             <div class="policyImg">
             <mat-form-field appearance="outline">
-                <input matInput [(ngModel)]="CreatePensionRequestModel.withdrawalAmmount" (keyup)="checkMaxWithdrawalAmmount($event)" >
+                <input matInput [(ngModel)]="CreatePensionRequestModel.withdrawalAmmount" >
+                <!-- (keyup)="checkMaxWithdrawalAmmount($event)" -->
             </mat-form-field>
             <img src="../../assets/images/info.svg"*ngIf="disableBtn" >
            </div>
