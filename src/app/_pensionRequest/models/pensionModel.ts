@@ -14,5 +14,6 @@ export class CreatePensionRequestModel {
     isApproved: boolean;
     approvedOn: Date;
     rejectedOn: Date;
+    isEligible :boolean;
 
 }

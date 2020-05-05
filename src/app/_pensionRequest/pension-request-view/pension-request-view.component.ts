@@ -41,7 +41,7 @@ export class PensionRequestViewComponent implements OnInit {
   ngOnInit(): void {
 
     // this.isEligible();
-    // this.getAllRounds();
+     this.getAllRounds();
     this.getPensionDetails();
    // this.isUserEligible();
     // this.compareDates();
@@ -56,7 +56,6 @@ export class PensionRequestViewComponent implements OnInit {
   }
 
   openDialog(): void {
-    debugger
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = "450px";
     dialogConfig.data = this.pensionRequestModel;
@@ -126,16 +125,16 @@ export class PensionRequestViewComponent implements OnInit {
     this.service.get('PensionRequest',this.userStaffId).subscribe(res =>{
       console.log(res,"***************");    
       this.pensionRequestModel = res ;
+      this.isUserEligible(this.pensionRequestModel);
     })
   }
 
-  // isUserEligible(){
-  //  if(this.pensionModel.isEligible)
-  //   this.isEligible = true;
-  //   else
-  //   this.isEligible = false;
-
-  // }
+  isUserEligible(pensionModel:CreatePensionRequestModel){
+   if(pensionModel.isEligible)
+    this.isEligibleFlag = true;
+    else
+    this.isEligibleFlag = false;
+  }
 
 
 }
