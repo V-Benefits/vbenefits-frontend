@@ -54,18 +54,25 @@ export class PensionRequestModalComponent implements OnInit {
   }
 
   requestPension() {
+    if(+this.CreatePensionRequestModel.withdrawalAmmount > +this.CreatePensionRequestModel.maxWithdrawalAmount){
+      this.disableBtn =true;
+    }
+    else{
+      this.disableBtn = false;
+      this.CreatePensionRequestModel.withdrawalAmmount =+ this.CreatePensionRequestModel.withdrawalAmmount;
+      console.log(this.CreatePensionRequestModel.withdrawalAmmount,"^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+  
+      this.service.post(this.CreatePensionRequestModel, 'PensionRequest').subscribe(
+        res => {
+          console.log(res);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
     
-    this.CreatePensionRequestModel.withdrawalAmmount =+ this.CreatePensionRequestModel.withdrawalAmmount;
-    console.log(this.CreatePensionRequestModel.withdrawalAmmount,"^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
-    this.service.post(this.CreatePensionRequestModel, 'PensionRequest').subscribe(
-      res => {
-        console.log(res);
-      },
-      error => {
-        console.log(error);
-      }
-    );
   }
 
   closeDialog() {
