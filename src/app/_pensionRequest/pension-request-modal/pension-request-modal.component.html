@@ -53,9 +53,17 @@
         </div>
         <div fxFlex.lg="100%" fxFlex.md="100%" fxFlex.sm="100%" fxFlex.xs="100%" flex fxLayout='column'>
             <mat-label class="Staff-ID">Withdraw Amount</mat-label>
+            <div class="policyImg">
             <mat-form-field appearance="outline">
                 <input matInput [(ngModel)]="CreatePensionRequestModel.withdrawalAmmount" (keyup)="checkMaxWithdrawalAmmount($event)" >
             </mat-form-field>
+            <img src="../../assets/images/info.svg">
+           </div>
+            <div class="Please-enter-an-amou">
+                <div>
+                    Please enter an amount of at most {{CreatePensionRequestModel.maxWithdrawalAmount}} EGP
+                </div>           
+            </div>
         </div>
     </mat-dialog-content>
 

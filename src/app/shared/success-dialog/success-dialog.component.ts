@@ -21,6 +21,6 @@ export class SuccessDialogComponent implements OnInit {
 
   finish() {
     this.dialogRef.close();
-   // window.location.replace('http://localhost:4200/');
+    //window.location.replace('http://localhost:4200/');
   }
 }
