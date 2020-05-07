@@ -12,7 +12,7 @@
                     completion of 2 years of continous employment.
                 </p>
 
-                <button mat-button class="pensionBtn" (click)="openDialog()" [disabled]="disableBtn || !isEligibleFlag">Request
+                <button mat-button class="pensionBtn" (click)="openDialog()" [disabled]="disableBtn || !isEligibleFlag || isUserSubmitRequest">Request
                     Pension</button>
             </div>
         </div>

@@ -23,4 +23,7 @@ export class MainNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
+  logOut(){
+    localStorage.clear();
+  }
 }

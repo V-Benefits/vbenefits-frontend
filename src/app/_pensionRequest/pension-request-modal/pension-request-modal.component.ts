@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angu
 import { SuccessDialogComponent } from 'src/app/shared/success-dialog/success-dialog.component';
 import { publicService } from 'src/app/core/publicService.service';
 import { CreatePensionRequestModel } from '../models/pensionModel';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pension-request-modal',
   templateUrl: './pension-request-modal.component.html',
@@ -25,6 +26,7 @@ export class PensionRequestModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   this.CreatePensionRequestModel.withdrawalAmmount=null;
   }
 
   saveButton() {
@@ -44,6 +46,8 @@ export class PensionRequestModalComponent implements OnInit {
         res => {
           console.log(res);
          this.openSuccessDialog();
+         localStorage.setItem('IsUserEligible','true');
+         console.log( localStorage.getItem('IsUserEligible'),"local storage --------------");        
         },
         error => {
           console.log(error);
@@ -63,6 +67,7 @@ export class PensionRequestModalComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
     this.matDialog.open(SuccessDialogComponent, dialogConfig);
+    window.location.reload();
   }
 
   checkMaxWithdrawalAmmount($event){
