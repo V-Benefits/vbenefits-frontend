@@ -6,6 +6,7 @@ import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests
 import { PhoneProgramComponent } from './phone-program/phone-program-request/phone-program.component';
 import { PensionRequestViewComponent } from './_pensionRequest/pension-request-view/pension-request-view.component';
 import { PensionRequestModalComponent } from './_pensionRequest/pension-request-modal/pension-request-modal.component';
+import { MedicalRequestViewComponent } from './_medicalRequest/medical-request-view/medical-request-view.component';
 
 
 const routes: Routes = [{ path: '', component: HomeComponent },
@@ -13,6 +14,8 @@ const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'phoneProgram', component: PhoneProgramComponent },
 { path: 'pension', component: PensionRequestViewComponent },
 { path: 'modal', component: PensionRequestModalComponent },
+{ path: 'medical', component: MedicalRequestViewComponent },
+
 { path: '**', redirectTo: ''}
 ];
 

@@ -30,6 +30,7 @@ import { PensionRequestViewComponent } from './_pensionRequest/pension-request-v
 import { PensionRequestModalComponent } from './_pensionRequest/pension-request-modal/pension-request-modal.component';
 import {MatSnackBarModule} from '@angular/material';
 import { SnackBarComponent } from './shared/snack-bar/snack-bar.component';
+import { MedicalRequestViewComponent } from './_medicalRequest/medical-request-view/medical-request-view.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -49,6 +50,7 @@ const routes: Routes = [
     PensionRequestViewComponent,
     PensionRequestModalComponent,
     SnackBarComponent,
+    MedicalRequestViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,177 @@
+.mainContainer
+{
+    background-color: #f9f9f9; 
+    margin: auto;
+    width: 90%;
+    padding-top: 40px;
+}
+
+.img
+{
+   height: 306px;
+}
+
+.FirstRow
+{
+    justify-content: space-around;
+    padding-top: 5rem;
+    padding-bottom: 20px;
+}
+
+.Pension {
+    width: 100%;
+    font-family: Poppins;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.69;
+    letter-spacing: normal;
+    color: #333333;
+    /* height: 1.111rem; */
+    font-size: 2.8rem;
+  }
+
+  .Vodafone-contributes {
+    width: 80%;
+    opacity: 0.96;
+    font-family: Poppins;
+    font-size: 1.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.06px;
+    color: #333333;
+  }
+
+  .pensionBtn {
+    width: 66%;
+    height: 5rem;
+    border-radius: 4px;
+    background-color: #e60000;
+    color: white;
+  }
+
+  .deactivateBtn{
+    width: 66%;
+    height: 5rem;
+    border-radius: 4px;
+    background-color: #333333;
+    color: white;  
+  }
+
+  hr.new4 {
+    border: 1px solid #f4f4f4;
+    width: 90%;
+  }
+
+  .SecondRow
+  {
+      justify-content: space-around;  
+  }
+  
+  .Pension-Round {
+    font-family: Poppins;
+    font-size: 2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .The-pension-round-gi {
+    opacity: 0.96;
+    width: 62%;
+    font-family: Poppins;
+    font-size: 1.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.06px;
+    color: #333333;
+    margin-bottom: 1rem;
+  }
+
+  .FAQs {
+    font-family: Poppins;
+    font-size: 2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .Please-visit-our-Pen {
+    opacity: 0.96;
+    font-family: Poppins;
+    font-size: 1.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.06px;
+    color: #333333;
+    width: 60%;
+    margin-bottom: 2rem;
+  }
+
+ .SecondRow .FAQBtn {
+    width: 66%;
+    height: 5rem;
+    border-radius: 4px;
+    border: solid 2px #e60000;
+    color: #e60000;
+  }
+
+  .SecondRow .FAQHelpBtn{
+    width: 66%;
+    height: 5rem;
+    border-radius: 4px;
+    border: solid 2px #333333;
+    color: #333333;   
+  }
+
+  .Go-to-medical-provid {
+    font-family: Poppins;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.06px;
+    color: #e60000;
+  }
+
+  .Download-Metlife-App {
+    font-family: inherit;
+    font-size: 2.4rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    color: #333333;
+    margin-bottom: 1em;
+  }
+
+  .policyImg{
+    display: flex;
+  }
+
+  .VOIS-pension-policy {
+    font-family: Poppins;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.06px;
+    color: #e60000;
+    margin: 0;
+    padding-left: 0.5rem;
+  }
