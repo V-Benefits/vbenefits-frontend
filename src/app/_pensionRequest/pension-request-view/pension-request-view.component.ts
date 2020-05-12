@@ -21,6 +21,7 @@ export class PensionRequestViewComponent implements OnInit {
   disableBtn: boolean = false;
   isEligibleFlag: boolean = true;
   isUserSubmitRequest: boolean = true;
+  isEnrolled: boolean = true;
 
   currentDate: Date = new Date();
   firstRoundStartDate: Date = new Date("2020-02-18T00:00:00");
@@ -117,21 +118,34 @@ export class PensionRequestViewComponent implements OnInit {
   }
 
   getPensionDetails() {
+    debugger
     this.userStaffId = +localStorage.getItem('StaffId');
     this.service.get('PensionRequest', this.userStaffId).subscribe(res => {
 
       this.pensionRequestModel = res;
       console.log(this.pensionRequestModel, "******PensionRequest***************************");
       this.isUserEligible(this.pensionRequestModel);
+      this.isUserEnrolled(this.pensionRequestModel);
     })
   }
 
   isUserEligible(pensionModel: CreatePensionRequestModel) {
+    debugger
     if (pensionModel.isEligible)
       this.isEligibleFlag = true;
     else {
       this.isEligibleFlag = false;
-      this.openSnackBar('Not available! Please check pension policy .');
+      //this.openSnackBar('Not available! Please check pension policy .');
+    }
+  }
+
+  isUserEnrolled(pensionModel: CreatePensionRequestModel) {
+    debugger
+    if (pensionModel.isEnrolled)
+      this.isEnrolled = true;
+    else {
+      this.isEnrolled = false;
+      this.openSnackBar('You are not enrolled yet, you will be enrolled in Z Months');
     }
   }
 

@@ -12,13 +12,14 @@
                     completion of 2 years of continous employment.
                 </p>
 
-                <button mat-button class="pensionBtn" (click)="openDialog()" [disabled]="disableBtn || !isEligibleFlag || isUserSubmitRequest">Request
+                <button mat-button class="pensionBtn" (click)="openDialog()"
+                    [disabled]="disableBtn || !isEligibleFlag || isUserSubmitRequest || !isEnrolled">Request
                     Pension</button>
             </div>
         </div>
 
         <br />
-        <hr style="width: 80%;" class="new4" />
+        <hr class="new4" />
         <br />
 
         <div class="row SecondRow" flex fxLayout='row wrap' fxLayout.lt-sm="column">
@@ -29,16 +30,19 @@
 
                 <h4 class="Pension-Round">Round Dates</h4>
 
-                <div *ngFor= "let round of rounds">
+                <div *ngFor="let round of rounds">
                     <p class="First-Round"> {{round.roundName}}</p>
                     <div flex fxLayout='row wrap' fxLayout.lt-sm="row">
-                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Starts-on">Starts on</p>
-                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date"> {{round.startDate  | date: "mediumDate" }}</p>
+                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Starts-on">Starts on
+                        </p>
+                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date">
+                            {{round.startDate  | date: "mediumDate" }}</p>
                     </div>
-                    
+
                     <div flex fxLayout='row wrap' fxLayout.lt-sm="row">
                         <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Starts-on">Ends on</p>
-                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date"> {{round.endDate  | date: "mediumDate" }}</p>
+                        <p fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.lg="40%" class="Date">
+                            {{round.endDate  | date: "mediumDate" }}</p>
                     </div>
                 </div>
 
