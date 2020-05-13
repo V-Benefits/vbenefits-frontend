@@ -16,7 +16,11 @@ import { CreatePensionRequestModel } from '../models/pensionModel';
 
 export class PensionRequestViewComponent implements OnInit {
   userStaffId: number;
+  numberOfYearsToEnroll: number;
+  numberOfMonthsToEnroll: number;
+
   rounds: RoundModel[] = [];
+  pensionRequestModel: CreatePensionRequestModel;
 
   disableBtn: boolean = false;
   isEligibleFlag: boolean = true;
@@ -24,15 +28,11 @@ export class PensionRequestViewComponent implements OnInit {
   isEnrolled: boolean = true;
 
   currentDate: Date = new Date();
-  firstRoundStartDate: Date = new Date("2020-02-18T00:00:00");
-  firstRoundEndDate: Date = new Date("2020-02-25T00:00:00");
-
-  secondRoundStartDate: Date = new Date("2020-11-18T00:00:00");
   secondRoundEndDate: Date = new Date("2020-11-25T00:00:00");
+  firstRoundEndDate: Date = new Date("2020-02-25T00:00:00");
+  firstRoundStartDate: Date = new Date("2020-02-18T00:00:00");
+  secondRoundStartDate: Date = new Date("2020-11-18T00:00:00");
 
-  pensionRequestModel: CreatePensionRequestModel;
-
-  // pensionRequestModel: PensionRequestModel;
   constructor(private service: publicService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar) { }
@@ -69,17 +69,10 @@ export class PensionRequestViewComponent implements OnInit {
     }
   }
 
-  // isEligible() {
-  //   if (this.isEligibleFlag == false) {
-  //     this.disableBtn = true;
-  //     this.openSnackBar('Not available! Please check pension policy .');
-  //   }
-  // }
-
   openSnackBar(message) {
     this._snackBar.openFromComponent(SnackBarComponent, {
       data: message,
-      duration: 8000,
+      duration: 10000,
       panelClass: ['snackbar'],
       verticalPosition: 'bottom',
       horizontalPosition: 'end',
@@ -118,10 +111,8 @@ export class PensionRequestViewComponent implements OnInit {
   }
 
   getPensionDetails() {
-    debugger
     this.userStaffId = +localStorage.getItem('StaffId');
     this.service.get('PensionRequest', this.userStaffId).subscribe(res => {
-
       this.pensionRequestModel = res;
       console.log(this.pensionRequestModel, "******PensionRequest***************************");
       this.isUserEligible(this.pensionRequestModel);
@@ -130,22 +121,23 @@ export class PensionRequestViewComponent implements OnInit {
   }
 
   isUserEligible(pensionModel: CreatePensionRequestModel) {
-    debugger
     if (pensionModel.isEligible)
       this.isEligibleFlag = true;
     else {
       this.isEligibleFlag = false;
-      //this.openSnackBar('Not available! Please check pension policy .');
+      this.openSnackBar('Not available! Please check pension policy .');
     }
   }
 
   isUserEnrolled(pensionModel: CreatePensionRequestModel) {
-    debugger
     if (pensionModel.isEnrolled)
       this.isEnrolled = true;
     else {
       this.isEnrolled = false;
-      this.openSnackBar('You are not enrolled yet, you will be enrolled in Z Months');
+      this.numberOfMonthsToEnroll = Math.floor(pensionModel.numberOfMonthsToEnroll);
+      this.numberOfYearsToEnroll = Math.floor(pensionModel.numberOfMonthsToEnroll / 12);
+
+      this.openSnackBar(`You are not enrolled yet, you will be enrolled in ${this.numberOfYearsToEnroll} Years and ${this.numberOfMonthsToEnroll} Months`);
     }
   }
 

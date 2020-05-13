@@ -16,4 +16,5 @@ export class CreatePensionRequestModel {
     rejectedOn: Date;
     isEligible: boolean;
     isEnrolled: boolean;
+    numberOfMonthsToEnroll: number
 }
