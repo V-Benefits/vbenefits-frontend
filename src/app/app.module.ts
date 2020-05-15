@@ -33,6 +33,8 @@ import { SnackBarComponent } from './shared/snack-bar/snack-bar.component';
 import { MedicalRequestViewComponent } from './_medicalRequest/medical-request-view/medical-request-view.component';
 import { MedicalRequestModalComponent } from './_medicalRequest/medical-request-view/medical-request-modal/medical-request-modal.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { Deactivation1Component } from './_medicalRequest/deactivation/deactivation1/deactivation1.component';
+import { Deactivation2Component } from './_medicalRequest/deactivation/deactivation2/deactivation2.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -54,6 +56,8 @@ const routes: Routes = [
     SnackBarComponent,
     MedicalRequestViewComponent,
     MedicalRequestModalComponent,
+    Deactivation1Component,
+    Deactivation2Component
   ],
   imports: [
     BrowserModule,

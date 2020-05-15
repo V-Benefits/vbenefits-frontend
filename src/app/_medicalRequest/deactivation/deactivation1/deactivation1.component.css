@@ -13,7 +13,7 @@
    width: 85%;
    height: 100%;
 }
-.Phone-Program {
+.Header {
     /* height: 30.7px; */
     font-family: Poppins;
     font-size: 25.6px;
@@ -38,7 +38,10 @@
     color: #666666;
     padding-top: 10px;
   }
-
+  .close {
+    text-align: end;
+   }
+ 
   .RequestForTXT {
     font-family: Poppins;
     font-size: 14px;

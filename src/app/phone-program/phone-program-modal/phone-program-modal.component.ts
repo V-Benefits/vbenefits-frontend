@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class PhoneProgramModalComponent implements OnInit {
   PhoneProgramRequestModel: PhoneProgramRequestModel = new PhoneProgramRequestModel();
-  requestsList: string[] = ['Handset'];
+   requestsList: string[] = ['Handset'];
 
   constructor(public dialogRef: MatDialogRef<PhoneProgramModalComponent>,
     private matDialog: MatDialog,
@@ -24,7 +24,6 @@ export class PhoneProgramModalComponent implements OnInit {
 
   cancelButton() {
     this.dialogRef.close();
-
   }
   submitButton() {
     this.requestPhoneProgram();
