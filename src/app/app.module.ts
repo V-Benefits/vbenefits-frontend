@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './_home/home-view/home.component';
 import { Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -20,17 +20,19 @@ import { PhoneProgramComponent } from './phone-program/phone-program-request/pho
 import { MatButtonModule } from '@angular/material/button';
 import { ManageRequestsDialogComponent } from './_manageRequests/manage-requests-dialog/manage-requests-dialog.component';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { ProfileInformationDialogComponent } from './_profileInformation/profile-information-dialog/profile-information-dialog.component';
-import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SuccessDialogComponent } from './shared/success-dialog/success-dialog.component';
 import { PhoneProgramModalComponent } from './phone-program/phone-program-modal/phone-program-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PensionRequestViewComponent } from './_pensionRequest/pension-request-view/pension-request-view.component';
 import { PensionRequestModalComponent } from './_pensionRequest/pension-request-modal/pension-request-modal.component';
-import {MatSnackBarModule} from '@angular/material';
+import { MatSnackBarModule } from '@angular/material';
 import { SnackBarComponent } from './shared/snack-bar/snack-bar.component';
 import { MedicalRequestViewComponent } from './_medicalRequest/medical-request-view/medical-request-view.component';
+import { MedicalRequestModalComponent } from './_medicalRequest/medical-request-view/medical-request-modal/medical-request-modal.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -51,6 +53,7 @@ const routes: Routes = [
     PensionRequestModalComponent,
     SnackBarComponent,
     MedicalRequestViewComponent,
+    MedicalRequestModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,11 +77,12 @@ const routes: Routes = [
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
   ],
   providers: [MatDatepickerModule,
     { provide: MAT_DIALOG_DATA, useValue: {} },
-   // { provide: MdDialogRef, useValue: {} }
+    // { provide: MdDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent]
 })

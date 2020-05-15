@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { MedicalRequestModalComponent } from './medical-request-modal/medical-request-modal.component';
 
 @Component({
   selector: 'app-medical-request-view',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicalRequestViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "450px";
+    // dialogConfig.data = this.pensionRequestModel;
+    this.dialog.open(MedicalRequestModalComponent, dialogConfig);
+  }
 }

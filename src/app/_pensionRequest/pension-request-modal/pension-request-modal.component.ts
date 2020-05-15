@@ -13,20 +13,20 @@ import { Router } from '@angular/router';
 export class PensionRequestModalComponent implements OnInit {
 
   CreatePensionRequestModel: CreatePensionRequestModel = new CreatePensionRequestModel();
-  disableBtn:boolean = false;
+  disableBtn: boolean = false;
 
   constructor(
-    public dialogRef: MatDialogRef<PhoneProgramModalComponent>,
+    public dialogRef: MatDialogRef<PensionRequestModalComponent>,
     private matDialog: MatDialog,
     private service: publicService,
     @Inject(MAT_DIALOG_DATA) data
   ) {
     this.CreatePensionRequestModel = data;
-      console.log(this.CreatePensionRequestModel,"&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+    console.log(this.CreatePensionRequestModel, "&&&&&&&&&&&&&&&&&&&&&&&&&&&");
   }
 
   ngOnInit(): void {
-   this.CreatePensionRequestModel.withdrawalAmmount=null;
+    this.CreatePensionRequestModel.withdrawalAmmount = null;
   }
 
   saveButton() {
@@ -34,49 +34,49 @@ export class PensionRequestModalComponent implements OnInit {
   }
 
   requestPension() {
-    if(+this.CreatePensionRequestModel.withdrawalAmmount > +this.CreatePensionRequestModel.maxWithdrawalAmount){
-      this.disableBtn =true;
+    if (+this.CreatePensionRequestModel.withdrawalAmmount > +this.CreatePensionRequestModel.maxWithdrawalAmount) {
+      this.disableBtn = true;
     }
-    else{
+    else {
       this.disableBtn = false;
-      this.CreatePensionRequestModel.withdrawalAmmount =+ this.CreatePensionRequestModel.withdrawalAmmount;
-      console.log(this.CreatePensionRequestModel,"^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-  
+      this.CreatePensionRequestModel.withdrawalAmmount = + this.CreatePensionRequestModel.withdrawalAmmount;
+      console.log(this.CreatePensionRequestModel, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+
       this.service.post(this.CreatePensionRequestModel, 'PensionRequest').subscribe(
         res => {
           console.log(res);
-         this.openSuccessDialog();
-         localStorage.setItem('IsUserEligible','true');
-         console.log( localStorage.getItem('IsUserEligible'),"local storage --------------");        
+          this.openSuccessDialog();
+          localStorage.setItem('IsUserEligible', 'true');
+          console.log(localStorage.getItem('IsUserEligible'), "local storage --------------");
         },
         error => {
           console.log(error);
         }
       );
     }
-    
+
 
   }
 
   closeDialog() {
     this.dialogRef.close();
   }
-  
-  openSuccessDialog(){
+
+  openSuccessDialog() {
     this.dialogRef.close();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
     this.matDialog.open(SuccessDialogComponent, dialogConfig);
-    window.location.reload();
+    //  window.location.reload();
   }
 
-  checkMaxWithdrawalAmmount($event){
-    console.log(+$event.target.value,"##################event #####################",
-    +this.CreatePensionRequestModel.maxWithdrawalAmount);
-    if(+ $event.target.value > +this.CreatePensionRequestModel.maxWithdrawalAmount){
-      this.disableBtn =true;
+  checkMaxWithdrawalAmmount($event) {
+    console.log(+$event.target.value, "##################event #####################",
+      +this.CreatePensionRequestModel.maxWithdrawalAmount);
+    if (+ $event.target.value > +this.CreatePensionRequestModel.maxWithdrawalAmount) {
+      this.disableBtn = true;
     }
-    else{
+    else {
       this.disableBtn = false;
     }
   }

@@ -1,0 +1,162 @@
+  .close {
+    text-align: end;
+   }
+
+   .medical {
+    font-family: Poppins;
+    font-size: 2.7em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .To-use-your-benefits {
+    opacity: 0.96;
+    font-family: Poppins;
+    font-size: 1.3rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: -0.05px;
+    color: #666666;
+  }
+
+  hr.new4 {
+    border: 1px solid #f4f4f4;
+    width: 100%;
+  }
+
+  .mat-dialog-title {
+    margin: 0px 0 5px;
+  }
+
+  .Staff-ID {
+    font-family: Poppins;
+    font-size: 1.4em;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.09px;
+    color: #666666;
+    line-height: 3rem;
+    opacity: 0.8;
+  }
+
+  .mat-form-field {
+    width: 96%;
+  }
+
+  .example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #333333;
+  }
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color:#e60000;
+}
+ .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #e60000;
+}
+
+.save {
+    width: 31%;
+    height: 37px;
+    border-radius: 3.6px;
+    background-color: #e60000;
+    font-family: Poppins;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .cancel{
+    width: 31%;
+    height: 37px;
+    border-radius: 3.6px;
+    background-color: #333333;
+    font-family: Poppins;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .Attach-Requied-Docum {
+    font-family: Poppins;
+    font-size: 2.1em;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.99;
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .The-image-has-to-be {
+    font-family: Poppins;
+    font-size: 1.4rem;
+    width: 85%;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.09px;
+    color: #666666;
+    margin-bottom: 1em;
+  }
+
+  .Rectangle-Copy {
+    width: 1rem;
+    color:  #e60000;
+    font-size: 3rem;
+    font-weight: 300;
+    border-radius: 2.4px;
+    background-color: rgba(230, 0, 0, 0.1);
+  }
+
+  .imageCls{
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .Jpg {
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #333333;
+  }
+
+.deleteIcon{
+    color: #e60000;
+  }

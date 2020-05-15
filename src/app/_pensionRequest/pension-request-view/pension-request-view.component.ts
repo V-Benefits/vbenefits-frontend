@@ -58,16 +58,16 @@ export class PensionRequestViewComponent implements OnInit {
     this.dialog.open(PensionRequestModalComponent, dialogConfig);
   }
 
-  compareDates() {
-    if ((this.firstRoundStartDate <= this.currentDate && this.currentDate <= this.firstRoundEndDate) ||
-      (this.secondRoundStartDate <= this.currentDate && this.currentDate <= this.secondRoundEndDate)) {
-      this.disableBtn = false;
-    }
-    else {
-      this.disableBtn = true;
-      this.openSnackBar('Not available! Please check pension round dates .');
-    }
-  }
+  // compareDates() {
+  //   if ((this.firstRoundStartDate <= this.currentDate && this.currentDate <= this.firstRoundEndDate) ||
+  //     (this.secondRoundStartDate <= this.currentDate && this.currentDate <= this.secondRoundEndDate)) {
+  //     this.disableBtn = false;
+  //   }
+  //   else {
+  //     this.disableBtn = true;
+  //     this.openSnackBar('Not available! Please check pension round dates .');
+  //   }
+  // }
 
   openSnackBar(message) {
     this._snackBar.openFromComponent(SnackBarComponent, {
@@ -107,6 +107,8 @@ export class PensionRequestViewComponent implements OnInit {
       this.disableBtn = false;
     else {
       this.disableBtn = true;
+      this.openSnackBar('Not available! Please check pension round dates .');
+
     }
   }
 
