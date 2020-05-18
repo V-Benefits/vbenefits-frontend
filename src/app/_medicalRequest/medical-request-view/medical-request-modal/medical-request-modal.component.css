@@ -144,6 +144,7 @@
   .imageCls{
     width: 8rem;
     height: 8rem;
+    padding-right: 1rem;
   }
 
   .Jpg {
@@ -155,8 +156,36 @@
     line-height: normal;
     letter-spacing: -0.12px;
     color: #333333;
+    /* text-overflow property specifies how overflowed content that is not displayed should be
+     signaled to the use */
+    width: 12rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
 .deleteIcon{
     color: #e60000;
+    margin-left: 9.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .deleIcon{
+    color: #e60000;
+
+  }
+  .MFlxDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .MFlxImgDiv{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+  .MFlxDiv p{
+    margin: 0;
   }

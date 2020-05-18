@@ -13,9 +13,9 @@
         <mat-label class="Staff-ID">Request For</mat-label>
         <mat-form-field appearance="outline">
             <mat-label>Request For</mat-label>
-            <mat-select>
-                <mat-option>
-                    {{column}}
+            <mat-select (selectionChange)="onRequestSelection($event.value)">
+                <mat-option *ngFor="let request of requestForList" [value]="request">
+                    {{request}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -25,7 +25,8 @@
         <br>
 
         <mat-label class="Staff-ID">Card Type</mat-label>
-        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            (change)="onCardTypeSelection($event.value)">
             <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
                 {{season}}
             </mat-radio-button>
@@ -35,25 +36,32 @@
         <hr class="new4">
         <br>
 
-        <mat-label class="Attach-Requied-Docum">Attach Requied Documents</mat-label>
-        <p class="The-image-has-to-be">The image has to be 800x600 or 1200x900, and no larger that 10 MB.
-            <br> Supported formats are jpg and png files .</p>
+        <div *ngIf="displayUploadImage">
+            <mat-label class="Attach-Requied-Docum">Attach Requied Documents</mat-label>
+            <p class="The-image-has-to-be">The image has to be 800x600 or 1200x900, and no larger that 10 MB.
+                <br> Supported formats are jpg and png files .</p>
 
-        <mat-label class="Staff-ID">Personal Image </mat-label>
-        <br>
-        <button mat-button class="Rectangle-Copy" (click)="fileInput.click()" *ngIf="!imgURL">
-            <span>+</span>
-            <input #fileInput type="file" style="display:none;" accept='image/*' (change)="preview(fileInput.files)" />
-        </button>
-        <div class="imagePrviw" *ngIf="imgURL" flex fxLayout="row wrap" fxLayout.lt-sm="row"
-            fxLayoutAlign="flex-start center" fxLayoutGap="20px">
-            <img [src]="imgURL" class="imageCls">
-            <p class="Jpg"> {{imageName}}</p>
-            <!-- <button mat-button (click)="deleteImg()"> -->
-            <mat-icon class="deleteIcon" fxFlexAlign="flex-start">delete</mat-icon>
-            <!-- </button> -->
+            <mat-label class="Staff-ID">Personal Image </mat-label>
+            <br>
+            <button mat-button class="Rectangle-Copy" (click)="fileInput.click()" *ngIf="!imgURL">
+                <span>+</span>
+                <input #fileInput type="file" style="display:none;" accept='image/*'
+                    (change)="preview(fileInput.files)" />
+            </button>
+            <!-- <div class="imagePrviw" *ngIf="imgURL" flex fxLayout="row wrap" fxLayout.lt-sm="row" fxLayoutGap="20px"
+                fxLayoutAlign="flex-start center">
+                <img [src]="imgURL" class="imageCls">
+                <p class="Jpg"> {{imageName}}</p>
+                <mat-icon class="deleteIcon" (click)="deleteImg()">delete</mat-icon>
+            </div> -->
+            <div class="imagePrviw MFlxDiv" *ngIf="imgURL">
+                <div class="MFlxImgDiv">
+                    <img [src]="imgURL" class="imageCls">
+                    <p class="Jpg"> {{imageName}}</p>
+                </div>
+                <mat-icon class="deleIcon" (click)="deleteImg()">delete</mat-icon>
+            </div>
         </div>
-
 
         <br>
         <br>

@@ -35,6 +35,7 @@ import { MedicalRequestModalComponent } from './_medicalRequest/medical-request-
 import { MatRadioModule } from '@angular/material/radio';
 import { Deactivation1Component } from './_medicalRequest/deactivation/deactivation1/deactivation1.component';
 import { Deactivation2Component } from './_medicalRequest/deactivation/deactivation2/deactivation2.component';
+import { UploadExcelSheetComponent } from './_admin/upload-excel-sheet/upload-excel-sheet.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -57,7 +58,8 @@ const routes: Routes = [
     MedicalRequestViewComponent,
     MedicalRequestModalComponent,
     Deactivation1Component,
-    Deactivation2Component
+    Deactivation2Component,
+    UploadExcelSheetComponent
   ],
   imports: [
     BrowserModule,

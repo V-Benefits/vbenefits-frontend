@@ -12,10 +12,12 @@ import { SuccessDialogComponent } from 'src/app/shared/success-dialog/success-di
 })
 export class MedicalRequestModalComponent implements OnInit {
   seasons: string[] = ['New card', 'Replacement for lost one'];
-  public imagePath;
+  requestForList: string[] = ['Myself', 'Children'];
+  public imagePath: File;
   imgURL: any;
   message: string;
   imageName: string;
+  displayUploadImage: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<MedicalRequestModalComponent>,
     private matDialog: MatDialog,
@@ -24,13 +26,25 @@ export class MedicalRequestModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onRequestSelection(value) {
+    if (value == "Myself")
+      this.displayUploadImage = true;
+    else
+      this.displayUploadImage = false;
+  }
+
+  onCardTypeSelection(value) {
+
+  }
 
   preview(files) {
-    debugger
+    console.log(files.type, "&&&&&&&&&&&&&&");
+
     if (files.length === 0)
       return;
 
     var mimeType = files[0].type;
+    var mimeSize = files[0].size;
     if (mimeType.match(/image\/*/) == null) {
       this.message = "Only images are supported.";
       return;
@@ -45,8 +59,13 @@ export class MedicalRequestModalComponent implements OnInit {
     }
   }
 
-  saveButton() {
+  deleteImg() {
+    this.imgURL = '';
+    this.imagePath = null;
+    console.log(this.imagePath, "&&&&&&&&&&&&&&");
+  }
 
+  saveButton() {
     this.openSuccessDialog()
   }
 

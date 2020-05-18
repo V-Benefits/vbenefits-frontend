@@ -1,0 +1,14 @@
+<button class="uploadBtn">upload excel
+    <input type="file" (change)="onFileChange($event)" accept=".xlsx" />
+
+</button>
+
+
+<!-- <div style="margin-bottom: .5%;">
+    <input formControlName="files" type="file" (change)="fileChangeEvent($event.target.files)" class="form-control-file"
+        multiple accept=".xlsx" [ngClass]="{ 'is-invalid': submitted && uploadForm.controls['files'].errors }" />
+    <div *ngIf="submitted && uploadForm.controls['files'].errors" class="invalid-feedback">
+        <div *ngIf="uploadForm.controls['files'].errors.required">Files are required</div>
+    </div>
+    <br />
+</div> -->
