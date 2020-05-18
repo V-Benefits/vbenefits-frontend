@@ -18,6 +18,7 @@ export class MedicalRequestModalComponent implements OnInit {
   message: string;
   imageName: string;
   displayUploadImage: boolean = false;
+  maxImageSize: number = 5550;
 
   constructor(public dialogRef: MatDialogRef<MedicalRequestModalComponent>,
     private matDialog: MatDialog,
@@ -39,7 +40,7 @@ export class MedicalRequestModalComponent implements OnInit {
 
   preview(files) {
     console.log(files.type, "&&&&&&&&&&&&&&");
-
+    debugger
     if (files.length === 0)
       return;
 
@@ -47,6 +48,11 @@ export class MedicalRequestModalComponent implements OnInit {
     var mimeSize = files[0].size;
     if (mimeType.match(/image\/*/) == null) {
       this.message = "Only images are supported.";
+      return;
+    }
+
+    if (mimeSize > this.maxImageSize) {
+      this.message = `Max Image Size should be ${this.maxImageSize}`;
       return;
     }
 
