@@ -60,6 +60,13 @@
                     <p class="Jpg"> {{imageName}}</p>
                 </div>
                 <mat-icon class="deleIcon" (click)="deleteImg()">delete</mat-icon>
+
+            </div>
+            <br><br>
+            <div class="Please-enter-an-amou" *ngIf="displayErrorMsg">
+                <div>
+                    {{message}}
+                </div>
             </div>
         </div>
 
