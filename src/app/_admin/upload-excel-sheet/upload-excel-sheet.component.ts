@@ -19,18 +19,27 @@ export class UploadExcelSheetComponent implements OnInit {
   }
 
   onFileChange(ev) {
-    debugger;
     let workBook = null;
     let jsonData = null;
     const reader = new FileReader();
     const file = ev.target.files[0];
     reader.onload = (event) => {
-      debugger
       const data = reader.result;
       workBook = XLSX.read(data, { type: 'binary' });
       jsonData = workBook.SheetNames.reduce((initial, name) => {
         const sheet = workBook.Sheets[name];
+        console.log(initial, "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
+
         initial[name] = XLSX.utils.sheet_to_json(sheet);
+        console.log(initial[name], "PPPPPPPPPPPPP  initial of name  yyyyyyyyyyyyyyyy");
+
+        initial[name].forEach(element => {
+          Object.keys(element).forEach(key => {
+            key = key.replace(/[^A-Z0-9]/ig, '');
+          })
+        });
+        console.log(initial, "initial fileeeeeeeeeeeeeeeeeee");
+
         // this.publicService.post(initial, 'account', 'bulkRegister').subscribe(res => {
         //   this._snackBar.openFromComponent(SnackBarComponent, {
         //     data: 'Data inserted successfully',
@@ -39,7 +48,6 @@ export class UploadExcelSheetComponent implements OnInit {
         //   });
         //   console.log('resonse of api ', res);
         // })
-        console.log(initial);
         return initial;
       }, {});
     }
