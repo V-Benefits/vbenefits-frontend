@@ -24,7 +24,7 @@ export class PensionRequestViewComponent implements OnInit {
 
   disableBtn: boolean = false;
   isEligibleFlag: boolean = true;
-  isUserSubmitRequest: boolean = true;
+  isUserSubmitRequest: boolean = false;
   isEnrolled: boolean = true;
 
   currentDate: Date = new Date();
@@ -40,7 +40,7 @@ export class PensionRequestViewComponent implements OnInit {
   ngOnInit(): void {
     this.getAllRounds();
     this.getPensionDetails();
-    this.checkIfUserSubmittedRequest();
+    //this.checkIfUserSubmittedRequest();
   }
 
   getAllRounds() {
