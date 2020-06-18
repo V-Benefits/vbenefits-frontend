@@ -4,6 +4,10 @@ import { publicService } from 'src/app/core/publicService.service';
 import { ViewEncapsulation } from '@angular/compiler/src/compiler_facade_interface';
 import { SuccessDialogComponent } from 'src/app/shared/success-dialog/success-dialog.component';
 import { ImageModel } from '../../models/imageModel';
+import { MedicalRequestForEmployeeModel } from '../../models/medicalRequestForEmployeeModel';
+import { MedicalRequestForSpouseModel } from '../../models/medicalRequestForSpouseModel';
+import { MedicalRequestForChildModel } from '../../models/medicalRequestForChildModel';
+
 @Component({
   selector: 'app-medical-request-modal',
   templateUrl: './medical-request-modal.component.html',
@@ -11,62 +15,57 @@ import { ImageModel } from '../../models/imageModel';
   encapsulation: ViewEncapsulation.None
 })
 export class MedicalRequestModalComponent implements OnInit {
-  seasons: string[] = ['New card', 'Replacement for lost one'];
+  cardTypeList: string[] = ['New card', 'Replacement for lost one'];
   requestForList: string[] = ['Myself', 'Children', 'Spouse'];
-  public imagePath: File;
-  imgURL: any;
-  message: string;
-  imageName: string;
-  marriageCertificateImageURL: any;
-  marriageCertificateImage: ImageModel = new ImageModel();
-  personalImage: ImageModel = new ImageModel();
-
-  displayUploadImage: boolean = false;
   requestFor: string = "";
   cardType: string = "";
 
+  marriageCertificateImage: ImageModel = new ImageModel();
+  personalImage: ImageModel = new ImageModel();
   maxImageSize: number = 55500;      // to be changed 
+  Errormessage: string;
+
+  medicalRequestForEmployeeModel: MedicalRequestForEmployeeModel = new MedicalRequestForEmployeeModel();
+  medicalRequestForSpouseModel: MedicalRequestForSpouseModel = new MedicalRequestForSpouseModel();
+  medicalRequestForChildModelArray: MedicalRequestForChildModel[];
+  childrenCount = 1;
+  array = Array;
+
+  // imageName: string;
+  // public imagePath: File;
+  // displayUploadImage: boolean = false;
+  // imgURL: any;
+
 
   constructor(public dialogRef: MatDialogRef<MedicalRequestModalComponent>,
     private matDialog: MatDialog,
     private service: publicService) { }
 
   ngOnInit(): void {
+    // set the staffid in objects to the loggedin user staffId
+    this.medicalRequestForChildModelArray = [];
   }
 
+  test() {
+    debugger;
+    var x = this.childrenCount;
+  }
   onRequestSelection(value) {
     this.requestFor = value;
   }
 
-  // onCardTypeSelection(value) {
-  //   debugger;
-  //   this.cardType = value;
-
-  // }
-
-
   preview(files, imageType) {
 
-    console.log(files.type, "&&&&&&&&&&&&&&");
-    debugger;
     if (files.length === 0)
       return;
 
-    var mimeType = files[0].type;
-    var mimeSize = files[0].size;
-    if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
-      return;
-    }
+    // var mimeSize = files[0].size;
+    // if (mimeSize > this.maxImageSize) {
+    //   this.Errormessage = `Max Image Size should be ${this.maxImageSize}`;
+    //   return;
+    // }
 
-    if (mimeSize > this.maxImageSize) {
-      this.message = `Max Image Size should be ${this.maxImageSize}`;
-      return;
-    }
-
-    //this.imageName = files[0].name;
     var reader = new FileReader();
-    this.imagePath = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       if (imageType == "Personal") {
@@ -90,11 +89,35 @@ export class MedicalRequestModalComponent implements OnInit {
       this.personalImage.name = '';
       this.personalImage.url = '';
     }
-    console.log(this.imagePath, "&&&&&&&&&&&&&&");
+    // console.log(this.imagePath, "&&&&&&&&&&&&&&");
   }
 
   saveButton() {
-    this.openSuccessDialog()
+    debugger;
+    if (this.requestFor == "Myself" && this.cardType == "New card") {
+      this.medicalRequestForEmployeeModel.personalImage = this.personalImage.url;
+      this.service.post(this.medicalRequestForEmployeeModel, 'MedicalRequest', 'AddMedicalCardRequestForEmployee').subscribe(
+        res => {
+          console.log(res);
+          this.openSuccessDialog();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+    else if (this.requestFor == "Spouse" && this.cardType == "New card") {
+
+      this.service.post(this.medicalRequestForSpouseModel, 'MedicalRequest', 'AddMedicalCardRequestForSpouse').subscribe(
+        res => {
+          console.log(res);
+          this.openSuccessDialog();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   closeDialog() {
@@ -107,4 +130,5 @@ export class MedicalRequestModalComponent implements OnInit {
     dialogConfig.data = { header: "Submitted Request", paragraph: "Your request is submitted successfully.You can track your request from track section" };
     this.matDialog.open(SuccessDialogComponent, dialogConfig);
   }
+
 }

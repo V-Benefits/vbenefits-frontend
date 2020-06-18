@@ -26,8 +26,8 @@
 
         <mat-label class="Staff-ID">Card Type</mat-label>
         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="cardType">
-            <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-                {{season}}
+            <mat-radio-button class="example-radio-button" *ngFor="let cardType of cardTypeList" [value]="cardType">
+                {{cardType}}
             </mat-radio-button>
         </mat-radio-group>
 
@@ -37,10 +37,25 @@
 
         <div>
 
+            <!-- spouse first name textbox -->
             <mat-label class="Staff-ID" *ngIf="requestFor == 'Spouse' && cardType!=''">First Name</mat-label>
             <mat-form-field appearance="outline" *ngIf="requestFor == 'Spouse' && cardType!=''">
                 <input matInput>
             </mat-form-field>
+
+            <!-- children count textbox -->
+            <mat-label class="Staff-ID" *ngIf="requestFor == 'Children' && cardType!=''">Number of Children</mat-label>
+            <mat-form-field appearance="outline" *ngIf="requestFor == 'Children' && cardType!=''">
+                <input matInput [(ngModel)]="childrenCount" (ngModelChange)="test()">
+            </mat-form-field>
+
+            <!-- children names textbox-->
+            <div *ngFor="let item of array(childrenCount).fill(0); index as i">
+                hello
+                <!-- <mat-label class="Staff-ID" *ngIf="requestFor == 'Children' && cardType!=''">Child {{i+1}} :
+                </mat-label> -->
+            </div>
+
 
             <div *ngIf="requestFor != '' && cardType!=''">
                 <mat-label class="Attach-Requied-Docum">
