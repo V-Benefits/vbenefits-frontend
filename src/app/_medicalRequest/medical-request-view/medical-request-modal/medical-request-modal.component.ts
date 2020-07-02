@@ -22,20 +22,21 @@ export class MedicalRequestModalComponent implements OnInit {
 
   marriageCertificateImage: ImageModel = new ImageModel();
   personalImage: ImageModel = new ImageModel();
+  childPersonalImage: ImageModel = new ImageModel();
+  childBirthCertificate: ImageModel = new ImageModel();
   maxImageSize: number = 55500;      // to be changed 
   Errormessage: string;
 
+
   medicalRequestForEmployeeModel: MedicalRequestForEmployeeModel = new MedicalRequestForEmployeeModel();
   medicalRequestForSpouseModel: MedicalRequestForSpouseModel = new MedicalRequestForSpouseModel();
-  medicalRequestForChildModelArray: MedicalRequestForChildModel[];
+  // medicalRequestForChildModelArray: MedicalRequestForChildModel[];
+  childArray: MedicalRequestForChildModel[];
   childrenCount = 1;
   array = Array;
 
-  // imageName: string;
-  // public imagePath: File;
-  // displayUploadImage: boolean = false;
-  // imgURL: any;
-
+  BirthCertificates: ImageModel[] = [];
+  childImages: ImageModel[] = [];
 
   constructor(public dialogRef: MatDialogRef<MedicalRequestModalComponent>,
     private matDialog: MatDialog,
@@ -43,19 +44,102 @@ export class MedicalRequestModalComponent implements OnInit {
 
   ngOnInit(): void {
     // set the staffid in objects to the loggedin user staffId
-    this.medicalRequestForChildModelArray = [];
+    // this.medicalRequestForChildModelArray = [];
+    this.childArray = [];
+    this.BirthCertificates = []
   }
 
-  test() {
-    debugger;
-    var x = this.childrenCount;
-  }
   onRequestSelection(value) {
     this.requestFor = value;
   }
 
-  preview(files, imageType) {
+  previewChildImages(files, i, type) {
+    let imageModelChild = new ImageModel();
+    if (files.length === 0)
+      return;
 
+    // var mimeType = files[0].type;
+    // if (mimeType.match(/image\/*/) == null) {
+    //   this.Errormessage = "Only images are supported.";
+    //   return;
+    // }
+    // var mimeSize = files[0].size;
+    // if (mimeSize > this.maxImageSize) {
+    //   this.Errormessage = `Max Image Size should be ${this.maxImageSize}`;
+    //   return;
+    // }
+
+    var reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      imageModelChild.url = reader.result;
+      imageModelChild.name = files[0].name
+      if (type == "birthCertificate")
+        this.BirthCertificates[i] = imageModelChild;
+      else
+        this.childImages[i] = imageModelChild;
+    }
+  }
+  // previewChildImages(files, i) {
+  //   let imageModelChild = new ImageModel();
+  //   if (files.length === 0)
+  //     return;
+
+  //   // var mimeType = files[0].type;
+  //   // if (mimeType.match(/image\/*/) == null) {
+  //   //   this.Errormessage = "Only images are supported.";
+  //   //   return;
+  //   // }
+  //   // var mimeSize = files[0].size;
+  //   // if (mimeSize > this.maxImageSize) {
+  //   //   this.Errormessage = `Max Image Size should be ${this.maxImageSize}`;
+  //   //   return;
+  //   // }
+
+  //   var reader = new FileReader();
+  //   reader.readAsDataURL(files[0]);
+  //   reader.onload = (_event) => {
+
+
+  //     imageModelChild.url = reader.result;
+  //     imageModelChild.name = files[0].name
+  //     this.BirthCertificates[i] = imageModelChild;
+  //   }
+  //   console.log(this.BirthCertificates, "&&&&&&&&&&&");
+  // }
+
+  deleteChildImg(imageName, i) {
+    this.childArray[i] = null;
+    imageName == "Certificate" ? this.BirthCertificates[i] = null : this.childImages[i] = null;
+    //  imageName == "Certificate" ? this.childBirthCertificate = new ImageModel() : this.childPersonalImage = new ImageModel()
+  }
+
+  dataChanged(event, i, type) {
+    if (type === 'childImage')
+      this.childArray[i] = Object.assign(this.childArray[i] || {}, { childImage: event })
+    if (type === 'birthCertificate')
+      this.childArray[i] = Object.assign(this.childArray[i] || {}, { birthCertificate: event })
+    if (type === 'childName')
+      this.childArray[i] = Object.assign(this.childArray[i] || {}, { childName: event })
+    console.log(this.childArray, "***********************");
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  preview(files, imageType) {
+    debugger
     if (files.length === 0)
       return;
 
@@ -76,6 +160,10 @@ export class MedicalRequestModalComponent implements OnInit {
         this.marriageCertificateImage.url = reader.result;
         this.marriageCertificateImage.name = files[0].name;
       }
+      else if (imageType == "Children") {
+        this.childPersonalImage.url = reader.result;
+        this.childPersonalImage.name = files[0].name;
+      }
     }
   }
 
@@ -88,6 +176,11 @@ export class MedicalRequestModalComponent implements OnInit {
     else if (imageType == "Personal") {
       this.personalImage.name = '';
       this.personalImage.url = '';
+    }
+
+    else if (imageType == "Children") {
+      this.childPersonalImage.name = '';
+      this.childPersonalImage.url = '';
     }
     // console.log(this.imagePath, "&&&&&&&&&&&&&&");
   }
