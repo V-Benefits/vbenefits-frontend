@@ -1,9 +1,9 @@
 .uploadBtn{
 
-        width: 1rem;
-        color:  #e60000;
+        /* width: 1rem; */
+        /* color:  #e60000; */
         font-size: 3rem;
         font-weight: 300;
-        border-radius: 2.4px;
+        /* border-radius: 2.4px; */
         background-color: rgba(230, 0, 0, 0.1);
 }

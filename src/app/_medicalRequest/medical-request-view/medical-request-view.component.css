@@ -32,7 +32,7 @@
   }
 
   .Vodafone-contributes {
-    width: 80%;
+    /* width: 80%; */
     opacity: 0.96;
     font-family: Poppins;
     font-size: 1.8rem;
@@ -84,7 +84,7 @@
 
   .The-pension-round-gi {
     opacity: 0.96;
-    width: 62%;
+    /* width: 62%; */
     font-family: Poppins;
     font-size: 1.8rem;
     font-weight: normal;

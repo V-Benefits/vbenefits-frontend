@@ -36,24 +36,21 @@
         <br>
 
         <div>
-
             <!-- spouse first name textbox -->
             <mat-label class="Staff-ID" *ngIf="requestFor == 'Spouse' && cardType!=''">First Name</mat-label>
             <mat-form-field appearance="outline" *ngIf="requestFor == 'Spouse' && cardType!=''">
-                <input matInput>
+                <input matInput [(ngModel)]="spouseName">
             </mat-form-field>
 
             <!-- children count textbox -->
             <mat-label class="Staff-ID" *ngIf="requestFor == 'Children' && cardType!=''">Number of Children</mat-label>
             <mat-form-field appearance="outline" *ngIf="requestFor == 'Children' && cardType!=''">
-                <!-- <input [(ngModel)]="childrenCount" (ngModelChange)="test()"> -->
                 <input matInput type="number" [(ngModel)]="childrenCount">
             </mat-form-field>
 
             <!-- children names textbox-->
             <div *ngIf="requestFor == 'Children' && cardType!=''">
                 <div *ngFor="let item of array(childrenCount); index as i">
-
                     <mat-label class="Staff-ID" *ngIf="requestFor == 'Children' && cardType!=''">Child {{i+1}} :
                     </mat-label>
                     <mat-form-field appearance="outline">
@@ -63,7 +60,7 @@
                 </div>
             </div>
 
-            <div *ngIf=" requestFor !='' && cardType!=''">
+            <div *ngIf="requestFor !='' && cardType!=''">
                 <mat-label class=" Attach-Requied-Docum">
                     Attach
                     Required Documents</mat-label>
@@ -87,7 +84,7 @@
                             <img [src]="childImages[i]?.url" class="imageCls">
                             <p class="Jpg"> {{childImages[i]?.name}}</p>
                         </div>
-                        <mat-icon class="deleIcon" (click)="deleteChildImg('Personal')">delete</mat-icon>
+                        <mat-icon class="deleIcon" (click)="deleteChildImg('Personal',i)">delete</mat-icon>
                     </div>
 
                     <p class="Staff-ID para">Birth Certificate</p>
@@ -109,19 +106,18 @@
                 </div>
             </div>
 
-            <mat-label *ngIf="requestFor == 'Myself' && cardType!=''" class="Staff-ID">Personal Image </mat-label>
-            <mat-label *ngIf="requestFor == 'Spouse' && cardType!=''" class="Staff-ID">Spouse Image </mat-label>
+            <mat-label *ngIf="requestFor !== 'Children' && cardType!=''" class="Staff-ID">{{labelTitle}} </mat-label>
 
             <br>
             <button mat-button class="Rectangle-Copy" (click)="fileInput.click()"
-                *ngIf="!personalImage.url && (requestFor == 'Myself' || requestFor == 'Spouse') && cardType =='New card'">
+                *ngIf="!personalImage?.url && (requestFor == 'Myself' || requestFor == 'Spouse') && cardType =='New card'">
                 <span>+</span>
                 <input #fileInput type="file" style="display:none;" accept='image/*'
                     (change)="preview(fileInput.files,'Personal')" />
             </button>
 
             <div class="imagePrviw MFlxDiv"
-                *ngIf="personalImage.url || (requestFor == 'Myself' || requestFor == 'Spouse') && cardType =='Replacement for lost one' ">
+                *ngIf="personalImage?.url  && (requestFor == 'Myself' || requestFor == 'Spouse') && cardType =='New card'">
                 <div class="MFlxImgDiv">
                     <img [src]="personalImage.url" class="imageCls">
                     <p class="Jpg"> {{personalImage.name}}</p>
@@ -134,14 +130,14 @@
 
         <br>
         <button mat-button class="Rectangle-Copy" (click)="fileInput.click()"
-            *ngIf="!marriageCertificateImage.url &&  requestFor == 'Spouse' && cardType =='New card'">
+            *ngIf="!marriageCertificateImage?.url &&  requestFor == 'Spouse' && cardType =='New card'">
             <span>+</span>
             <input #fileInput type="file" style="display:none;" accept='image/*'
                 (change)="preview(fileInput.files,'spouse')" />
         </button>
 
         <div class="imagePrviw MFlxDiv"
-            *ngIf="marriageCertificateImage.url || requestFor == 'Spouse' && cardType =='Replacement for lost one' ">
+            *ngIf="marriageCertificateImage?.url && requestFor == 'Spouse' && cardType =='New card'">
             <div class="MFlxImgDiv">
                 <img [src]="marriageCertificateImage.url" class="imageCls">
                 <p class="Jpg"> {{marriageCertificateImage.name}}</p>

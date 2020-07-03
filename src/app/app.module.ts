@@ -37,6 +37,8 @@ import { Deactivation1Component } from './_medicalRequest/deactivation/deactivat
 import { Deactivation2Component } from './_medicalRequest/deactivation/deactivation2/deactivation2.component';
 import { UploadExcelSheetComponent } from './_admin/upload-excel-sheet/upload-excel-sheet.component';
 import { NurseryRequestViewComponent } from './_nurseryRequest/nursery-request-view/nursery-request-view.component';
+import { AdminMainNavComponent } from './_admin/upload-excel-sheet/shared/admin-main-nav/admin-main-nav.component';
+import { PensionViewComponent } from './_admin/upload-excel-sheet/pension/pension-view/pension-view.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -61,7 +63,9 @@ const routes: Routes = [
     Deactivation1Component,
     Deactivation2Component,
     UploadExcelSheetComponent,
-    NurseryRequestViewComponent
+    NurseryRequestViewComponent,
+    AdminMainNavComponent,
+    PensionViewComponent
   ],
   imports: [
     BrowserModule,

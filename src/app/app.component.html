@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<app-main-nav></app-main-nav>
-
-<router-outlet></router-outlet>
+<app-main-nav *ngIf="!router.url?.includes('admin')"></app-main-nav>
+<app-admin-main-nav *ngIf="router.url?.includes('admin')"> </app-admin-main-nav>
+<!-- <srouter-outlet></router-outlet> -->

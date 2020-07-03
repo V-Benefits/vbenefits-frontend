@@ -1,4 +1,4 @@
 export class ImageModel {
-    name: string;
-    url: any;
+    name: string = '';
+    url: any = '';
 }
