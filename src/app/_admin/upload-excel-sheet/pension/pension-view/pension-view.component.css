@@ -10,6 +10,18 @@
         /* text-align: center; */
         margin: auto;
   }
+  
+  .table{
+      width: 100%;
+      background-color: white;    
+  }
+
+  .tableContainer{
+      width: 95%;
+      padding: 20px;
+      margin: auto;
+  }
+
   .requests-pension-r {
       color:  #666666;
 
@@ -80,4 +92,96 @@
             border-radius: 4px;
             background: linear-gradient(180deg, #61DDB3 0%, #32B97C 100%);
             box-shadow: 0 2px 3px 0 rgba(0,0,0,0.02);
+    }
+
+    /* table styles */
+
+    .all-pension-requests {
+      margin: 0;
+      color: #333333;
+      font-family: 'Poppins';
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 25px;
+    }
+
+    .searchCls{
+          width: 50%;
+    }
+    .bg {
+      box-sizing: border-box;
+      height: 38px;
+      width: 133px;
+      border: 1px solid #333333;
+      border-radius: 4px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins';
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 13px;
+    }
+
+    .reject{
+      border: 1px solid #E60000;
+      color: #E60000;
+      
+    }
+    .export{
+      border: 1px solid #333333;
+      color: #333333;
+    }
+    .verticalIcon{
+          font-size: 18px;
+          vertical-align: sub;
+    }
+
+
+    /* table style */
+
+    table {
+      width: 100%;
+    }
+
+    th{
+      text-transform: uppercase;
+    }
+
+    .circle{
+      border: solid 1px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .green{
+      background-color:#03c990;
+    }
+    .deep-red{
+      background-color:#bd0000;
+    }
+    .greenText{
+      color:#03c990;
+    }
+    .deep-red-text{
+     color:#bd0000;
+    }
+
+    .threeDots{
+          color: #666666;
+    }
+
+    thead{
+      color: #666666;
+      font-family: 'Poppins';
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      line-height: 16px;
     }

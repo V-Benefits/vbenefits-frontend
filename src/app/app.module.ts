@@ -39,7 +39,8 @@ import { UploadExcelSheetComponent } from './_admin/upload-excel-sheet/upload-ex
 import { NurseryRequestViewComponent } from './_nurseryRequest/nursery-request-view/nursery-request-view.component';
 import { AdminMainNavComponent } from './_admin/upload-excel-sheet/shared/admin-main-nav/admin-main-nav.component';
 import { PensionViewComponent } from './_admin/upload-excel-sheet/pension/pension-view/pension-view.component';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -90,7 +91,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [MatDatepickerModule,
     { provide: MAT_DIALOG_DATA, useValue: {} },

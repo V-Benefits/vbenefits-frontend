@@ -47,12 +47,132 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+    </div>
+    <!-- Requests Table -->
+    <div class="table">
+        <div class="cardsContainer">
+            <div flex fxLayout="column" fxLayoutGap="20px">
+                <div>
+                    <h6 class="all-pension-requests">All Pension Requests</h6>
+                </div>
+                <div class="row" fxLayoutAlign="space-between center">
+                    <div fxFlex="60%">
+                        <mat-form-field appearance="outline" class="no-line searchCls">
+                            <mat-icon matPrefix>search</mat-icon>
+                            <mat-label>Search</mat-label>
+                            <!-- (keyup)="applyFilter($event.target.value)" -->
+                            <input matInput placeholder=" Search by Request ID, Name, Employee ID">
+                        </mat-form-field>
+                    </div>
+
+                    <!-- sort by -->
+                    <div fxLayout="row" fxLayoutGap="15px">
+                        <a class="bg reject">
+                            <span>Reject All (2)</span>
+                        </a>
+                        <a class="bg export">
+                            <span>Export Sheet</span>
+                            <span>
+                                <mat-icon class="verticalIcon"> vertical_align_bottom</mat-icon>
+                            </span>
+
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                        <!-- Checkbox Column -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <mat-checkbox (change)="$event ? masterToggle() : null"
+                                    [checked]="selection.hasValue() && isAllSelected()"
+                                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                    [aria-label]="checkboxLabel()">
+                                </mat-checkbox> &nbsp; &nbsp;&nbsp;
+                                <span>ID</span>
+
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                                <mat-checkbox (click)="$event.stopPropagation()"
+                                    (change)="$event ? selection.toggle(row) : null"
+                                    [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                </mat-checkbox> &nbsp; &nbsp;&nbsp;
+                                #<span>{{row?.id}} </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <!-- begining balance Column -->
+                        <ng-container matColumnDef="begining balance">
+                            <th mat-header-cell *matHeaderCellDef> Begining Balance </th>
+                            <td mat-cell *matCellDef="let element"> {{element.beginingBalance}} </td>
+                        </ng-container>
+
+                        <!-- contribution Column -->
+                        <ng-container matColumnDef="contribution">
+                            <th mat-header-cell *matHeaderCellDef> Contribution </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{element.contribution}} Prorated<br>
+                                <span>23,000</span> Current Year
+                            </td>
+                        </ng-container>
+
+                        <!-- available balance Column -->
+                        <ng-container matColumnDef="available balance">
+                            <th mat-header-cell *matHeaderCellDef> Available Balance </th>
+                            <td mat-cell *matCellDef="let element"> {{element.availableBalance}} </td>
+                        </ng-container>
+
+                        <!-- withdrawn Column -->
+                        <ng-container matColumnDef="withdrawn">
+                            <th mat-header-cell *matHeaderCellDef> Withdrawn </th>
+                            <td mat-cell *matCellDef="let element"> {{element.withdrawn}} </td>
+                        </ng-container>
+
+                        <!-- Status Column -->
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeader"> Status </th>
+
+                            <td mat-cell *matCellDef="let element">
+                                <div class="circle"
+                                    [ngClass]="{'green': element.status =='Approved','deep-red': element.status =='Cancelled'}">
+                                </div>
+                                <span
+                                    [ngClass]="{'greenText': element.status =='Approved','deep-red-Text': element.status =='Cancelled'}">
+                                    {{element.status}}</span>
+                            </td>
+                        </ng-container>
+
+                        <!-- withdrawn Column -->
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef> </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a>
+                                    <span class="material-icons threeDots">
+                                        more_horiz
+                                    </span>
+                                </a>
+
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+                        </tr>
+                    </table>
+                    <!-- <mat-paginator [pageSizeOptions]="[15]" showFirstLastButtons></mat-paginator> -->
+
+                </div>
+            </div>
         </div>
     </div>
 
 
-    <!-- Requests Table -->
-    <div>
 
-    </div>
 </div>
