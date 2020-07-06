@@ -1,0 +1,27 @@
+.main-nav{
+    background-color: #FFFFFF;
+    /* box-shadow: 0 5px 9px 0 rgba(150,148,148,0.1); */
+}
+.mat-toolbar {
+    background:  white;
+}
+.group-6 {
+ height: 30px;
+ width: 91px;
+ }
+
+ .mat-tab-label-active{
+     color: red !important;
+ }
+ .mat-tab-label{
+     max-width: 100px;
+     padding: 0 5px;
+ }
+ .mat-tab-label {
+    padding: 0 5px !important;
+    min-width: 100px !important}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: red;
+    width: 100px;
+}
