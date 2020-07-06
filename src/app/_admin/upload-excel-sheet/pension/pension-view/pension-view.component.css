@@ -4,4 +4,80 @@
         background-color: #F7F7F7;   
   }
 
-  
+  .cardsContainer{
+        width: 95%;
+        padding: 20px;
+        /* text-align: center; */
+        margin: auto;
+  }
+  .requests-pension-r {
+      color:  #666666;
+
+      font-family: 'Poppins';
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 24px;
+    }
+    .pensionRequest{
+      color: #E60000;
+      font-weight: 600;
+    }
+
+    .iconsCls {
+      /* width: 1.263rem;
+      height: 1.263rem;
+      font-size: 22px;
+      padding: 20px;
+      background-color: white; */
+      border: none;
+      border-radius: 4.4px;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 24px 0 rgba(217,217,217,0.5);
+      font-size: 20px;
+      padding: 8px;
+      background-color: white;
+  }
+  .background {
+      height: 99.2px;
+      width: 240px;
+      border-radius: 4px;
+      background: linear-gradient(180deg, #F55E62 0%, #E83033 100%);
+      box-shadow: 0 2px 3px 0 rgba(0,0,0,0.02);
+    }
+  .material-icons-list {
+      font-size: 20px;}
+  .canceled-requests {
+       color: #FFFFFF;
+       font-family: 'Poppins';
+       font-size: 12px;
+       font-weight: 600;
+       letter-spacing: 0;
+       line-height: 19.2px;
+       margin: 0;
+   }
+   .number {
+      color: #FFFFFF;
+      font-family: 'Poppins';
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 19.2px;
+      margin: 0;
+    }
+
+    .icon {
+      height: 24px;
+      width: 33px;
+    }
+    .material-icons-requests{
+          color: white;
+          font-size: 30px;
+    }
+    .backgroundTwo{
+            height: 99.2px;
+            width: 240px;
+            border-radius: 4px;
+            background: linear-gradient(180deg, #61DDB3 0%, #32B97C 100%);
+            box-shadow: 0 2px 3px 0 rgba(0,0,0,0.02);
+    }

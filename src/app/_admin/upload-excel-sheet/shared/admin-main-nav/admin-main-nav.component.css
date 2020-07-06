@@ -25,3 +25,11 @@
     background-color: red;
     width: 100px;
 }
+
+.menna-el-tohamy {
+    color: rgba(51,51,51,0.7);
+    font-family: Poppins;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 21px;
+  }
