@@ -120,7 +120,7 @@
                             <th mat-header-cell *matHeaderCellDef> Contribution </th>
                             <td mat-cell *matCellDef="let element">
                                 {{element.contribution}} Prorated<br>
-                                <span>23,000</span> Current Year
+                                <!-- <span>23,000</span> Current Year -->
                             </td>
                         </ng-container>
 
@@ -145,7 +145,7 @@
                                     [ngClass]="{'green': element.status =='Approved','deep-red': element.status =='Cancelled'}">
                                 </div>
                                 <span
-                                    [ngClass]="{'greenText': element.status =='Approved','deep-red-Text': element.status =='Cancelled'}">
+                                    [ngClass]="{'greenText': element.status =='Approved','deep-red-text': element.status =='Cancelled'}">
                                     {{element.status}}</span>
                             </td>
                         </ng-container>
