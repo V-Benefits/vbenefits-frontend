@@ -41,6 +41,7 @@ import { AdminMainNavComponent } from './_admin/upload-excel-sheet/shared/admin-
 import { PensionViewComponent } from './_admin/upload-excel-sheet/pension/pension-view/pension-view.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -93,7 +94,8 @@ const routes: Routes = [
     MatSnackBarModule,
     MatRadioModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatMenuModule
   ],
   providers: [MatDatepickerModule,
     { provide: MAT_DIALOG_DATA, useValue: {} },

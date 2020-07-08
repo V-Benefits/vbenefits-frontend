@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
 import { MatTableDataSource, MatPaginator, MatSortModule, MatSort, Sort, MatDialog, MatDialogConfig } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -16,11 +16,11 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {
     id: 12354,
-    name: 'Hydrogen',
+    name: 'Mohamed Ahmed Am..',
     contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
+    beginingBalance: 75.000,
+    availableBalance: 95000,
+    withdrawn: 50000,
     status: 'Approved'
   }, {
     id: 12354,
@@ -85,7 +85,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-pension-view',
   templateUrl: './pension-view.component.html',
-  styleUrls: ['./pension-view.component.css']
+  styleUrls: ['./pension-view.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PensionViewComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -93,7 +94,7 @@ export class PensionViewComponent implements OnInit {
 
   //displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
 
-  displayedColumns: string[] = ['id', 'name', 'begining balance', 'contribution', 'available balance', 'withdrawn', 'status', 'actions'];
+  displayedColumns: string[] = ['first', 'second', 'id', 'name', 'begining balance', 'contribution', 'available balance', 'withdrawn', 'status', 'actions'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
 

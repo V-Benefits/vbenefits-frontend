@@ -153,21 +153,21 @@
 
     .circle{
       border: solid 1px;
-      width: 10px;
-      height: 10px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       color: transparent;
       display: inline-block;
     }
 
     .green{
-      background-color:#03c990;
+      background-color:#32B97C;
     }
     .deep-red{
       background-color:#E60000;
     }
     .greenText{
-      color:#03c990;
+      color: #32B97C;
     }
     .deep-red-text{
      color:#E60000;
@@ -185,3 +185,96 @@
       letter-spacing: 1.5px;
       line-height: 16px;
     }
+
+    /* ///////////////////////////////////////// */
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+      background-color: #E60000;
+  }
+  .mat-header-cell {
+    color: #666666;
+    font-family: 'Poppins';
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    line-height: 16px;
+  }
+
+  .id {
+    color: #333333;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  .name-copy-3 {
+    color: #333333;
+    font-family: 'Poppins';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  .name {
+    color: #333333;
+    font-family: 'Poppins';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+
+  .name-copy-9 {
+    color: #666666;
+    font-family: 'Poppins';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  .revenue-copy {
+    color: #333333;
+    font-family: 'Poppins';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+
+  .revenue-copy-3 {
+    font-family: 'Poppins';
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  .info {
+    color: #333333;
+    font-family: 'Poppins';
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 12px;
+  }
+
+.maticon-reject-info{
+  font-size: 19px;
+  margin-right: 5px !important;
+}
+.closeCls{
+ color: #E60000 !important;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  padding: 15px !important;}
+
+  .numOfYears {
+    color: #32B97C;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  .maxWithdrawn{
+      color: #E60000;
+      font-family: 'Poppins';
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: 24px;
+  }
