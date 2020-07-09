@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
-import { MatTableDataSource, MatPaginator, MatSortModule, MatSort, Sort, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { MatTableDataSource, MatSortModule, MatSort, Sort, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
 import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 import * as XLSX from 'xlsx';
-
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-pension-view',
   templateUrl: './pension-view.component.html',
@@ -15,7 +15,6 @@ import * as XLSX from 'xlsx';
 export class PensionViewComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
   all = true;
   approved = false;
   rejected = false;
@@ -38,6 +37,7 @@ export class PensionViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPensionListData();
+    this.dataSource.paginator = this.paginator;
   }
 
   filterAll() {

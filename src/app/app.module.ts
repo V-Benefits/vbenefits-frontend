@@ -42,6 +42,7 @@ import { PensionViewComponent } from './_admin/upload-excel-sheet/pension/pensio
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -95,7 +96,8 @@ const routes: Routes = [
     MatRadioModule,
     MatTableModule,
     MatCheckboxModule,
-    MatMenuModule
+    MatMenuModule,
+    MatPaginatorModule
   ],
   providers: [MatDatepickerModule,
     { provide: MAT_DIALOG_DATA, useValue: {} },
