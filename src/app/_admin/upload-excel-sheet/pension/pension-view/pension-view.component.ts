@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
-import { MatTableDataSource, MatPaginator, MatSortModule, MatSort, Sort, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSortModule, MatSort, Sort, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
+import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
+import * as XLSX from 'xlsx';
 
 export interface PeriodicElement {
   name: string;
@@ -14,8 +16,6 @@ export interface PeriodicElement {
   id: number;
 }
 
-
-
 @Component({
   selector: 'app-pension-view',
   templateUrl: './pension-view.component.html',
@@ -26,14 +26,13 @@ export class PensionViewComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  // displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
-  all=false;
-  approved=false;
-  rejected=false;
-  canceled=false;
+  all = false;
+  approved = false;
+  rejected = false;
+  canceled = false;
 
-  pensionRequestList : PensionRequestModel[];
-  pensionFilteredList : PensionRequestModel[];
+  pensionRequestList: PensionRequestModel[];
+  pensionFilteredList: PensionRequestModel[];
 
   // ELEMENT_DATA: PeriodicElement []= [
   //   {
@@ -108,50 +107,58 @@ export class PensionViewComponent implements OnInit {
 
   // requestsList: RequestModel[] = [];
   // dataSource: MatTableDataSource<RequestModel>;
- 
+
 
   constructor(
     private service: publicService,
+    private _snackBar: MatSnackBar,
     private dialog: MatDialog) {
     // this.dataSource = new MatTableDataSource<RequestModel>();
   }
 
   ngOnInit(): void {
-    debugger;
-     this.getPensionListData();
+    this.getPensionListData();
   }
 
-  filterApproved(){
+  filterAll() {
+    this.approved = false;
+    this.all = true;
+    this.canceled = false;
+    this.dataSource.data = this.pensionRequestList;
+  }
+
+  filterApproved() {
     this.approved = true;
-    this.all=false;
-    this.canceled=false;
+    this.all = false;
+    this.canceled = false;
     this.pensionFilteredList = this.pensionRequestList.filter(function (el) {
-      return el.status == "Approved";        
+      return el.status == "Approved";
     });
 
     this.dataSource.data = this.pensionFilteredList;
   }
 
-  filterCanceled(){
-    this.all=false;
-    this.approved=false;
-    this.canceled=true;
+  filterCanceled() {
+    this.all = false;
+    this.approved = false;
+    this.canceled = true;
     this.pensionFilteredList = this.pensionRequestList.filter(function (el) {
-      return el.status == "Canceled";        
+      return el.status == "Canceled";
     });
 
     this.dataSource.data = this.pensionFilteredList;
   }
 
-  getAllData(){
+  getAllData() {
     // DB_DATA = database
     // this.ELEMENT_DATA = DB_DATA;
   }
 
-  getPensionListData(){
+  getPensionListData() {
     this.service.getAll('PensionRequest/GetAllPensionRequests').subscribe(
       res => {
         this.pensionRequestList = res;
+        this.dataSource.data = this.pensionRequestList;
         console.log('getallpension res list--> ', this.pensionRequestList);
       },
       err => {
@@ -159,7 +166,7 @@ export class PensionViewComponent implements OnInit {
       }
     );
   }
-  
+
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -190,4 +197,38 @@ export class PensionViewComponent implements OnInit {
   //   // return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   // }
 
+  onFileChange(ev) {
+    let workBook = null;
+    let jsonData = null;
+    const reader = new FileReader();
+    const file = ev.target.files[0];
+    reader.onload = (event) => {
+
+      const data = reader.result;
+      workBook = XLSX.read(data, { type: 'binary' });
+      jsonData = workBook.SheetNames.reduce((initial, name) => {
+        const sheet = workBook.Sheets[name];
+        initial[name] = XLSX.utils.sheet_to_json(sheet);
+        this.service.post(initial.Sheet1, 'MetlifeData').subscribe(res => {
+          this._snackBar.openFromComponent(SnackBarComponent, {
+            data: 'Data inserted successfully',
+            panelClass: 'snackbar',
+            duration: 10000
+          });
+          console.log('resonse of api ', res);
+        })
+        console.log(initial.Sheet1);
+        return initial;
+      }, {});
+    }
+
+
+    reader.readAsBinaryString(file);
+  }
+
+  rejectRequest(requestId: number) {
+    this.service.get('PensionRequest/RejectPensionRequest', requestId).subscribe(res => {
+      console.log(res);
+    })
+  }
 }
