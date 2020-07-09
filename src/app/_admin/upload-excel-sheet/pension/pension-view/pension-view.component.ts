@@ -6,16 +6,6 @@ import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
 import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 import * as XLSX from 'xlsx';
 
-export interface PeriodicElement {
-  name: string;
-  contribution: number;
-  beginingBalance: number;
-  availableBalance: number;
-  withdrawn: number;
-  status: string;
-  id: number;
-}
-
 @Component({
   selector: 'app-pension-view',
   templateUrl: './pension-view.component.html',
@@ -33,87 +23,17 @@ export class PensionViewComponent implements OnInit {
 
   pensionRequestList: PensionRequestModel[];
   pensionFilteredList: PensionRequestModel[];
+  countOfApprovedRequests: number;
+  countOfCanceledRequests: number;
 
-  // ELEMENT_DATA: PeriodicElement []= [
-  //   {
-  //     id: 12354,
-  //     name: 'Mohamed Ahmed Am..',
-  //     contribution: 16.001,
-  //     beginingBalance: 75.000,
-  //     availableBalance: 95000,
-  //     withdrawn: 50000,
-  //     status: 'Approved'
-  //   }, {
-  //     id: 12354,
-  //     name: 'Hydrogen',
-  //     contribution: 16.001,
-  //     beginingBalance: 22,
-  //     availableBalance: 7777,
-  //     withdrawn: 22,
-  //     status: 'Canceled'
-  //   }, {
-  //     id: 12354,
-  //     name: 'Hydrogen',
-  //     contribution: 16.001,
-  //     beginingBalance: 22,
-  //     availableBalance: 7777,
-  //     withdrawn: 22,
-  //     status: 'Rejected'
-  //   }, {
-  //     id: 12354,
-  //     name: 'Hydrogen',
-  //     contribution: 16.001,
-  //     beginingBalance: 22,
-  //     availableBalance: 7777,
-  //     withdrawn: 22,
-  //     status: 'Approved'
-  //   }, {
-  //     id: 12354,
-  //     name: 'Hydrogen',
-  //     contribution: 16.001,
-  //     beginingBalance: 22,
-  //     availableBalance: 7777,
-  //     withdrawn: 22,
-  //     status: 'Approved'
-  //   }, {
-  //     id: 12354,
-  //     name: 'Hydrogen',
-  //     contribution: 16.001,
-  //     beginingBalance: 22,
-  //     availableBalance: 7777,
-  //     withdrawn: 22,
-  //     status: 'Approved'
-  //   }, {
-  //     id: 12354,
-  //     name: 'Hydrogen',
-  //     contribution: 16.001,
-  //     beginingBalance: 22,
-  //     availableBalance: 7777,
-  //     withdrawn: 22,
-  //     status: 'Approved'
-  //   }, {
-  //     id: 12354,
-  //     name: 'Hydrogen',
-  //     contribution: 16.001,
-  //     beginingBalance: 22,
-  //     availableBalance: 7777,
-  //     withdrawn: 22,
-  //     status: 'Approved'
-  //   },
-  // ];
   displayedColumns: string[] = ['first', 'second', 'id', 'name', 'begining balance', 'contribution', 'available balance', 'withdrawn', 'status', 'actions'];
   dataSource = new MatTableDataSource<PensionRequestModel>(this.pensionRequestList);
   selection = new SelectionModel<PensionRequestModel>(true, []);
-
-  // requestsList: RequestModel[] = [];
-  // dataSource: MatTableDataSource<RequestModel>;
-
 
   constructor(
     private service: publicService,
     private _snackBar: MatSnackBar,
     private dialog: MatDialog) {
-    // this.dataSource = new MatTableDataSource<RequestModel>();
   }
 
   ngOnInit(): void {
@@ -159,6 +79,8 @@ export class PensionViewComponent implements OnInit {
       res => {
         this.pensionRequestList = res;
         this.dataSource.data = this.pensionRequestList;
+
+        this.getCountOfApprovedAndCanceledRequests(this.pensionRequestList);
         console.log('getallpension res list--> ', this.pensionRequestList);
       },
       err => {
@@ -167,6 +89,10 @@ export class PensionViewComponent implements OnInit {
     );
   }
 
+  getCountOfApprovedAndCanceledRequests(pensionRequestList: PensionRequestModel[]) {
+    this.countOfApprovedRequests = pensionRequestList.filter(request => request.status == "Approved").length;
+    this.countOfCanceledRequests = pensionRequestList.filter(request => request.status == "Canceled").length;
+  }
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -183,19 +109,12 @@ export class PensionViewComponent implements OnInit {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: PeriodicElement) {
+  checkboxLabel(row?: PensionRequestModel) {
     // if (!row) {
     //   return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     // }
     // return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
-  /** The label for the checkbox on the passed row */
-  // checkboxLabel(row?: PeriodicElement): string {
-  //   // if (!row) {
-  //   //   return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
-  //   // }
-  //   // return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
-  // }
 
   onFileChange(ev) {
     let workBook = null;
@@ -222,13 +141,14 @@ export class PensionViewComponent implements OnInit {
       }, {});
     }
 
-
     reader.readAsBinaryString(file);
   }
 
-  rejectRequest(requestId: number) {
-    this.service.get('PensionRequest/RejectPensionRequest', requestId).subscribe(res => {
+  rejectRequest(staffId: number) {
+    this.service.get('PensionRequest/RejectPensionRequest', staffId).subscribe(res => {
       console.log(res);
+    }, err => {
+      console.log('reject request error -->', err);
     })
   }
 }
