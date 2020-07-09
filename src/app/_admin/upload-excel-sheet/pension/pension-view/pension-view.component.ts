@@ -26,7 +26,7 @@ export class PensionViewComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  all = false;
+  all = true;
   approved = false;
   rejected = false;
   canceled = false;
