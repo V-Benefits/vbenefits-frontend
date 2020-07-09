@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
 import { MatTableDataSource, MatPaginator, MatSortModule, MatSort, Sort, MatDialog, MatDialogConfig } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
 
 export interface PeriodicElement {
   name: string;
@@ -13,73 +14,6 @@ export interface PeriodicElement {
   id: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    id: 12354,
-    name: 'Mohamed Ahmed Am..',
-    contribution: 16.001,
-    beginingBalance: 75.000,
-    availableBalance: 95000,
-    withdrawn: 50000,
-    status: 'Approved'
-  }, {
-    id: 12354,
-    name: 'Hydrogen',
-    contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
-    status: 'Cancelled'
-  }, {
-    id: 12354,
-    name: 'Hydrogen',
-    contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
-    status: 'Approved'
-  }, {
-    id: 12354,
-    name: 'Hydrogen',
-    contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
-    status: 'Approved'
-  }, {
-    id: 12354,
-    name: 'Hydrogen',
-    contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
-    status: 'Approved'
-  }, {
-    id: 12354,
-    name: 'Hydrogen',
-    contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
-    status: 'Approved'
-  }, {
-    id: 12354,
-    name: 'Hydrogen',
-    contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
-    status: 'Approved'
-  }, {
-    id: 12354,
-    name: 'Hydrogen',
-    contribution: 16.001,
-    beginingBalance: 22,
-    availableBalance: 7777,
-    withdrawn: 22,
-    status: 'Approved'
-  },
-];
 
 
 @Component({
@@ -92,14 +26,90 @@ export class PensionViewComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  //displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
+  // displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
+  all=false;
+  approved=false;
+  rejected=false;
+  canceled=false;
 
+  pensionRequestList : PensionRequestModel[];
+  pensionFilteredList : PensionRequestModel[];
+
+  // ELEMENT_DATA: PeriodicElement []= [
+  //   {
+  //     id: 12354,
+  //     name: 'Mohamed Ahmed Am..',
+  //     contribution: 16.001,
+  //     beginingBalance: 75.000,
+  //     availableBalance: 95000,
+  //     withdrawn: 50000,
+  //     status: 'Approved'
+  //   }, {
+  //     id: 12354,
+  //     name: 'Hydrogen',
+  //     contribution: 16.001,
+  //     beginingBalance: 22,
+  //     availableBalance: 7777,
+  //     withdrawn: 22,
+  //     status: 'Canceled'
+  //   }, {
+  //     id: 12354,
+  //     name: 'Hydrogen',
+  //     contribution: 16.001,
+  //     beginingBalance: 22,
+  //     availableBalance: 7777,
+  //     withdrawn: 22,
+  //     status: 'Rejected'
+  //   }, {
+  //     id: 12354,
+  //     name: 'Hydrogen',
+  //     contribution: 16.001,
+  //     beginingBalance: 22,
+  //     availableBalance: 7777,
+  //     withdrawn: 22,
+  //     status: 'Approved'
+  //   }, {
+  //     id: 12354,
+  //     name: 'Hydrogen',
+  //     contribution: 16.001,
+  //     beginingBalance: 22,
+  //     availableBalance: 7777,
+  //     withdrawn: 22,
+  //     status: 'Approved'
+  //   }, {
+  //     id: 12354,
+  //     name: 'Hydrogen',
+  //     contribution: 16.001,
+  //     beginingBalance: 22,
+  //     availableBalance: 7777,
+  //     withdrawn: 22,
+  //     status: 'Approved'
+  //   }, {
+  //     id: 12354,
+  //     name: 'Hydrogen',
+  //     contribution: 16.001,
+  //     beginingBalance: 22,
+  //     availableBalance: 7777,
+  //     withdrawn: 22,
+  //     status: 'Approved'
+  //   }, {
+  //     id: 12354,
+  //     name: 'Hydrogen',
+  //     contribution: 16.001,
+  //     beginingBalance: 22,
+  //     availableBalance: 7777,
+  //     withdrawn: 22,
+  //     status: 'Approved'
+  //   },
+  // ];
   displayedColumns: string[] = ['first', 'second', 'id', 'name', 'begining balance', 'contribution', 'available balance', 'withdrawn', 'status', 'actions'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<PeriodicElement>(true, []);
+  dataSource = new MatTableDataSource<PensionRequestModel>(this.pensionRequestList);
+  selection = new SelectionModel<PensionRequestModel>(true, []);
 
   // requestsList: RequestModel[] = [];
   // dataSource: MatTableDataSource<RequestModel>;
+ 
+
   constructor(
     private service: publicService,
     private dialog: MatDialog) {
@@ -107,7 +117,49 @@ export class PensionViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    debugger;
+     this.getPensionListData();
   }
+
+  filterApproved(){
+    this.approved = true;
+    this.all=false;
+    this.canceled=false;
+    this.pensionFilteredList = this.pensionRequestList.filter(function (el) {
+      return el.status == "Approved";        
+    });
+
+    this.dataSource.data = this.pensionFilteredList;
+  }
+
+  filterCanceled(){
+    this.all=false;
+    this.approved=false;
+    this.canceled=true;
+    this.pensionFilteredList = this.pensionRequestList.filter(function (el) {
+      return el.status == "Canceled";        
+    });
+
+    this.dataSource.data = this.pensionFilteredList;
+  }
+
+  getAllData(){
+    // DB_DATA = database
+    // this.ELEMENT_DATA = DB_DATA;
+  }
+
+  getPensionListData(){
+    this.service.getAll('PensionRequest/GetAllPensionRequests').subscribe(
+      res => {
+        this.pensionRequestList = res;
+        console.log('getallpension res list--> ', this.pensionRequestList);
+      },
+      err => {
+        console.log('getallpension error -->', err);
+      }
+    );
+  }
+  
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
