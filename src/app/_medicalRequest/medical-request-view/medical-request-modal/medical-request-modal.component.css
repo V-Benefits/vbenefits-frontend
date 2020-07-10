@@ -34,6 +34,9 @@
     margin: 0px 0 5px;
   }
 
+  .para{
+    margin-bottom: 0.5rem;
+  }
   .Staff-ID {
     font-family: Poppins;
     font-size: 1.4em;
@@ -190,14 +193,12 @@
     margin: 0;
   }
 
-  .Please-enter-an-amou {
-    font-family: Poppins;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.09px;
-    color: #e60000;
+  .first-child {
+    color: #4A4D4E;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 0.5rem;
   }
-  

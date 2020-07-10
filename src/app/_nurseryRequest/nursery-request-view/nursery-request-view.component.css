@@ -6,19 +6,19 @@
     padding-top: 40px;
 }
 
+.FirstRow
+{
+    justify-content: space-around;
+    padding-top: 5rem;
+}
+
 .img
 {
    height: 306px;
 }
 
-.FirstRow
-{
-    justify-content: space-around;
-    padding-top: 5rem;
-    padding-bottom: 20px;
-}
 
-.Pension {
+.Nursery{
     width: 100%;
     font-family: Poppins;
     font-weight: bold;
@@ -31,8 +31,9 @@
     font-size: 2.8rem;
   }
 
-  .Vodafone-contributes {
-    /* width: 80%; */
+  .description {
+    width: 90%;
+    /* height: 6.667rem; */
     opacity: 0.96;
     font-family: Poppins;
     font-size: 1.8rem;
@@ -44,21 +45,12 @@
     color: #333333;
   }
 
-  .pensionBtn {
-    width: 66%;
+  .nurseryBtn {
+    width: 77%;
     height: 5rem;
     border-radius: 4px;
     background-color: #e60000;
     color: white;
-  }
-
-  .deactivateBtn{
-    width: 66%;
-    height: 5rem;
-    border-radius: 4px;
-    background-color: #333333;
-    color: white;  
-    font-size: 1.4rem;
   }
 
   hr.new4 {
@@ -67,11 +59,11 @@
   }
 
   .SecondRow
-  {
-      justify-content: space-around;  
-  }
-  
-  .Pension-Round {
+{
+    justify-content: space-around;  
+}
+
+  .AboutHeader {
     font-family: Poppins;
     font-size: 2rem;
     font-weight: bold;
@@ -82,9 +74,9 @@
     color: #333333;
   }
 
-  .The-pension-round-gi {
+  .AboutBody {
     opacity: 0.96;
-    /* width: 62%; */
+    width: 62%;
     font-family: Poppins;
     font-size: 1.8rem;
     font-weight: normal;
@@ -94,6 +86,84 @@
     letter-spacing: -0.06px;
     color: #333333;
     margin-bottom: 1rem;
+  }
+  
+  .Please-visit-our {
+    opacity: 0.96;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.06px;
+    color: #333333;
+  }
+
+  .First-Round {
+    /* width: 5.667rem;
+    height: 1.111rem; */
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    color: #e60000;
+    margin-bottom: 0rem;
+  }
+
+  .Starts-on {
+    /* width: 4.611rem;
+    height: 1.667rem; */
+    font-family: Poppins;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: 0.36px;
+    color: #666666;
+    padding-left: 1rem;
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  .Date {
+    /* width: 5.667rem;
+    height: 1.667rem; */
+    font-family: Poppins;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: 0.36px;
+    color: #333333;
+    margin: 0;
+    margin-top: 1rem;
+  }
+  .Policy{
+  color: #e60000;
+  text-decoration: underline;
+}
+
+.VOIS-pension-policy {
+    font-family: Poppins;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.06px;
+    color: #e60000;
+    margin: 0;
+    padding-left: 0.5rem;
+  }
+
+  .policyImg{
+    display: flex;
   }
 
   .FAQs {
@@ -122,57 +192,20 @@
   }
 
  .SecondRow .FAQBtn {
-    width: 66%;
+    width: 77%;
     height: 5rem;
+    
     border-radius: 4px;
     border: solid 2px #e60000;
     color: #e60000;
   }
 
-  .SecondRow .FAQHelpBtn{
-    width: 66%;
-    height: 5rem;
-    border-radius: 4px;
-    border: solid 2px #333333;
-    color: #333333;   
-  }
+.mat-button[disabled] {
+    background-color:  #afafaf;
+    color: white;
+ }
 
-  .Go-to-medical-provid {
-    font-family: Poppins;
-    font-size: 1.8rem;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.06px;
-    color: #e60000;
-  }
-
-  .Download-Metlife-App {
-    font-family: inherit;
-    font-size: 2.4rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.32;
-    letter-spacing: normal;
-    color: #333333;
-    margin-bottom: 1em;
-  }
-
-  .policyImg{
-    display: flex;
-  }
-
-  .VOIS-pension-policy {
-    font-family: Poppins;
-    font-size: 1.6rem;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.06px;
-    color: #e60000;
-    margin: 0;
-    padding-left: 0.5rem;
-  }
+ .snackbar{
+  color: #ffff;
+  font-size: 15px;
+}

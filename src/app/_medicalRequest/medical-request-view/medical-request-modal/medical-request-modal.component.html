@@ -25,10 +25,9 @@
         <br>
 
         <mat-label class="Staff-ID">Card Type</mat-label>
-        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-            (change)="onCardTypeSelection($event.value)">
-            <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-                {{season}}
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="cardType">
+            <mat-radio-button class="example-radio-button" *ngFor="let cardType of cardTypeList" [value]="cardType">
+                {{cardType}}
             </mat-radio-button>
         </mat-radio-group>
 
@@ -36,38 +35,115 @@
         <hr class="new4">
         <br>
 
-        <div *ngIf="displayUploadImage">
-            <mat-label class="Attach-Requied-Docum">Attach Requied Documents</mat-label>
-            <p class="The-image-has-to-be">The image has to be 800x600 or 1200x900, and no larger that 10 MB.
-                <br> Supported formats are jpg and png files .</p>
+        <div>
+            <!-- spouse first name textbox -->
+            <mat-label class="Staff-ID" *ngIf="requestFor == 'Spouse' && cardType!=''">First Name</mat-label>
+            <mat-form-field appearance="outline" *ngIf="requestFor == 'Spouse' && cardType!=''">
+                <input matInput [(ngModel)]="spouseName">
+            </mat-form-field>
 
-            <mat-label class="Staff-ID">Personal Image </mat-label>
+            <!-- children count textbox -->
+            <mat-label class="Staff-ID" *ngIf="requestFor == 'Children' && cardType!=''">Number of Children</mat-label>
+            <mat-form-field appearance="outline" *ngIf="requestFor == 'Children' && cardType!=''">
+                <input matInput type="number" [(ngModel)]="childrenCount">
+            </mat-form-field>
+
+            <!-- children names textbox-->
+            <div *ngIf="requestFor == 'Children' && cardType!=''">
+                <div *ngFor="let item of array(childrenCount); index as i">
+                    <mat-label class="Staff-ID" *ngIf="requestFor == 'Children' && cardType!=''">Child {{i+1}} :
+                    </mat-label>
+                    <mat-form-field appearance="outline">
+                        <input matInput type="text" [ngModel]="childArray[i]?.childName" name="childName"
+                            (ngModelChange)="dataChanged($event,i,'childName')" />
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div *ngIf="requestFor !='' && cardType!=''">
+                <mat-label class=" Attach-Requied-Docum">
+                    Attach
+                    Required Documents</mat-label>
+                <p class="The-image-has-to-be">The image has to be 800x600 or 1200x900, and no larger that 10 MB.
+                    <br> Supported formats are jpg and png files .</p>
+            </div>
+
+            <div *ngIf="requestFor == 'Children' && cardType!=''">
+                <div *ngFor="let item of array(childrenCount); index as i">
+                    <p class="first-child">{{i+1}} Child</p>
+                    <p class="Staff-ID para">Personal Image </p>
+                    <button mat-button class="Rectangle-Copy" (click)="fileInput.click()" *ngIf="!childImages[i]?.url">
+                        <span>+</span>
+                        <input #fileInput type="file" style="display:none;" accept='image/*'
+                            (change)="previewChildImages(fileInput.files,i,'personal')"
+                            [ngModel]="childArray[i]?.childImage" name="childImage"
+                            (ngModelChange)="dataChanged($event,i,'childImage')" />
+                    </button>
+                    <div class="imagePrviw MFlxDiv" *ngIf="childImages[i]?.url">
+                        <div class="MFlxImgDiv">
+                            <img [src]="childImages[i]?.url" class="imageCls">
+                            <p class="Jpg"> {{childImages[i]?.name}}</p>
+                        </div>
+                        <mat-icon class="deleIcon" (click)="deleteChildImg('Personal',i)">delete</mat-icon>
+                    </div>
+
+                    <p class="Staff-ID para">Birth Certificate</p>
+                    <button mat-button class="Rectangle-Copy" (click)="fileInput.click()"
+                        *ngIf="!BirthCertificates[i]?.url">
+                        <span>+</span>
+                        <input #fileInput type="file" style="display:none;" accept='image/*'
+                            (change)="previewChildImages(fileInput.files,i,'birthCertificate')"
+                            [ngModel]="childArray[i]?.birthCertificate" name="birthCertificate"
+                            (ngModelChange)="dataChanged($event,i,'birthCertificate')" />
+                    </button>
+                    <div class="imagePrviw MFlxDiv" *ngIf="BirthCertificates[i]?.url">
+                        <div class="MFlxImgDiv">
+                            <img [src]="BirthCertificates[i]?.url" class="imageCls">
+                            <p class="Jpg"> {{BirthCertificates[i]?.name}}</p>
+                        </div>
+                        <mat-icon class="deleIcon" (click)="deleteChildImg('Certificate',i)">delete</mat-icon>
+                    </div>
+                </div>
+            </div>
+
+            <mat-label *ngIf="requestFor !== 'Children' && cardType!=''" class="Staff-ID">{{labelTitle}} </mat-label>
+
             <br>
-            <button mat-button class="Rectangle-Copy" (click)="fileInput.click()" *ngIf="!imgURL">
+            <button mat-button class="Rectangle-Copy" (click)="fileInput.click()"
+                *ngIf="!personalImage?.url && (requestFor == 'Myself' || requestFor == 'Spouse') && cardType =='New card'">
                 <span>+</span>
                 <input #fileInput type="file" style="display:none;" accept='image/*'
-                    (change)="preview(fileInput.files)" />
+                    (change)="preview(fileInput.files,'Personal')" />
             </button>
-            <!-- <div class="imagePrviw" *ngIf="imgURL" flex fxLayout="row wrap" fxLayout.lt-sm="row" fxLayoutGap="20px"
-                fxLayoutAlign="flex-start center">
-                <img [src]="imgURL" class="imageCls">
-                <p class="Jpg"> {{imageName}}</p>
-                <mat-icon class="deleteIcon" (click)="deleteImg()">delete</mat-icon>
-            </div> -->
-            <div class="imagePrviw MFlxDiv" *ngIf="imgURL">
-                <div class="MFlxImgDiv">
-                    <img [src]="imgURL" class="imageCls">
-                    <p class="Jpg"> {{imageName}}</p>
-                </div>
-                <mat-icon class="deleIcon" (click)="deleteImg()">delete</mat-icon>
 
-            </div>
-            <br><br>
-            <div class="Please-enter-an-amou" *ngIf="displayErrorMsg">
-                <div>
-                    {{message}}
+            <div class="imagePrviw MFlxDiv"
+                *ngIf="personalImage?.url  && (requestFor == 'Myself' || requestFor == 'Spouse') && cardType =='New card'">
+                <div class="MFlxImgDiv">
+                    <img [src]="personalImage.url" class="imageCls">
+                    <p class="Jpg"> {{personalImage.name}}</p>
                 </div>
+
+                <mat-icon class="deleIcon" (click)="deleteImg('Personal')">delete</mat-icon>
             </div>
+        </div>
+
+        <mat-label *ngIf="requestFor == 'Spouse' && cardType!=''" class="Staff-ID">Marriage Certificate </mat-label>
+
+        <br>
+        <button mat-button class="Rectangle-Copy" (click)="fileInput.click()"
+            *ngIf="!marriageCertificateImage?.url &&  requestFor == 'Spouse' && cardType =='New card'">
+            <span>+</span>
+            <input #fileInput type="file" style="display:none;" accept='image/*'
+                (change)="preview(fileInput.files,'spouse')" />
+        </button>
+
+        <div class="imagePrviw MFlxDiv"
+            *ngIf="marriageCertificateImage?.url && requestFor == 'Spouse' && cardType =='New card'">
+            <div class="MFlxImgDiv">
+                <img [src]="marriageCertificateImage.url" class="imageCls">
+                <p class="Jpg"> {{marriageCertificateImage.name}}</p>
+            </div>
+            <mat-icon class="deleIcon" (click)="deleteImg('spouse')">delete</mat-icon>
         </div>
 
         <br>

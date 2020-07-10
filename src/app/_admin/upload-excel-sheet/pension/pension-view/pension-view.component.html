@@ -1,0 +1,228 @@
+<div>
+    <!-- Requests status dashboard -->
+    <div class="rectangle">
+        <div class="cardsContainer">
+            <!-- fxLayoutAlign="space-evenly none" -->
+            <div flex fxLayout="column" fxLayoutGap="20px">
+                <div flex fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>
+                        <a class="requests-pension-r"> Requests /
+                            <span class="pensionRequest"> Pension Request</span> </a>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="15px">
+                        <button class="iconsCls" (click)="fileInput.click()">
+                            <mat-icon class="material-icons-list">file_upload</mat-icon>
+                            <input #fileInput type="file" style="display:none;" accept=".xlsx"
+                                (change)="onFileChange($event)" />
+                        </button>
+                        <button class="iconsCls">
+                            <mat-icon class="material-icons-list">supervisor_account</mat-icon>
+                        </button>
+                        <button class="iconsCls">
+                            <mat-icon class="material-icons-list">settings</mat-icon>
+                        </button>
+                        <button class="iconsCls">
+                            <mat-icon class="material-icons-list">question_answer</mat-icon>
+                        </button>
+
+                    </div>
+                </div>
+                <div flex fxLayout="row" fxLayoutGap="20px">
+                    <div class="backgroundTwo" flex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                        <div class="icon">
+                            <mat-icon class="material-icons-requests">drafts</mat-icon>
+                        </div>
+                        <div>
+                            <p class="number">
+                                <!-- 1.930 -->
+                                {{countOfApprovedRequests}}
+                            </p>
+                            <p class="canceled-requests">Approved Requests</p>
+                        </div>
+                    </div>
+                    <div class="background" flex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                        <div class="icon">
+                            <mat-icon class="material-icons-requests"> email</mat-icon>
+                        </div>
+                        <div>
+                            <p class="number">
+                                <!-- 507 -->
+                                {{countOfCanceledRequests}}
+                            </p>
+                            <p class="canceled-requests">Canceled Requests</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Requests Table -->
+    <div class="table">
+        <div class="cardsContainer">
+            <div flex fxLayout="column" fxLayoutGap="20px">
+                <div>
+                    <h6 class="all-pension-requests">All Pension Requests</h6>
+                </div>
+                <div class="row" fxLayoutAlign="space-between center">
+                    <div fxFlex="60%">
+                        <mat-form-field appearance="outline" class="no-line searchCls">
+                            <mat-icon matPrefix>search</mat-icon>
+                            <mat-label>Search</mat-label>
+                            <!-- (keyup)="applyFilter($event.target.value)" -->
+                            <input matInput placeholder=" Search by Request ID, Name, Employee ID">
+                        </mat-form-field>
+                        <!-- HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE -->
+                        <div>
+                            <button mat-button [ngClass]="{
+                                'btn-filter-active': this.all == true,
+                                'btn-filter': this.all == false }" (click)='filterAll()'> All </button>
+                            <button mat-button [ngClass]="{
+                                    'btn-filter-active': this.approved == true,
+                                    'btn-filter': this.approved == false }" (click)='filterApproved()'> Approved
+                            </button>
+                            <button mat-button [ngClass]="{
+                                        'btn-filter-active': this.canceled == true,
+                                        'btn-filter': this.canceled == false }" (click)='filterCanceled()'> Canceled
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- sort by -->
+                    <div fxLayout="row " fxLayoutGap="15px ">
+                        <a class="bg reject ">
+                            <span>Reject All (2)</span>
+                        </a>
+                        <a class="bg export ">
+                            <span>Export Sheet</span>
+                            <span>
+                                <mat-icon class="verticalIcon "> vertical_align_bottom</mat-icon>
+                            </span>
+
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <table mat-table [dataSource]="dataSource " class="mat-elevation-z8 ">
+                        <ng-container matColumnDef="first">
+                            <th mat-header-cell *matHeaderCellDef> </th>
+                            <td mat-cell *matCellDef="let element " class="revenue-copy "> </td>
+                        </ng-container>
+                        <ng-container matColumnDef="second">
+                            <th mat-header-cell *matHeaderCellDef> </th>
+                            <td mat-cell *matCellDef="let element " class="revenue-copy "> </td>
+                        </ng-container>
+
+                        <!-- Checkbox Column -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <mat-checkbox (change)="$event ? masterToggle() : null "
+                                    [checked]="selection.hasValue() && isAllSelected() "
+                                    [indeterminate]="selection.hasValue() && !isAllSelected() "
+                                    [aria-label]="checkboxLabel() ">
+                                </mat-checkbox> &nbsp; &nbsp;&nbsp;
+                                <span>ID</span>
+
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                                <mat-checkbox (click)="$event.stopPropagation() "
+                                    (change)="$event ? selection.toggle(row) : null "
+                                    [checked]="selection.isSelected(row) " [aria-label]="checkboxLabel(row) ">
+                                </mat-checkbox> &nbsp; &nbsp;&nbsp; #
+                                <span class="id ">{{row?.staffId}} </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element " class="name-copy-3 ">
+                                {{element.name}} <br>
+                                <span class="numOfYears ">10.5</span> Years
+                            </td>
+                        </ng-container>
+
+                        <!-- begining balance Column -->
+                        <ng-container matColumnDef="begining balance">
+                            <th mat-header-cell *matHeaderCellDef> Begining Balance </th>
+                            <td mat-cell *matCellDef="let element " class="name"> {{element.beginingBalance | number}}
+                            </td>
+                        </ng-container>
+
+                        <!-- contribution Column -->
+                        <ng-container matColumnDef="contribution">
+                            <th mat-header-cell *matHeaderCellDef> Contribution </th>
+                            <td mat-cell *matCellDef="let element " class="name-copy-9 ">
+                                {{element.contribution}} Prorated<br>
+                                <span class="numOfYears">23,000</span> Current Year
+                            </td>
+                        </ng-container>
+
+                        <!-- available balance Column -->
+                        <ng-container matColumnDef="available balance">
+                            <th mat-header-cell *matHeaderCellDef> Available Balance </th>
+                            <td mat-cell *matCellDef="let element" class="revenue-copy ">
+                                {{element.availableBalance}} <br>
+                                <span class="numOfYears">100</span> % of vesting
+                            </td>
+                        </ng-container>
+
+                        <!-- withdrawn Column -->
+                        <ng-container matColumnDef="withdrawn">
+                            <th mat-header-cell *matHeaderCellDef> Withdrawn </th>
+                            <td mat-cell *matCellDef="let element " class="revenue-copy ">
+                                {{element.withdrawn}} <br>
+                                <span class="maxWithdrawn ">900</span> Max
+                            </td>
+                        </ng-container>
+
+                        <!-- Status Column -->
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeader "> Status </th>
+
+                            <td mat-cell *matCellDef="let element ">
+                                <div class="circle "
+                                    [ngClass]="{ 'green': element.status=='Approved' , 'deep-red': element.status=='Canceled' } ">
+                                </div>
+                                <span class="revenue-copy-3 "
+                                    [ngClass]="{ 'greenText': element.status=='Approved' , 'deep-red-text': element.status=='Canceled' } ">
+                                    {{element.status}}</span>
+                            </td>
+                        </ng-container>
+
+                        <!-- withdrawn Column -->
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef> </th>
+                            <td mat-cell *matCellDef="let element ">
+                                <a [matMenuTriggerFor]="menu ">
+                                    <span class="material-icons threeDots ">
+                                        more_horiz
+                                    </span>
+                                </a>
+                                <mat-menu #menu="matMenu">
+                                    <button mat-menu-item (click)="rejectRequest(element.staffId)">
+                                        <mat-icon class="maticon-reject-info closeCls "> close</mat-icon>
+                                        <span class="info ">Reject</span>
+                                    </button>
+                                    <button mat-menu-item>
+                                        <mat-icon class="maticon-reject-info ">info</mat-icon>
+                                        <span class="info ">More Info</span>
+                                    </button>
+                                </mat-menu>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns; " (click)="selection.toggle(row) ">
+                        </tr>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                    <!-- <mat-paginator [pageSizeOptions]="[15] " showFirstLastButtons></mat-paginator> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

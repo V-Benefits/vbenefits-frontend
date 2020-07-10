@@ -1,0 +1,28 @@
+<div flex fxLayout="row" class="main-nav" fxLayoutAlign="space-around center">
+    <mat-toolbar fxFlex="10%">
+        <img src="../../../assets/images/benefits-logo.svg" class="group-6">
+    </mat-toolbar>
+    <div fxFlex="60%">
+        <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="Dashboard">
+            </mat-tab>
+            <mat-tab label="Requests"></mat-tab>
+            <mat-tab label="Offers" routerLink="/admin/upload"></mat-tab>
+            <mat-tab label="FAQs"></mat-tab>
+            <mat-tab label="Suggest Benefit"></mat-tab>
+        </mat-tab-group>
+    </div>
+    <div fxFlex="20%" fxLayoutAlign="end">
+        <div flex fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+            <mat-icon>account_circle</mat-icon>
+            <!-- <img src="../../../assets/images/user-logo.svg"> -->
+            <mat-label class="menna-el-tohamy">Menna El Tohamy</mat-label>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+
+    </div>
+</div>
+
+
+
+<router-outlet></router-outlet>

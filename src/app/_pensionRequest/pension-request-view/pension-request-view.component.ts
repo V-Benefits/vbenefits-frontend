@@ -24,7 +24,7 @@ export class PensionRequestViewComponent implements OnInit {
 
   disableBtn: boolean = false;
   isEligibleFlag: boolean = true;
-  isUserSubmitRequest: boolean = true;
+  isUserSubmitRequest: boolean = false;
   isEnrolled: boolean = true;
 
   currentDate: Date = new Date();

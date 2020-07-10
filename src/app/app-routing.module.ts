@@ -8,6 +8,9 @@ import { PensionRequestViewComponent } from './_pensionRequest/pension-request-v
 import { PensionRequestModalComponent } from './_pensionRequest/pension-request-modal/pension-request-modal.component';
 import { MedicalRequestViewComponent } from './_medicalRequest/medical-request-view/medical-request-view.component';
 import { UploadExcelSheetComponent } from './_admin/upload-excel-sheet/upload-excel-sheet.component';
+import { NurseryRequestViewComponent } from './_nurseryRequest/nursery-request-view/nursery-request-view.component';
+import { PensionViewComponent } from './_admin/upload-excel-sheet/pension/pension-view/pension-view.component';
+import { AdminMainNavComponent } from './_admin/upload-excel-sheet/shared/admin-main-nav/admin-main-nav.component';
 
 
 const routes: Routes = [{ path: '', component: HomeComponent },
@@ -16,8 +19,9 @@ const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'pension', component: PensionRequestViewComponent },
 { path: 'modal', component: PensionRequestModalComponent },
 { path: 'medical', component: MedicalRequestViewComponent },
+{ path: 'nursery', component: NurseryRequestViewComponent },
 { path: 'admin/upload', component: UploadExcelSheetComponent },
-
+{ path: 'admin/pensionview', component: PensionViewComponent },
 { path: '**', redirectTo: '' }
 ];
 

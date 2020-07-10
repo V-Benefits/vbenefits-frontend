@@ -36,7 +36,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { Deactivation1Component } from './_medicalRequest/deactivation/deactivation1/deactivation1.component';
 import { Deactivation2Component } from './_medicalRequest/deactivation/deactivation2/deactivation2.component';
 import { UploadExcelSheetComponent } from './_admin/upload-excel-sheet/upload-excel-sheet.component';
-
+import { NurseryRequestViewComponent } from './_nurseryRequest/nursery-request-view/nursery-request-view.component';
+import { AdminMainNavComponent } from './_admin/upload-excel-sheet/shared/admin-main-nav/admin-main-nav.component';
+import { PensionViewComponent } from './_admin/upload-excel-sheet/pension/pension-view/pension-view.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -59,7 +65,10 @@ const routes: Routes = [
     MedicalRequestModalComponent,
     Deactivation1Component,
     Deactivation2Component,
-    UploadExcelSheetComponent
+    UploadExcelSheetComponent,
+    NurseryRequestViewComponent,
+    AdminMainNavComponent,
+    PensionViewComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +93,11 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatPaginatorModule
   ],
   providers: [MatDatepickerModule,
     { provide: MAT_DIALOG_DATA, useValue: {} },
