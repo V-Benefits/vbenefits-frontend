@@ -151,4 +151,16 @@ export class PensionViewComponent implements OnInit {
       console.log('reject request error -->', err);
     })
   }
+
+  applyFilter(filterValue: string) {
+    if (filterValue == "0")
+      this.dataSource.filter = "";
+
+    else {
+      filterValue = filterValue.trim(); // Remove whitespace
+      filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+
+      this.dataSource.filter = filterValue;
+    }
+  }
 }
