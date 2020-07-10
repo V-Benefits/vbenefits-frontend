@@ -2,9 +2,15 @@
     <div fxFlex="40" class="leftSection">
         <p class="loginTitle">Login to your account</p>
         <!-- <mat-error *ngIf="loginErrorMSG" class="errorMessage">{{loginErrorMSG}} -->
-        </mat-error>
-        <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <mat-form-field class="formInput" appearance="outline">
+        <!-- </mat-error> -->
+        <!-- <form [formGroup]="loginForm" (ngSubmit)="login()"> -->
+        <form (ngSubmit)="login()">
+
+            <!-------------------- Comented code for build only  ---------------------->
+
+
+
+            <!-- <mat-form-field class="formInput" appearance="outline">
                 <input formControlName="email" [(ngModel)]="loginModel.email" matInput placeholder="Email">
                 <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
             </mat-form-field>
@@ -15,7 +21,7 @@
                 <input formControlName="password" type="password" [(ngModel)]="loginModel.password" matInput placeholder="Your Password">
                 <mat-error *ngIf="hasError('password', 'required')">Password is required
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
             <br />
             <br />
             <br *ngIf="hasError('password', 'required') && loginForm.controls['password']?.touched" />
@@ -31,7 +37,7 @@
     </div>
 
     <div fxFlex="50" style="background-color: lavenderblush;">
-        <img src="../../assets/images/login.png" class="Group">
+        <img src="../../assets/images/phone1.png" class="Group">
 
     </div>
 </div>
