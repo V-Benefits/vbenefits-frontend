@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
 import { publicService } from 'src/app/core/publicService.service';
-import { ViewEncapsulation } from '@angular/compiler/src/compiler_facade_interface';
+// import { ViewEncapsulation } from '@angular/compiler/src/compiler_facade_interface';
 import { SuccessDialogComponent } from 'src/app/shared/success-dialog/success-dialog.component';
 import { ImageModel } from '../../models/imageModel';
 import { MedicalRequestForChildModel, MedicalRequestModel } from '../../models/medicalRequestForChildModel';

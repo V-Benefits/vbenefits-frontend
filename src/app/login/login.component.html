@@ -1,8 +1,8 @@
 <div flex fxLayout="row" fxLayout.lt-sm="column" class="login">
-    <div fxFlex="40"  class="leftSection" >
+    <div fxFlex="40" class="leftSection">
         <p class="loginTitle">Login to your account</p>
-        <mat-error *ngIf="loginErrorMSG" class="errorMessage">{{loginErrorMSG}}
-            </mat-error>
+        <!-- <mat-error *ngIf="loginErrorMSG" class="errorMessage">{{loginErrorMSG}} -->
+        </mat-error>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <mat-form-field class="formInput" appearance="outline">
                 <input formControlName="email" [(ngModel)]="loginModel.email" matInput placeholder="Email">
@@ -12,8 +12,7 @@
             <br *ngIf="hasError('email','required') && loginForm.controls['email']?.touched " />
 
             <mat-form-field class="formInput" appearance="outline">
-                <input formControlName="password" type="password" [(ngModel)]="loginModel.password" matInput
-                    placeholder="Your Password">
+                <input formControlName="password" type="password" [(ngModel)]="loginModel.password" matInput placeholder="Your Password">
                 <mat-error *ngIf="hasError('password', 'required')">Password is required
                 </mat-error>
             </mat-form-field>
