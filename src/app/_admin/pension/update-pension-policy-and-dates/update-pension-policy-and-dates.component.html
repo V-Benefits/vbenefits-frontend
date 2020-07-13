@@ -1,0 +1,46 @@
+<!-- <div class="close">
+    <mat-icon matPrefix (click)="closeDialog()">close</mat-icon>
+</div>
+<div class="" flex fxLayout='column' fxLayout.lt-sm="column">
+    <h2 mat-dialog-title class="Profile-Information ">Pension</h2>
+    <mat-label class="To-use-your-benefits">Please update user view</mat-label>
+    <div class="Rectangle-Copy-2">
+    </div>
+    <form [formGroup]="createProfileInformationFormGroup">
+        <mat-dialog-content flex fxLayout='column' fxLayout.lt-sm="column">
+
+            <mat-label class="Staff-ID">First Round Date Range</mat-label>
+            <mat-form-field appearance="outline">
+                <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="dateOfBirth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+ -->
+
+
+<mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date">
+        <input matEndDate placeholder="End date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+
+<!-- 
+            <mat-label class="Staff-ID">Pension Policy URL</mat-label>
+            <mat-form-field appearance="outline">
+                <input matInput formControlName="nationalId">
+            </mat-form-field>
+        </mat-dialog-content>
+        <div class="Rectangle-Copy-2">
+        </div>
+
+        <mat-dialog-actions fxLayoutGap="10px" flex fxLayout='row' fxLayout.lt-xm="row" fxLayoutAlign="end">
+            <button mat-button class="cancel" (click)="closeDialog()">Cancel</button>
+            <button mat-button class="save" (click)="addProfileInformation()">Update</button>
+        </mat-dialog-actions>
+    </form>
+</div> -->

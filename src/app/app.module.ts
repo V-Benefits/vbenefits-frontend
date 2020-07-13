@@ -43,6 +43,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { UpdatePensionPolicyAndDatesComponent } from './_admin/pension/update-pension-policy-and-dates/update-pension-policy-and-dates.component';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -68,7 +69,8 @@ const routes: Routes = [
     UploadExcelSheetComponent,
     NurseryRequestViewComponent,
     AdminMainNavComponent,
-    PensionViewComponent
+    PensionViewComponent,
+    UpdatePensionPolicyAndDatesComponent
   ],
   imports: [
     BrowserModule,

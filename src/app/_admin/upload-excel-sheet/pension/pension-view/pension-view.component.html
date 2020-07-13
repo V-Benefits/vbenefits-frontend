@@ -15,7 +15,7 @@
                             <input #fileInput type="file" style="display:none;" accept=".xlsx"
                                 (change)="onFileChange($event)" />
                         </button>
-                        <button class="iconsCls">
+                        <button class="iconsCls" (click)="updatePolicy()">
                             <mat-icon class="material-icons-list">supervisor_account</mat-icon>
                         </button>
                         <button class="iconsCls">
