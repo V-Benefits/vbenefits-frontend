@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
 import { MatTableDataSource, MatSortModule, MatSort, Sort, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-// import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
+import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
 import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 import * as XLSX from 'xlsx';
 import { MatPaginator } from '@angular/material/paginator';
