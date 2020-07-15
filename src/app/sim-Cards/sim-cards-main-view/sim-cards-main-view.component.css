@@ -1,0 +1,150 @@
+.mainContainer
+{
+    background-color: #f9f9f9; 
+    margin: auto;
+    width: 90%;
+    padding-top: 40px;
+}
+
+.img
+{
+   height: 306px;
+}
+
+.FirstRow
+{
+    justify-content: space-around;
+    padding-top: 5rem;
+    padding-bottom: 20px;
+}
+
+.Pension {
+    width: 100%;
+    font-family: Poppins;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.69;
+    letter-spacing: normal;
+    color: #333333;
+    /* height: 1.111rem; */
+    font-size: 2.8rem;
+  }
+
+  .Vodafone-contributes {
+    margin-bottom: 1rem;
+    opacity: 0.96;
+    font-family: 'Poppins';
+    font-size: 1.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.06px;
+    color: #333333;
+  }
+
+  .pensionBtn {
+    width: 66%;
+    height: 5rem;
+    border-radius: 4px;
+    background-color: #e60000;
+    color: white;
+  }
+
+  .deactivateBtn{
+    width: 66%;
+    height: 5rem;
+    border-radius: 4px;
+    background-color: #333333;
+    color: white;  
+    font-size: 1.4rem;
+  }
+
+  hr.new4 {
+    border: 1px solid #f4f4f4;
+    width: 85%;
+  }
+  .SecondRow
+  {
+      justify-content: space-around;  
+  }
+  .Pension-Round {
+    font-family: Poppins;
+    font-size: 2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .VOIS-pension-policy {
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.06px;
+    color: #e60000;
+    margin: 0;
+    padding-left: 0.5rem;
+  }
+
+  .policyImg{
+    display: flex;
+  }
+
+  .FAQs {
+    font-family: 'Poppins';
+    font-size: 2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    color: #333333;
+  }
+
+  .Please-visit-our-Pen {
+    opacity: 0.96;
+    font-family: Poppins;
+    font-size: 1.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.06px;
+    color: #333333;
+    /* width: 60%; */
+    margin-bottom: 2rem;
+  }
+
+ .SecondRow .FAQBtn {
+    width: 77%;
+    height: 5rem;
+    border-radius: 4px;
+    border: solid 2px #e60000;
+    color: #e60000;
+  }
+  .hcls {
+    color: #333333;
+    font-family: 'Poppins';
+    font-size: 1.7rem;
+    font-weight: 500;
+    letter-spacing: 0.36px;
+    line-height: 30px;
+    margin-bottom: 1rem;
+  }
+
+.band {
+    margin-bottom: 1rem;
+    color: #666666;
+    font-family: 'Poppins';
+    font-size: 1.7rem;
+    letter-spacing: 0.36px;
+    line-height: 30px;
+  }

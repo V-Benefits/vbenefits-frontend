@@ -43,6 +43,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SimCardsMainViewComponent } from './sim-Cards/sim-cards-main-view/sim-cards-main-view.component';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -68,7 +69,8 @@ const routes: Routes = [
     UploadExcelSheetComponent,
     NurseryRequestViewComponent,
     AdminMainNavComponent,
-    PensionViewComponent
+    PensionViewComponent,
+    SimCardsMainViewComponent
   ],
   imports: [
     BrowserModule,
