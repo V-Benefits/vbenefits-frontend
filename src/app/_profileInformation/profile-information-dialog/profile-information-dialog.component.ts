@@ -5,6 +5,7 @@ import { CreateProfileInformationModel } from '../profileInformationModels/creat
 import { publicService } from 'src/app/core/publicService.service';
 import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { debug } from 'console';
 
 
 @Component({
@@ -62,6 +63,8 @@ export class ProfileInformationDialogComponent implements OnInit {
 
     this.profileInformationObject.StaffId = this.staffIdCtrl.value;
     // this.profileInformationObject.StaffId = this.createProfileInformationFormGroup.controls['staffId'].value;
+    debugger;
+    var x = this.dateOfBirthCtrl.value;
     this.profileInformationObject.DateOfBirth = this.dateOfBirthCtrl.value;
     this.profileInformationObject.NationalId = this.nationalIdCtrl.value;
     this.profileInformationObject.MobileNumber = this.mobileNumberCtrl.value;
@@ -76,7 +79,7 @@ export class ProfileInformationDialogComponent implements OnInit {
 
         localStorage.setItem('StaffId', res.staffId);
         localStorage.setItem('Id', res.id);
-        console.log( localStorage.getItem('Id'));
+        console.log(localStorage.getItem('Id'));
 
       },
       error => {
