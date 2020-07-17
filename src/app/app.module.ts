@@ -43,6 +43,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { UpdatePensionPolicyAndDatesComponent } from './_admin/pension/update-pension-policy-and-dates/update-pension-policy-and-dates.component';
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
+import { SimCardRequestEditDialogComponent } from './_simCardsRequest/sim-card-request-edit-dialog/sim-card-request-edit-dialog.component';
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -68,7 +71,9 @@ const routes: Routes = [
     UploadExcelSheetComponent,
     NurseryRequestViewComponent,
     AdminMainNavComponent,
-    PensionViewComponent
+    PensionViewComponent,
+    UpdatePensionPolicyAndDatesComponent,
+    SimCardRequestEditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +103,10 @@ const routes: Routes = [
     MatCheckboxModule,
     MatMenuModule,
     MatPaginatorModule
+    , BrowserModule,
+    BrowserAnimationsModule, ReactiveFormsModule, MatDatepickerModule,
+    MatNativeDateModule, MatFormFieldModule, MatInputModule,
+    MatButtonModule, SatDatepickerModule, SatNativeDateModule,
   ],
   providers: [MatDatepickerModule,
     { provide: MAT_DIALOG_DATA, useValue: {} },
