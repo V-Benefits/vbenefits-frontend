@@ -129,11 +129,7 @@ export class PensionViewComponent implements OnInit {
         const sheet = workBook.Sheets[name];
         initial[name] = XLSX.utils.sheet_to_json(sheet);
         this.service.post(initial.Sheet1, 'MetlifeData').subscribe(res => {
-          this._snackBar.openFromComponent(SnackBarComponent, {
-            data: 'Data inserted successfully',
-            panelClass: 'snackbar',
-            duration: 10000
-          });
+          this.showSnackBar();
           console.log('resonse of api ', res);
         })
         console.log(initial.Sheet1);
@@ -142,6 +138,14 @@ export class PensionViewComponent implements OnInit {
     }
 
     reader.readAsBinaryString(file);
+  }
+
+  showSnackBar() {
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      data: 'Data inserted successfully',
+      panelClass: 'snackbar',
+      duration: 10000
+    });
   }
 
   rejectRequest(staffId: number) {
