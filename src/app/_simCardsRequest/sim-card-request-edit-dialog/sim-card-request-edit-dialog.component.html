@@ -1,0 +1,65 @@
+<div class="close">
+    <mat-icon matPrefix (click)="closeDialog()">close</mat-icon>
+</div>
+<div class="" flex fxLayout='column' fxLayout.lt-sm="column">
+    <h2 mat-dialog-title class="Profile-Information ">SIM Card Activation</h2>
+    <mat-label class="To-use-your-benefits">Please fill in the requested fields</mat-label>
+    <div class="Rectangle-Copy-2">
+    </div>
+    <form [formGroup]="UserViewInfoFormGroup">
+        <mat-dialog-content flex fxLayout='column' fxLayout.lt-sm="column">
+
+
+            <mat-label class="Staff-ID">Request For</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select (selectionChange)="onRequestForSelection($event.value)">
+                    <mat-option *ngFor="let request of requestForList" [value]="request">
+                        {{request}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-label class="Staff-ID">Request Type</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select (selectionChange)="onRequestTypeSelection($event.value)">
+                    <mat-option *ngFor="let request of requestTypeList" [value]="request">
+                        {{request}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-label class="Staff-ID">Rate Plan Type</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select (selectionChange)="onRequestTypeSelection($event.value)">
+                    <mat-option *ngFor="let request of RatePlanTypeList" [value]="request">
+                        {{request}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-label class="Staff-ID">Vodafone mobile number to be converted</mat-label>
+            <mat-form-field appearance="outline">
+                <input matInput formControlName="mobileNumber">
+            </mat-form-field>
+
+            <mat-label class="Staff-ID">Attach Your National ID Image</mat-label>
+            <button mat-button class="Rectangle-Copy" (click)="fileInput.click()">
+                <span>+</span>
+                <input #fileInput type="file" style="display:none;" accept='image/*'
+                    (change)="previewChildImages(fileInput.files,i,'personal')" name="nationalID"
+                    (ngModelChange)="dataChanged($event,i,'childImage')" />
+            </button>
+
+
+        </mat-dialog-content>
+        <div class="Rectangle-Copy-2">
+        </div>
+        <mat-dialog-actions fxLayoutGap="10px" flex fxLayout='row' fxLayout.lt-xm="row" fxLayoutAlign="end">
+            <button mat-button class="cancel" (click)="closeDialog()">Cancel</button>
+            <button mat-button class="save" (click)="UpdatePensionUserView()">Submit</button>
+        </mat-dialog-actions>
+    </form>
+</div>
