@@ -73,7 +73,7 @@ const routes: Routes = [
     NurseryRequestViewComponent,
     AdminMainNavComponent,
     PensionViewComponent,
-    SimCardsMainViewComponent
+    SimCardsMainViewComponent,
     UpdatePensionPolicyAndDatesComponent,
     SimCardRequestEditDialogComponent
   ],
