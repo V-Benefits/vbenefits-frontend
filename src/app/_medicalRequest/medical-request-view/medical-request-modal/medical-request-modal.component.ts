@@ -13,6 +13,7 @@ import { MedicalRequestForChildModel, MedicalRequestModel } from '../../models/m
   encapsulation: ViewEncapsulation.None
 })
 export class MedicalRequestModalComponent implements OnInit {
+
   cardTypeList: string[] = ['New card', 'Replacement for lost one'];
   requestForList: string[] = ['Myself', 'Children', 'Spouse'];
 
@@ -49,6 +50,7 @@ export class MedicalRequestModalComponent implements OnInit {
     this.medicalRequestModel = new MedicalRequestModel();
     value == "Myself" ? this.labelTitle = 'Personal Image' : this.labelTitle = 'Spouse Image';
   }
+
 
   previewChildImages(files, i, type) {
     let imageModelChild = new ImageModel();
@@ -92,6 +94,7 @@ export class MedicalRequestModalComponent implements OnInit {
     if (type === 'childName')
       this.childArray[i] = Object.assign(this.childArray[i] || {}, { childName: event })
   }
+
 
   preview(files, imageType) {
     if (files.length === 0)

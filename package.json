@@ -29,6 +29,7 @@
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
     "rxjs": "~6.5.4",
+    "saturn-datepicker": "^8.0.5",
     "tslib": "^1.10.0",
     "xlsx": "^0.16.1",
     "zone.js": "~0.10.2"

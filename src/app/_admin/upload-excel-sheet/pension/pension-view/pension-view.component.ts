@@ -6,6 +6,8 @@ import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
 import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 import * as XLSX from 'xlsx';
 import { MatPaginator } from '@angular/material/paginator';
+import { UpdatePensionPolicyAndDatesComponent } from '../../../pension/update-pension-policy-and-dates/update-pension-policy-and-dates.component';
+import { SimCardRequestEditDialogComponent } from '../../../../_simCardsRequest/sim-card-request-edit-dialog/sim-card-request-edit-dialog.component';
 @Component({
   selector: 'app-pension-view',
   templateUrl: './pension-view.component.html',
@@ -74,6 +76,18 @@ export class PensionViewComponent implements OnInit {
     // this.ELEMENT_DATA = DB_DATA;
   }
 
+  updatePolicy() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "400px";
+    this.dialog.open(UpdatePensionPolicyAndDatesComponent, dialogConfig);
+  }
+
+
+  showTempSIMdialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "400px";
+    this.dialog.open(SimCardRequestEditDialogComponent, dialogConfig);
+  }
   getPensionListData() {
     this.service.getAll('PensionRequest/GetAllPensionRequests').subscribe(
       res => {
