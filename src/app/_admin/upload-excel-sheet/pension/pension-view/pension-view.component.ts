@@ -143,11 +143,7 @@ export class PensionViewComponent implements OnInit {
         const sheet = workBook.Sheets[name];
         initial[name] = XLSX.utils.sheet_to_json(sheet);
         this.service.post(initial.Sheet1, 'MetlifeData').subscribe(res => {
-          this._snackBar.openFromComponent(SnackBarComponent, {
-            data: 'Data inserted successfully',
-            panelClass: 'snackbar',
-            duration: 10000
-          });
+          this.showSnackBar();
           console.log('resonse of api ', res);
         })
         console.log(initial.Sheet1);
@@ -158,11 +154,50 @@ export class PensionViewComponent implements OnInit {
     reader.readAsBinaryString(file);
   }
 
+  showSnackBar() {
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      data: 'Data inserted successfully',
+      panelClass: 'snackbar',
+      duration: 10000
+    });
+  }
+
   rejectRequest(staffId: number) {
     this.service.get('PensionRequest/RejectPensionRequest', staffId).subscribe(res => {
       console.log(res);
     }, err => {
       console.log('reject request error -->', err);
     })
+  }
+
+  applyFilter(filterValue: string) {
+    if (filterValue == "0")
+      this.dataSource.filter = "";
+
+    else {
+      filterValue = filterValue.trim(); // Remove whitespace
+      filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+
+      this.dataSource.filter = filterValue;
+    }
+  }
+
+  /*name of the excel-file which will be downloaded. */
+  fileName = 'PensionRequestsSheet.xlsx';
+
+  exportexcel(): void {
+    /* table id is passed over here */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    // delete (ws['01'])
+    // ws['!cols'] = [];
+    // delete (ws['!cols'][9])
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.fileName);
   }
 }

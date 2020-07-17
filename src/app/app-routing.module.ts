@@ -11,6 +11,7 @@ import { UploadExcelSheetComponent } from './_admin/upload-excel-sheet/upload-ex
 import { NurseryRequestViewComponent } from './_nurseryRequest/nursery-request-view/nursery-request-view.component';
 import { PensionViewComponent } from './_admin/upload-excel-sheet/pension/pension-view/pension-view.component';
 import { AdminMainNavComponent } from './_admin/upload-excel-sheet/shared/admin-main-nav/admin-main-nav.component';
+import { SimCardsMainViewComponent } from './sim-Cards/sim-cards-main-view/sim-cards-main-view.component';
 
 
 const routes: Routes = [{ path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'modal', component: PensionRequestModalComponent },
 { path: 'medical', component: MedicalRequestViewComponent },
 { path: 'nursery', component: NurseryRequestViewComponent },
+{ path: 'sim', component: SimCardsMainViewComponent },
 { path: 'admin/upload', component: UploadExcelSheetComponent },
 { path: 'admin/pensionview', component: PensionViewComponent },
 { path: '**', redirectTo: '' }
