@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
 import { saveAs } from 'file-saver';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { SimCardRequestEditDialogComponent } from '../../_simCardsRequest/sim-card-request-edit-dialog/sim-card-request-edit-dialog.component';
+
 @Component({
   selector: 'app-sim-cards-main-view',
   templateUrl: './sim-cards-main-view.component.html',
@@ -11,7 +14,7 @@ export class SimCardsMainViewComponent implements OnInit {
   // require: any
   // FileSaver = require('file-saver');
 
-  constructor(private service: publicService) { }
+  constructor(private service: publicService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getEmployeeEligibleRatePlan();
@@ -23,6 +26,12 @@ export class SimCardsMainViewComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  RequestSIMCard() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "400px";
+    this.dialog.open(SimCardRequestEditDialogComponent, dialogConfig);
   }
 
   goToLink() {
