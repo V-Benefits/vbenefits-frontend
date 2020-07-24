@@ -6,6 +6,7 @@ export class SimCardRequestModel {
 }
 
 export class EligableRatePlanModel {
+    staffId: number;
     band: string;
     ratePlan: string;
     numberOfUsedLines: number;

@@ -1,25 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { publicService } from 'src/app/core/publicService.service';
 import { saveAs } from 'file-saver';
+import { EligableRatePlanModel } from '../simCardRequestModel';
 @Component({
   selector: 'app-sim-cards-main-view',
   templateUrl: './sim-cards-main-view.component.html',
   styleUrls: ['./sim-cards-main-view.component.css']
 })
 export class SimCardsMainViewComponent implements OnInit {
-
-  // require: any
-  // FileSaver = require('file-saver');
+  userStaffId: number;
+  eligableRatePlanModel: EligableRatePlanModel = new EligableRatePlanModel;
 
   constructor(private service: publicService) { }
 
   ngOnInit(): void {
-    this.getEmployeeEligibleRatePlan();
+    this.userStaffId = +localStorage.getItem('StaffId');
+    this.getEmployeeEligibleRatePlan(this.userStaffId);
   }
 
-  getEmployeeEligibleRatePlan() {
-    this.service.getAll('').subscribe(res => {
+  getEmployeeEligibleRatePlan(staffId: number) {
+    debugger
+    this.service.getModel(`SIMCardRequest/EmployeeEligibileRatePlan/${28896}`, null).subscribe(res => {
       console.log(res);
+      this.eligableRatePlanModel = res;
     }, error => {
       console.log(error);
     });

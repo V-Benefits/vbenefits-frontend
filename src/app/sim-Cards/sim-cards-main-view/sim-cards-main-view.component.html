@@ -29,16 +29,18 @@
                 <div fxLayout="column" fxLayoutGap="5px">
                     <div fxLayout="row" fxLayoutAlign="space-between center">
                         <p fxFlex.lg="50%" fxFlex.sm="70%" fxFlex.md="40%" class="band">Band </p>
-                        <p fxFlex.lg="50%" fxFlex.sm="20%" fxFlex.md="40%" class="hcls">H1</p>
+                        <p fxFlex.lg="50%" fxFlex.sm="20%" fxFlex.md="40%" class="hcls">{{eligableRatePlanModel?.band}}
+                        </p>
                     </div>
 
                     <div fxLayout="row" fxLayoutAlign="space-between center">
                         <mat-label fxFlex.lg="50%" class="band">Rate plan </mat-label>
-                        <mat-label fxFlex.lg="50%" class="hcls">Red 300</mat-label>
+                        <mat-label fxFlex.lg="50%" class="hcls">{{eligableRatePlanModel?.ratePlan}}</mat-label>
                     </div>
                     <div fxLayout="row" fxLayoutAlign="space-between center">
                         <mat-label fxFlex.lg="50%" class="band">No. of used lines </mat-label>
-                        <mat-label fxFlex.lg="50%" class="hcls">3 out of 8</mat-label>
+                        <mat-label fxFlex.lg="50%" class="hcls">{{eligableRatePlanModel?.numberOfUsedLines}} out of 8
+                        </mat-label>
                     </div>
                 </div>
 
