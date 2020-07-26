@@ -45,6 +45,7 @@
     line-height: normal;
     letter-spacing: -0.09px;
     color: #666666;
+    margin-bottom: 10px;
   }
   
   .save {
@@ -92,4 +93,26 @@
     background-color: rgba(230, 0, 0, 0.1);
     margin-top: 1rem;
 
+  }
+
+  .MFlxDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .MFlxImgDiv{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+  .MFlxDiv p{
+    margin: 0;
+  }
+
+  .imageCls{
+    width: 8rem;
+    height: 8rem;
+    padding-right: 1rem;
   }

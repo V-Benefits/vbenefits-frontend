@@ -1,25 +1,25 @@
 <div class="close">
     <mat-icon matPrefix (click)="closeDialog()">close</mat-icon>
 </div>
-<div class="" flex fxLayout='column' fxLayout.lt-sm="column">
+<div flex fxLayout='column' fxLayout.lt-sm="column">
     <h2 mat-dialog-title class="Profile-Information ">SIM Card Activation</h2>
     <mat-label class="To-use-your-benefits">Please fill in the requested fields</mat-label>
     <div class="Rectangle-Copy-2">
     </div>
-    <form [formGroup]="UserViewInfoFormGroup">
-        <mat-dialog-content flex fxLayout='column' fxLayout.lt-sm="column">
+    <!-- <form [formGroup]="UserViewInfoFormGroup"> -->
+    <mat-dialog-content flex fxLayout='column' fxLayout.lt-sm="column">
 
 
-            <mat-label class="Staff-ID">Request For</mat-label>
-            <mat-form-field appearance="outline">
-                <mat-select (selectionChange)="onRequestForSelection($event.value)">
-                    <mat-option *ngFor="let request of requestForList" [value]="request">
-                        {{request}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
-
+        <mat-label class="Staff-ID">Request For</mat-label>
+        <mat-form-field appearance="outline">
+            <mat-select (selectionChange)="onRequestForSelection($event.value)">
+                <mat-option *ngFor="let request of requestForList" [value]="request">
+                    {{request}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- this div contains  request for my self content  -->
+        <div flex fxLayout='column' fxLayout.lt-sm="column" *ngIf="simCardsRequestModel.requestFor == 'Myself' ">
 
             <mat-label class="Staff-ID">Request Type</mat-label>
             <mat-form-field appearance="outline">
@@ -33,7 +33,68 @@
 
             <mat-label class="Staff-ID">Rate Plan Type</mat-label>
             <mat-form-field appearance="outline">
-                <mat-select (selectionChange)="onRequestTypeSelection($event.value)">
+                <mat-select (selectionChange)="onRatePlanSelection($event.value)">
+                    <mat-option *ngFor="let request of RatePlanTypeList" [value]="request">
+                        {{request}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div
+                *ngIf="simCardsRequestModel.requestType == 'Change Line Rate Plan' || simCardsRequestModel.ratePlan == 'Red 500' ||simCardsRequestModel.ratePlan == 'Red 800' ">
+                <mat-label class="Staff-ID">Comment</mat-label>
+                <textarea cols="44" rows="5"></textarea>
+                <br />
+            </div>
+            <div flex fxLayout='column' *ngIf="simCardsRequestModel.requestType == 'newLine'">
+                <span>
+                    <mat-label class="Staff-ID">Vodafone mobile number to be converted
+                    </mat-label>
+                    <mat-icon style="margin-top: 5px;"
+                        matTooltip="Can’t find SIM serial number?&#13; Please go to your nearest vodafone store to get blank SIM card with serial number."
+                        matTooltipPosition="right"> info
+                    </mat-icon>
+                </span>
+                <mat-form-field appearance="outline">
+                    <input matInput>
+                </mat-form-field>
+
+                <mat-label class="Staff-ID">Attach Your National ID Image</mat-label>
+                <button mat-button class="Rectangle-Copy" (click)="fileInput.click()">
+                    <span>+</span>
+                    <input #fileInput type="file" style="display:none;" accept='image/*'
+                        (change)="previewImage(fileInput.files,i)" name="nationalID"
+                        (ngModelChange)="dataChanged($event,i,'childImage')" />
+                </button>
+                <br />
+                <div class="imagePrviw MFlxDiv" *ngIf="simCardsRequestModel?.nationalIDImageURL">
+                    <div class="MFlxImgDiv">
+                        <img [src]="simCardsRequestModel.nationalIDImageURL" class="imageCls">
+                        <p class="Jpg"> {{simCardsRequestModel.nationalIDImageName}}</p>
+                    </div>
+                    <mat-icon class="deleIcon" (click)="deleteImg()">delete</mat-icon>
+                </div>
+
+            </div>
+        </div>
+        <!-- this div contains  request for family content  -->
+        <div flex fxLayout='column' fxLayout.lt-sm="column"
+            *ngIf="simCardsRequestModel.requestFor == 'Family or friends (deductible from salary)' ">
+
+
+
+            <mat-label class="Staff-ID">Request Type</mat-label>
+            <mat-form-field appearance="outline">
+                <input matInput disabled value="New Line">
+            </mat-form-field>
+
+            <mat-label class="Staff-ID">First Name</mat-label>
+            <mat-form-field appearance="outline">
+                <input matInput>
+            </mat-form-field>
+
+            <mat-label class="Staff-ID">Rate Plan Type</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select (selectionChange)="onRatePlanSelection($event.value)">
                     <mat-option *ngFor="let request of RatePlanTypeList" [value]="request">
                         {{request}}
                     </mat-option>
@@ -42,7 +103,7 @@
 
             <mat-label class="Staff-ID">Vodafone mobile number to be converted</mat-label>
             <mat-form-field appearance="outline">
-                <input matInput formControlName="mobileNumber">
+                <input matInput>
             </mat-form-field>
 
             <mat-label class="Staff-ID">Attach Your National ID Image</mat-label>
@@ -52,14 +113,13 @@
                     (change)="previewChildImages(fileInput.files,i,'personal')" name="nationalID"
                     (ngModelChange)="dataChanged($event,i,'childImage')" />
             </button>
-
-
-        </mat-dialog-content>
-        <div class="Rectangle-Copy-2">
         </div>
-        <mat-dialog-actions fxLayoutGap="10px" flex fxLayout='row' fxLayout.lt-xm="row" fxLayoutAlign="end">
-            <button mat-button class="cancel" (click)="closeDialog()">Cancel</button>
-            <button mat-button class="save" (click)="UpdatePensionUserView()">Submit</button>
-        </mat-dialog-actions>
-    </form>
+    </mat-dialog-content>
+    <div class="Rectangle-Copy-2">
+    </div>
+    <mat-dialog-actions fxLayoutGap="10px" flex fxLayout='row' fxLayout.lt-xm="row" fxLayoutAlign="end">
+        <button mat-button class="cancel" (click)="closeDialog()">Cancel</button>
+        <button mat-button class="save" (click)="UpdatePensionUserView()">Submit</button>
+    </mat-dialog-actions>
+    <!-- </form> -->
 </div>

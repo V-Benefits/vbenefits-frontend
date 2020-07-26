@@ -4,7 +4,8 @@ export class SIMcardsRequestModel {
     requestType: string;
     ratePlan: string;
     mobileNumber: number;
-    nationalID: number;
+    nationalIDImageURL: any;
+    nationalIDImageName: string;
     familyOrFriendFirstName: string;
     justificationComment: string;
     simSerialNumber: string;
