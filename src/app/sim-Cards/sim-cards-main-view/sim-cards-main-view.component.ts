@@ -26,6 +26,7 @@ export class SimCardsMainViewComponent implements OnInit {
     this.service.getModel(`SIMCardRequest/EmployeeEligibileRatePlan/${28896}`, null).subscribe(res => {
       console.log(res);
       this.eligableRatePlanModel = res;
+      localStorage.setItem('Band', this.eligableRatePlanModel.band);
     }, error => {
       console.log(error);
     });

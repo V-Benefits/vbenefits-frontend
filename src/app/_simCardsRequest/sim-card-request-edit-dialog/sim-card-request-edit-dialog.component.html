@@ -12,7 +12,8 @@
 
         <mat-label class="Staff-ID">Request For</mat-label>
         <mat-form-field appearance="outline">
-            <mat-select (selectionChange)="onRequestForSelection($event.value)">
+            <mat-select (selectionChange)="onRequestForSelection($event.value)"
+                [(ngModel)]="simCardsRequestModel.requestFor">
                 <mat-option *ngFor="let request of requestForList" [value]="request">
                     {{request}}
                 </mat-option>
@@ -34,7 +35,7 @@
             <mat-label class="Staff-ID">Rate Plan Type</mat-label>
             <mat-form-field appearance="outline">
                 <mat-select (selectionChange)="onRatePlanSelection($event.value)">
-                    <mat-option *ngFor="let request of RatePlanTypeList" [value]="request">
+                    <mat-option *ngFor="let request of ratePlanTypeList" [value]="request">
                         {{request}}
                     </mat-option>
                 </mat-select>
@@ -42,10 +43,10 @@
             <div
                 *ngIf="simCardsRequestModel.requestType == 'Change Line Rate Plan' || simCardsRequestModel.ratePlan == 'Red 500' ||simCardsRequestModel.ratePlan == 'Red 800' ">
                 <mat-label class="Staff-ID">Comment</mat-label>
-                <textarea cols="44" rows="5"></textarea>
+                <textarea cols="44" rows="5" [(ngModel)]="simCardsRequestModel.comment"></textarea>
                 <br />
             </div>
-            <div flex fxLayout='column' *ngIf="simCardsRequestModel.requestType == 'newLine'">
+            <div flex fxLayout='column' *ngIf="simCardsRequestModel.requestType == 'New Line'">
                 <span>
                     <mat-label class="Staff-ID">Vodafone mobile number to be converted
                     </mat-label>
@@ -55,7 +56,7 @@
                     </mat-icon>
                 </span>
                 <mat-form-field appearance="outline">
-                    <input matInput>
+                    <input matInput [(ngModel)]="simCardsRequestModel.mobileNumber">
                 </mat-form-field>
 
                 <mat-label class="Staff-ID">Attach Your National ID Image</mat-label>
@@ -80,8 +81,6 @@
         <div flex fxLayout='column' fxLayout.lt-sm="column"
             *ngIf="simCardsRequestModel.requestFor == 'Family or friends (deductible from salary)' ">
 
-
-
             <mat-label class="Staff-ID">Request Type</mat-label>
             <mat-form-field appearance="outline">
                 <input matInput disabled value="New Line">
@@ -95,7 +94,7 @@
             <mat-label class="Staff-ID">Rate Plan Type</mat-label>
             <mat-form-field appearance="outline">
                 <mat-select (selectionChange)="onRatePlanSelection($event.value)">
-                    <mat-option *ngFor="let request of RatePlanTypeList" [value]="request">
+                    <mat-option *ngFor="let request of ratePlanTypeList" [value]="request">
                         {{request}}
                     </mat-option>
                 </mat-select>
@@ -103,7 +102,7 @@
 
             <mat-label class="Staff-ID">Vodafone mobile number to be converted</mat-label>
             <mat-form-field appearance="outline">
-                <input matInput>
+                <input matInput [(ngModel)]="simCardsRequestModel.mobileNumber">
             </mat-form-field>
 
             <mat-label class="Staff-ID">Attach Your National ID Image</mat-label>
@@ -119,7 +118,7 @@
     </div>
     <mat-dialog-actions fxLayoutGap="10px" flex fxLayout='row' fxLayout.lt-xm="row" fxLayoutAlign="end">
         <button mat-button class="cancel" (click)="closeDialog()">Cancel</button>
-        <button mat-button class="save" (click)="UpdatePensionUserView()">Submit</button>
+        <button mat-button class="save" (click)="addSimCardRequest()">Submit</button>
     </mat-dialog-actions>
     <!-- </form> -->
 </div>
