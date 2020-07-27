@@ -12,6 +12,5 @@ export class SIMcardsRequestModel {
     nationalIDImageURL: any;
     nationalIDImageName: string;
     familyOrFriendFirstName: string;
-    // requestStatus: string;
-
+    status: string;
 }

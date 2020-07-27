@@ -89,15 +89,15 @@ export class SimCardRequestEditDialogComponent implements OnInit {
 
   fillSimCardsModel() {
     // this.userStaffId;
-    this.simCardsRequestModel.staffId = 26018;
+    this.simCardsRequestModel.staffId = 28896;
     this.simCardsRequestModel.requestedOn = new Date;
-    // this.simCardsRequestModel.simSerialNumber =
-    //   this.simCardsRequestModel.dataSimPlan =
+    if (this.simCardsRequestModel.requestFor == 'Family or friends ( deductible from salary)')
+      this.simCardsRequestModel.requestType = 'New Line';
   }
 
   addSimCardRequest() {
     this.fillSimCardsModel();
-    console.log(this.simCardsRequestModel, "------------------------------");
+    debugger
     this.service.post(this.simCardsRequestModel, 'SIMCardRequest').subscribe(res => {
       console.log(res);
     }, error => {
