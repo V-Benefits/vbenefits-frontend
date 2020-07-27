@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+declare var require: any
+const FileSaver = require('file-saver');
 
 @Component({
   selector: 'app-nursery-request-view',
@@ -10,6 +12,13 @@ export class NurseryRequestViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  DownloadFAQPDF()
+  {
+    const pdfUrl = '../../../assets/files/NurseryAllowance Guide.pdf';
+    const pdfName = 'FAQ_pdf_file';
+    FileSaver.saveAs(pdfUrl, pdfName);
   }
 
 }

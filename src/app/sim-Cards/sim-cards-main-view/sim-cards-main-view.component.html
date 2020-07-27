@@ -1,0 +1,76 @@
+<div class="mainContainer">
+    <mat-card>
+        <div class="row FirstRow" flex fxLayout='row wrap' fxLayout.lt-sm="column">
+
+            <img fxFlex.xs="70%" fxFlex.sm="60%" fxFlex.md="30%" fxFlex.lg="30%"
+                src="../../assets/images/simcardimg.svg" class="img" />
+
+            <div fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="40%" fxFlex.lg="40%">
+                <h2 class="Pension">SIM Cards</h2>
+                <p class="Vodafone-contributes">
+                    You can have Post-paid line fully paid or Partially paid by _VOIS also up to 8 discounted lines for
+                    your family and friends .
+                </p>
+
+                <button mat-button class="pensionBtn" (click)="RequestSIMCard()">Activate Your SIM Cards</button>
+                <br><br>
+                <button mat-button class="deactivateBtn" (click)="deactivate()">Deactivate your SIM Cards </button>
+            </div>
+        </div>
+
+        <br />
+        <hr class="new4" />
+        <br />
+
+        <div class="row SecondRow" flex fxLayout='row wrap' fxLayout.lt-sm="column">
+            <div fxFlex.sm="80%" fxFlex.md="40%" fxFlex.lg="30%">
+                <h4 class="Pension-Round">Eligible Rate Plan</h4>
+
+                <div fxLayout="column" fxLayoutGap="5px">
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <p fxFlex.lg="50%" fxFlex.sm="70%" fxFlex.md="40%" class="band">Band </p>
+                        <p fxFlex.lg="50%" fxFlex.sm="20%" fxFlex.md="40%" class="hcls">{{eligableRatePlanModel?.band}}
+                        </p>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <mat-label fxFlex.lg="50%" class="band">Rate plan </mat-label>
+                        <mat-label fxFlex.lg="50%" class="hcls">{{eligableRatePlanModel?.ratePlan}}</mat-label>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <mat-label fxFlex.lg="50%" class="band">No. of used lines </mat-label>
+                        <mat-label fxFlex.lg="50%" class="hcls">{{eligableRatePlanModel?.numberOfUsedLines}} out of 8
+                        </mat-label>
+                    </div>
+                </div>
+
+            </div>
+            <div fxFlex.sm="80%" fxFlex.md="40%" fxFlex.lg="40%">
+                <h4 class="Pension-Round">Rate Plan</h4>
+                <p class="Vodafone-contributes">To know more about the new tariffs please download the PDF below.
+                </p>
+
+                <a class="policyImg"
+                    (click)="downloadPdf('../../assets/pdf/employee lines migration 004.pptx','employee lines migration')">
+                    <img src="../../assets/images/cloud.svg">
+                    <a class="VOIS-pension-policy"> Rate Plan Types</a>
+                </a>
+
+                <br>
+                <!-- href="https://vfegyptssc.newsweaver.com/icfiles/1/75399/243920/6392041/2dd2deb13a785b92a30dbe36/employee%20business%20lines%20policy.pdf" -->
+
+                <a class="policyImg"
+                    (click)="downloadPdf('../../assets/pdf/employee business lines policy.pdf','employee business lines policy')">
+                    <img src="../../assets/images/cloud.svg">
+                    <a class="VOIS-pension-policy">Business Lines Policy</a>
+                </a>
+
+                <h4 class="FAQs">FAQs</h4>
+                <p class="Please-visit-our-Pen">Please visit our SIM Cards FAQs section</p>
+                <button mat-button class="FAQBtn" (click)="goToLink()"
+                    (click)="downloadPdf('../../assets/pdf/business lines faqs.pdf','business lines faqs')">
+                    SIM Cards FAQs</button>
+            </div>
+        </div>
+    </mat-card>
+</div>

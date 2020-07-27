@@ -48,13 +48,21 @@ export class publicService {
       environment.serverUrl + apiController + '/' + action, data
     );
   }
-  
-  get(apiController: string, params:any){
-  return this.http.get<CreatePensionRequestModel>(environment.serverUrl + apiController,{
-    params: {
-      staffId: params,
-    }});
+
+  get(apiController: string, params: any) {
+    return this.http.get<CreatePensionRequestModel>(environment.serverUrl + apiController, {
+      params: {
+        staffId: params,
+      }
+    });
   }
 
-  
+  getModel(apiController: string, params: any) {
+    return this.http.get<any>(environment.serverUrl + apiController, {
+      params: {
+        staffId: params,
+      }
+    });
+  }
+
 }

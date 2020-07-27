@@ -6,6 +6,8 @@ import { PensionRequestModel } from 'src/app/_admin/Models/pensionRequestModel';
 import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 import * as XLSX from 'xlsx';
 import { MatPaginator } from '@angular/material/paginator';
+import { UpdatePensionPolicyAndDatesComponent } from '../../../pension/update-pension-policy-and-dates/update-pension-policy-and-dates.component';
+import { SimCardRequestEditDialogComponent } from '../../../../_simCardsRequest/sim-card-request-edit-dialog/sim-card-request-edit-dialog.component';
 @Component({
   selector: 'app-pension-view',
   templateUrl: './pension-view.component.html',
@@ -74,6 +76,18 @@ export class PensionViewComponent implements OnInit {
     // this.ELEMENT_DATA = DB_DATA;
   }
 
+  updatePolicy() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "400px";
+    this.dialog.open(UpdatePensionPolicyAndDatesComponent, dialogConfig);
+  }
+
+
+  showTempSIMdialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "400px";
+    this.dialog.open(SimCardRequestEditDialogComponent, dialogConfig);
+  }
   getPensionListData() {
     this.service.getAll('PensionRequest/GetAllPensionRequests').subscribe(
       res => {
@@ -129,11 +143,7 @@ export class PensionViewComponent implements OnInit {
         const sheet = workBook.Sheets[name];
         initial[name] = XLSX.utils.sheet_to_json(sheet);
         this.service.post(initial.Sheet1, 'MetlifeData').subscribe(res => {
-          this._snackBar.openFromComponent(SnackBarComponent, {
-            data: 'Data inserted successfully',
-            panelClass: 'snackbar',
-            duration: 10000
-          });
+          this.showSnackBar();
           console.log('resonse of api ', res);
         })
         console.log(initial.Sheet1);
@@ -144,11 +154,50 @@ export class PensionViewComponent implements OnInit {
     reader.readAsBinaryString(file);
   }
 
+  showSnackBar() {
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      data: 'Data inserted successfully',
+      panelClass: 'snackbar',
+      duration: 10000
+    });
+  }
+
   rejectRequest(staffId: number) {
     this.service.get('PensionRequest/RejectPensionRequest', staffId).subscribe(res => {
       console.log(res);
     }, err => {
       console.log('reject request error -->', err);
     })
+  }
+
+  applyFilter(filterValue: string) {
+    if (filterValue == "0")
+      this.dataSource.filter = "";
+
+    else {
+      filterValue = filterValue.trim(); // Remove whitespace
+      filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+
+      this.dataSource.filter = filterValue;
+    }
+  }
+
+  /*name of the excel-file which will be downloaded. */
+  fileName = 'PensionRequestsSheet.xlsx';
+
+  exportexcel(): void {
+    /* table id is passed over here */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    // delete (ws['01'])
+    // ws['!cols'] = [];
+    // delete (ws['!cols'][9])
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.fileName);
   }
 }
