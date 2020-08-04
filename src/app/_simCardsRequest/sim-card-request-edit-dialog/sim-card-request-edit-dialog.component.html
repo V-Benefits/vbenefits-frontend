@@ -33,31 +33,56 @@
 
 
             <mat-label class="Staff-ID">Rate Plan Type</mat-label>
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline"
+                *ngIf="simCardsRequestModel.requestType != 'Recharge Your Line' && simCardsRequestModel.requestType != 'Recharge Your Data SIM'">
                 <mat-select (selectionChange)="onRatePlanSelection($event.value)">
                     <mat-option *ngFor="let request of ratePlanTypeList" [value]="request">
                         {{request}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <div
-                *ngIf="simCardsRequestModel.requestType == 'Change Line Rate Plan' || simCardsRequestModel.ratePlan == 'Red 500' ||simCardsRequestModel.ratePlan == 'Red 800' ">
+
+
+            <mat-form-field appearance="outline"
+                *ngIf="simCardsRequestModel.requestType == 'Recharge Your Line' || simCardsRequestModel.requestType == 'Recharge Your Data SIM'">
+                <input matInput disabled value="Temp">
+            </mat-form-field>
+
+            <div *ngIf="simCardsRequestModel.requestType != 'New Line' ||
+                 simCardsRequestModel.ratePlan == 'Red 500' ||
+                 simCardsRequestModel.ratePlan == 'Red 800' ||
+                 simCardsRequestModel.requestType == 'New Data SIM'">
                 <mat-label class="Staff-ID">Comment</mat-label>
                 <textarea cols="44" rows="5" [(ngModel)]="simCardsRequestModel.comment"></textarea>
                 <br />
             </div>
-            <div flex fxLayout='column' *ngIf="simCardsRequestModel.requestType == 'New Line'">
-                <span>
+            <div flex fxLayout='column'
+                *ngIf="simCardsRequestModel.requestType == 'New Line' || simCardsRequestModel.requestType == 'New Data SIM'">
+                <span *ngIf="simCardsRequestModel.requestType == 'New Line' ">
                     <mat-label class="Staff-ID">Vodafone mobile number to be converted
+                    </mat-label>
+                    <mat-icon style="margin-top: 5px;"
+                        matTooltip="Please use mobile number registered with your national ID car."
+                        matTooltipPosition="right"> info
+                    </mat-icon>
+
+                </span>
+                <mat-form-field *ngIf="simCardsRequestModel.requestType == 'New Line' " appearance="outline">
+                    <input matInput [(ngModel)]="simCardsRequestModel.mobileNumber">
+                </mat-form-field>
+
+                <span *ngIf="simCardsRequestModel.requestType == 'New Data SIM'">
+                    <mat-label class="Staff-ID">SIM Serial Number
                     </mat-label>
                     <mat-icon style="margin-top: 5px;"
                         matTooltip="Can’t find SIM serial number?&#13; Please go to your nearest vodafone store to get blank SIM card with serial number."
                         matTooltipPosition="right"> info
                     </mat-icon>
                 </span>
-                <mat-form-field appearance="outline">
-                    <input matInput [(ngModel)]="simCardsRequestModel.mobileNumber">
+                <mat-form-field *ngIf="simCardsRequestModel.requestType == 'New Data SIM' " appearance="outline">
+                    <input matInput [(ngModel)]="simCardsRequestModel.simSerialNumber">
                 </mat-form-field>
+
 
                 <mat-label class="Staff-ID">Attach Your National ID Image</mat-label>
                 <button mat-button class="Rectangle-Copy" (click)="fileInput.click()">
@@ -88,7 +113,7 @@
 
             <mat-label class="Staff-ID">First Name</mat-label>
             <mat-form-field appearance="outline">
-                <input matInput>
+                <input matInput [(ngModel)]="simCardsRequestModel.familyOrFriendFirstName">
             </mat-form-field>
 
             <mat-label class="Staff-ID">Rate Plan Type</mat-label>
